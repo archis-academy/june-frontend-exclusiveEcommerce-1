@@ -1,0 +1,100 @@
+/* Berhan Footer Start*/
+.footer-container {
+  background-color: black;
+  flex-wrap: wrap;
+  display: flex;
+  height: 100vh;
+}
+.information-areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-left: 15px;
+  margin: auto;
+}
+.ft-raid-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  color: #fafafa;
+}
+.ft-lower-title {
+  font-family: "poppins", sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fafafa;
+}
+.ft-second-title {
+  font-family: "poppins", sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fafafa;
+  margin-top: 20px;
+}
+.ft-information-text {
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #fafafa;
+  margin-top: 15px;
+}
+.ft-adress {
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #fafafa;
+  margin-top: 15px;
+  width: 190px;
+}
+.ft-money-information {
+  font-family: "poppins", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #fafafa;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.ft-input {
+  border: 1px;
+  border-radius: 4px;
+  padding: 15px 15px;
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  background-color: black;
+  color: #fafafa;
+  margin-top: 20px;
+}
+.Download-app-area {
+  position: relative;
+}
+.store-img1 {
+  position: absolute;
+}
+.ft-facebook {
+  position: absolute;
+  left: 5px;
+  top: 185px;
+}
+.ft-twitter {
+  position: absolute;
+  left: 45px;
+  top: 185px;
+}
+.ft-instagram {
+  position: absolute;
+  left: 85px;
+  top: 185px;
+}
+.ft-linkedin {
+  position: absolute;
+  left: 125px;
+  top: 185px;
+}
