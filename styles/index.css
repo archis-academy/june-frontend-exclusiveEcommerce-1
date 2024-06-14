@@ -1,0 +1,99 @@
+/*Buse/JU-5 Homepage Featured Product START*/
+.featured-products-container{
+  display: flex;
+  align-items: center;
+  max-width: 1170px;
+  min-height: 500px;
+  padding: 70px 50px;
+  background-color: black;
+}
+
+.featured-products{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+}
+
+.categories-title{
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #00FF66;
+}
+
+.featured-slogan{
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 60px;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+.timer-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer{
+  width: 62px;
+  height: 62px;
+  border: none;
+  border-radius: 50%;
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+}
+
+.buy-button{
+  width: 200px;
+  padding: 16px 48px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  background-color: #00FF66;
+  color: white;
+  cursor: pointer;
+}
+
+
+.buy-button:hover{
+  background: rgb(0,255,102);
+  background: linear-gradient(90deg, rgba(0,255,102,1) 0%, rgba(2,133,55,1) 100%);
+}
+
+
+.speaker-container {
+  position: relative;
+}
+
+.speaker-photo{
+  position: relative;
+  z-index: 2;
+}
+
+.light-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px; 
+  height: 500px; 
+  background: radial-gradient(circle, rgba(255, 252, 252, 0.4), rgba(0, 0, 0, 0.2));
+  filter: blur(50px);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+@media (max-width: 880px) {
+  .featured-products-container{
+    flex-wrap: wrap;
+  }
+  .speaker-photo{
+    width: 100%;
+  }
+}
+/*Buse/JU-5 Homepage Featured Product*/
