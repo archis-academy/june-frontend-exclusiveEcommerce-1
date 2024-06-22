@@ -15,7 +15,7 @@ function startCountdown(duration) {
 
   function timer () {
     let diff = duration - (((Date.now() - start) / 1000) | 0);
-    let days = (diff / (60 * 60 * 24)) | 0; 
+    let days = 5 - (diff / (60 * 60 * 24)) | 0; 
     let hours = ((diff % (60 * 60 * 24)) / (60 * 60)) | 0;
     let minutes = ((diff % (60 * 60)) / 60) | 0;
     let seconds = (diff % 60) | 0;

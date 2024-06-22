@@ -2,6 +2,7 @@
 .featured-products-container{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   max-width: 1350px;
   min-height: 500px;
   margin: auto;
@@ -79,31 +80,15 @@
   background: linear-gradient(90deg, rgba(0,255,102,1) 0%, rgba(2,133,55,1) 100%);
 }
 
-.speaker-container {
-  position: relative;
-}
-
 .speaker-photo{
-  position: relative;
   z-index: 2;
-}
-
-.light-effect {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 520px; 
-  height: 500px; 
-  background: radial-gradient(circle, rgba(255, 252, 252, 0.4), rgba(0, 0, 0, 0.2));
-  filter: blur(50px);
-  border-radius: 50%;
-  z-index: 1;
+  filter: drop-shadow(5px 5px 100px #717171);
 }
 
 @media (max-width: 880px) {
   .featured-products-container{
     flex-wrap: wrap;
+    justify-content: center;
     padding: 50px 20px;
   }
   .speaker-photo{
