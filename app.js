@@ -9,3 +9,14 @@ async function productsRender() {
 }
 
 productsRender();
+
+// Best Selling Products Section Start
+const likeEffect = document.getElementsByClassName("fa-heart");
+
+likeEffect.addEventListener("click", () => {
+  if (likeEffect.style.color === "darkred") {
+    likeEffect.style.color = "default";
+  } else { 
+    likeEffect.style.color = "darkred";
+  }
+});
