@@ -3,7 +3,9 @@
   background-color: black;
   flex-wrap: wrap;
   display: flex;
-  height: 100vh;
+  height: 50vh;
+  padding: 15px;
+  margin-top: 120px;
 }
 .information-areas {
   display: flex;
@@ -59,9 +61,10 @@
   color: #fafafa;
   margin-top: 20px;
   margin-bottom: 15px;
+  opacity: 70%;
 }
 .ft-input {
-  border: 1px;
+  border: 1px solid;
   border-radius: 4px;
   padding: 15px 15px;
   font-family: "poppins", sans-serif;
@@ -78,23 +81,28 @@
 .store-img1 {
   position: absolute;
 }
-.ft-facebook {
-  position: absolute;
-  left: 5px;
-  top: 185px;
+.ft-image-box2 {
+  margin-top: 20px;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 20px;
 }
-.ft-twitter {
-  position: absolute;
-  left: 45px;
-  top: 185px;
+.exclusive-area {
+  position: relative;
 }
-.ft-instagram {
+.ft-send-icon {
   position: absolute;
-  left: 85px;
-  top: 185px;
+  left: 425px;
+  top: 342px;
 }
-.ft-linkedin {
-  position: absolute;
-  left: 125px;
-  top: 185px;
+.ft-second-title:hover {
+  cursor: pointer;
+  color: #db4444;
+}
+.ft-information-text:hover {
+  cursor: pointer;
+  color: #db4444;
+}
+.ft-send-icon:hover {
+  cursor: pointer;
 }
