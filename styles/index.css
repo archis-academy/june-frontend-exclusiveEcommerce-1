@@ -1,0 +1,100 @@
+/* Homepage Browse By Category Section Start */
+.browse-by-cat {
+    margin: 0 auto;
+    max-width: 1300px;
+    border-bottom: #0000004D 0.5px solid;
+    border-top: #0000004D 0.5px solid;
+    
+    
+}
+.browse-by-cat-titles {
+    
+}
+.bbc-titles-h6 {
+    display: flex;
+    align-items: center;
+    margin-top: 90px;
+    margin-bottom: 20px;
+}
+.bbc-titles-h6 div{
+    background-color: #DB4444;
+    width: 20px;
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.bbc-titles-h6 h6 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #db4444;
+    font-size: 16px;
+}
+.bbc-titles-h1 {
+    display: flex;
+}
+.bbc-titles-h1 h1{
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 600;
+    
+}
+.bbc-left-arrow {
+    margin-left: auto;
+    max-width: 46px;
+    max-height: 46px;
+}
+.bbc-right-arrow {
+    max-width: 46px;
+    max-height: 46px;
+    
+}
+.browse-by-cat-categories {
+    display: flex;
+    justify-content:space-between;
+    margin-top: 60px;
+    flex-wrap: wrap;
+
+}
+.bbc-category {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: #0000004D 1px solid;
+    border-radius: 4px;
+    width: 170px;
+    height: 145px;
+}
+
+.bbc-cat-img {
+    max-width: 56px;
+    
+}
+
+.bbc-cat-text {
+    max-height: 24px;
+    font-family: "Popins", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    margin-top: 16px;
+}
+
+.bbc-category:last-of-type {
+    margin-bottom: 90px;
+}
+
+.active-category {
+    background-color: #DB4444;
+}
+.active-category p{
+    color: #FAFAFA;
+}
+.active-category img{
+    filter: invert(100%);
+}
+
+/* Homepage Browse By Category Section End */
