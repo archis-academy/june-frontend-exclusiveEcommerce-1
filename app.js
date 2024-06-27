@@ -20,6 +20,11 @@ function startCountdown(duration) {
     let minutes = ((diff % (60 * 60)) / 60) | 0;
     let seconds = (diff % 60) | 0;
 
+    hours = hours.toString().padStart(2, '0');
+    days = days.toString().padStart(2, '0');
+    minutes = minutes.toString().padStart(2, '0');
+    seconds = seconds.toString().padStart(2, '0');
+
     document.getElementById("hoursValue").textContent = hours;
     document.getElementById("daysValue").textContent = days;
     document.getElementById("minutesValue").textContent = minutes;
