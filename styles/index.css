@@ -1,6 +1,7 @@
 /* Homepage Browse By Category Section Start */
 .browse-by-cat {
     margin: 0 auto;
+    padding: 75px 25px;
     max-width: 1300px;
     border-bottom: #0000004D 0.5px solid;
     border-top: #0000004D 0.5px solid;
@@ -13,7 +14,6 @@
 .bbc-titles-h6 {
     display: flex;
     align-items: center;
-    margin-top: 90px;
     margin-bottom: 20px;
 }
 .bbc-titles-h6 div{
@@ -53,9 +53,10 @@
 }
 .browse-by-cat-categories {
     display: flex;
-    justify-content:space-between;
+    justify-content:center;
     margin-top: 60px;
     flex-wrap: wrap;
+    gap: 25px;
 
 }
 .bbc-category {
@@ -83,9 +84,6 @@
     margin-top: 16px;
 }
 
-.bbc-category:last-of-type {
-    margin-bottom: 90px;
-}
 
 .active-category {
     background-color: #DB4444;
