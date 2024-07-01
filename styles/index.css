@@ -1,19 +1,34 @@
-.exp-pro-container{
-    overflow: hidden;
-    width: 1150px;
+.exploreprocontainer{
+    padding: 0 10px;
 }
-.products{
-    display: flex;
-}
-.product {
-    max-width: 280px;
-    margin: 10px;
+.exproducts {
+    
+    max-width: 270px;
+    margin-bottom: 10px;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: white;
     border: 1px solid #ccc;
     text-align: center;
 
 }
-.image{
-    width: 180px;
+.exproimg{
+   max-width: 100%;
+}
+.expdattotaly{
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+.exprotitle{
+    font-size: 16px;
+    font-family:'Poppins' sans-serif;
+    margin-bottom: 5px;
+}
+.fa-star{
+    color: #FFAD33;
+}
+.exprocount{
+    font-size: 14px;
+    font-family:'Poppins' sans-serif;
+    font-style: bold;
 }

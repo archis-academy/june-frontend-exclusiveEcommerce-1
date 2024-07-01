@@ -3,43 +3,36 @@ async function getProducts() {
   const productsData = await productsResponse.json();
   return productsData;
 }
+
 async function productsRender() {
-  // gelen datayı burda düzenlenmesi bekleyerek products içine atıyoruz ve bu fonksiyonun içinde kullanmaya devam ediyoruz
+  // Gelen datayı burada düzenlenmesi bekleyerek products içine atıyoruz ve bu fonksiyonun içinde kullanmaya devam ediyoruz
   const products = await getProducts();
+
+  function truncateTitle(title, maxLength) {
+    return title.length > maxLength ? title.substring(0, maxLength) + "..." : title;
+  }
+
+  function getStarRating(rating) {
+    const fullStar = '<i class="fas fa-star"></i>';
+    const emptyStar = '<i class="far fa-star"></i>';
+    const maxStars = 5;
+    const fullStarsCount = Math.round(rating);
+    const emptyStarsCount = maxStars - fullStarsCount;
+    return fullStar.repeat(fullStarsCount) + emptyStar.repeat(emptyStarsCount);
+  }
+
+  // Products array'ini burada oluşturuyoruz
+  document.querySelector("#exploreproducts").innerHTML = products.map((product) => {
+    return `
+    <div class="exploreprocontainer">
+      <div class="exproducts"><img class="exproimg" src=${product.image} alt="Product Image" ></div>
+      <div class="exprotitle"><h3>${truncateTitle(product.title, 25)}</h3></div>
+      <div class="expdattotaly">
+      <div class="exproprice"><p>$${product.price}</p></div>
+      <div class="exprorate"><p>${getStarRating(product.rating.rate)}</p></div>
+      <div class="exprocount"><p>(${product.rating.count})</p></div>
+       </div>
+    </div>`;
+  }).join("");
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  const container = document.getElementById('exprocontainer');
-  const products = document.getElementById('products');
-  const leftButton = document.getElementById('leftbuton');
-  const rightButton = document.getElementById('rightbuton');
-  const viewAllButton = document.querySelector('.btn-view-prd');
-
-  let currentTranslate = 0;
-  const productWidth = 140; // Ürün genişliği + margin
-  const productsVisible = 4; // Görünen ürün sayısı
-  const totalProducts = products.children.length;
-  const maxTranslate = -(totalProducts - productsVisible) * productWidth;
-
-  leftButton.addEventListener('click', function() {
-      if (currentTranslate < 0) {
-          currentTranslate += productWidth;
-          products.style.transform = `translateX(${currentTranslate}px)`;
-      }
-  });
-
-  rightButton.addEventListener('click', function() {
-      if (currentTranslate > maxTranslate) {
-          currentTranslate -= productWidth;
-          products.style.transform = `translateX(${currentTranslate}px)`;
-      }
-  });
-
-  viewAllButton.addEventListener('click', function() {
-      const isExpanded = products.style.flexDirection === 'column';
-      products.style.flexDirection = isExpanded ? 'row' : 'column';
-      products.style.flexWrap = isExpanded ? 'nowrap' : 'wrap';
-      products.style.overflow = isExpanded ? 'hidden' : 'visible';
-      products.style.height = isExpanded ? 'auto' : 'auto';
-  });
-});
+ productsRender();
