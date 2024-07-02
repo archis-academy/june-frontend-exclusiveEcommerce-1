@@ -6,87 +6,99 @@ async function getProducts() {
 async function productsRender() {
   // gelen datayı burda düzenlenmesi bekleyerek products içine atıyoruz ve bu fonksiyonun içinde kullanmaya devam ediyoruz
   const products = await getProducts();
+
+  localStorage.setItem("cartProducts", JSON.stringify(products));
+
+  const productTableBody = document.getElementById("productTableBody");
+
+  products.forEach(product => {
+    const productRow = document.createElement("tr");
+    productRow.classList.add("table-row");
+    
+    productRow.innerHTML = `
+      <td class="table-product-name">
+        <img src="${product.image}" alt="${product.title}"> 
+        <p>${product.title}</p>
+      </td>
+      <td class="table-price">$${product.price}</td>
+      <td class="table-quantity-container">
+        <p class="table-quantity-value">0</p>
+        <div class="quantity-buttons">
+          <button class="quantity-button">
+            <img id="quantityIncrease" src="images/arrow-vector.png">
+          </button>
+          <button class="quantity-button">
+            <img id="quantityDecrease" src="images/arrow-vector.png">
+          </button>
+        </div>
+      </td>
+      <td class="table-subtotal">$0.00</td>
+    `;
+
+    productTableBody.appendChild(productRow);
+  });
+
+  const quantityIncrease = document.querySelectorAll("#quantityIncrease"); 
+  const quantityDecrease = document.querySelectorAll("#quantityDecrease"); 
+
+  quantityIncrease.forEach(button => {
+    button.addEventListener("click", event => {
+      const quantityValueElement = event.target.closest("td").querySelector(".table-quantity-value");
+      let quantityValue = parseInt(quantityValueElement.innerText);
+      quantityValueElement.innerText = quantityValue + 1;
+
+      const priceElement = event.target.closest("tr").querySelector(".table-price");
+      const price = parseFloat(priceElement.innerText.replace('$', ''));
+      const totalProductPrice = event.target.closest("tr").querySelector(".table-subtotal");
+      totalProductPrice.innerText = `$${((quantityValue + 1) * price).toFixed(2)}`;
+      updateTotalSum();
+
+
+    });
+  });
+
+  quantityDecrease.forEach(button => {
+    button.addEventListener("click", event => {
+      const quantityValueElement = event.target.closest("td").querySelector(".table-quantity-value");
+      let quantityValue = parseInt(quantityValueElement.innerText);
+      if (quantityValue > 0) {
+        quantityValueElement.innerText = quantityValue - 1;
+        const priceElement = event.target.closest("tr").querySelector(".table-price");
+        const price = parseFloat(priceElement.innerText.replace('$', ''));
+        const totalProductPrice = event.target.closest("tr").querySelector(".table-subtotal");
+        totalProductPrice.innerText = `$${((quantityValue - 1) * price).toFixed(2)}`;
+        updateTotalSum();
+      }
+    });
+  });
 }
+
+function updateTotalSum () {
+  const subtotalTable = document.querySelectorAll(".table-subtotal");
+  let totalSumTable = 0;
+  
+  subtotalTable.forEach(subtotalElement => {
+    const subtotal = parseFloat(subtotalElement.innerText.replace('$', ''));
+    totalSumTable += subtotal;
+  });
+
+  const totalSumProducts = document.getElementById("totalSumProducts");
+  totalSumProducts.innerText = `$${totalSumTable.toFixed(2)}`;
+}
+
+document.querySelector('.coupon-button').addEventListener('click', function() {
+  const couponCode = document.getElementById('couponInput').value;
+  const subtotalElement = document.getElementById('totalSumProducts');
+  const totalPriceElement = document.getElementById('totalPrice');
+  const subtotal = parseFloat(subtotalElement.innerText.replace('$', ''));
+
+  if (couponCode === 'ARCHISJULY20') {
+    const discountPrice = subtotal - (subtotal * 0.20);
+    totalPriceElement.innerText = `$${discountPrice.toFixed(2)}`; 
+  } else {
+    totalPriceElement.innerText = `$${subtotal.toFixed(2)}`; 
+  }
+});
 
 productsRender();
 
-/* Homepage Browse By Category Section Start */
-const categories = Array.from(document.querySelectorAll(".bbc-category"));
-const leftArrow = document.querySelector(".bbc-left-arrow");
-const rightArrow = document.querySelector(".bbc-right-arrow");
-
-leftArrow.addEventListener("click", () => {
-  const activeCat = document.querySelector(".active-category");
-  if(activeCat){
-    activeCat.classList.remove('active-category');
-    const currentIndex = categories.indexOf(activeCat);
-    const newIndex = (currentIndex > 0) ? currentIndex - 1 : categories.length - 1;
-    categories[newIndex].classList.add('active-category');
-  } else {
-    categories[categories.length - 1].classList.add('active-category');
-  };
-});
-rightArrow.addEventListener("click", () => {
-  const activeCat = document.querySelector(".active-category");
-  if(activeCat){
-    activeCat.classList.remove('active-category');
-    const currentIndex = categories.indexOf(activeCat);
-    const newIndex = (currentIndex < categories.length - 1) ? currentIndex + 1 : 0;
-    categories[newIndex].classList.add('active-category');
-  } else {
-    categories[0].classList.add('active-category');
-  };
-});
-
-
-categories.forEach((cat) => {
-  cat.addEventListener("click", () => {
-    categories.forEach((cat2) => {
-      if(cat == cat2){
-        cat.classList.toggle('active-category');
-      } else {
-        if (cat2.classList.contains('active-category')){
-          cat2.classList.remove('active-category');
-        };
-      };
-    });
-  });
-});
-
-/* Homepage Browse By Category Section End */
-
-/*Buse/JU-5 Homepage Featured Product START*/
-function startCountdown(duration) {
-  let start = Date.now();
-
-  function timer () {
-    let diff = duration - (((Date.now() - start) / 1000) | 0);
-    let days = 5 - (diff / (60 * 60 * 24)) | 0; 
-    let hours = ((diff % (60 * 60 * 24)) / (60 * 60)) | 0;
-    let minutes = ((diff % (60 * 60)) / 60) | 0;
-    let seconds = (diff % 60) | 0;
-
-    hours = hours.toString().padStart(2, '0');
-    days = days.toString().padStart(2, '0');
-    minutes = minutes.toString().padStart(2, '0');
-    seconds = seconds.toString().padStart(2, '0');
-
-    document.getElementById("hoursValue").textContent = hours;
-    document.getElementById("daysValue").textContent = days;
-    document.getElementById("minutesValue").textContent = minutes;
-    document.getElementById("secondsValue").textContent = seconds;
-
-    if (diff <= 0) {
-      clearInterval(interval);
-    }
-  };
-
-  timer();
-
-  const interval = setInterval(timer, 1000);
-}
-
-window.onload = function () {
-  startCountdown(60 * 60 * 24);
-};
-/*Buse/JU-5 Homepage Featured Product End*/
