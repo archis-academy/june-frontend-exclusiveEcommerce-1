@@ -3,9 +3,30 @@ async function getProducts() {
   const productsData = await productsResponse.json();
   return productsData;
 }
+
 async function productsRender() {
-  // gelen datayı burda düzenlenmesi bekleyerek products içine atıyoruz ve bu fonksiyonun içinde kullanmaya devam ediyoruz
   const products = await getProducts();
+
+  const selectedProducts = products.slice(0, 4);
+
+  const ürünListe = document.getElementById("ürün-liste");
+
+  selectedProducts.forEach((product) => {
+    const ürünKart = `
+      <div class="ürün-kart">
+      <div class="img-box">
+        <img class="ürün-images" src="${product.image}" alt="${product.title}">
+      </div>
+        
+        <div><p class="ürün-bilgi">${product.title
+          .substring(0, 20)
+          .concat(" ...")} </p>
+    </div>
+        <p class="fiyat">$${product.price}</p>
+      </div>
+    `;
+    ürünListe.innerHTML += ürünKart;
+  });
 }
 
 productsRender();
