@@ -10,6 +10,7 @@ async function productsRender() {
 
 productsRender();
 
+/* Homepage Browse By Category Section Start */
 const categories = Array.from(document.querySelectorAll(".bbc-category"));
 const leftArrow = document.querySelector(".bbc-left-arrow");
 const rightArrow = document.querySelector(".bbc-right-arrow");
@@ -52,4 +53,40 @@ categories.forEach((cat) => {
   });
 });
 
+/* Homepage Browse By Category Section End */
 
+/*Buse/JU-5 Homepage Featured Product START*/
+function startCountdown(duration) {
+  let start = Date.now();
+
+  function timer () {
+    let diff = duration - (((Date.now() - start) / 1000) | 0);
+    let days = 5 - (diff / (60 * 60 * 24)) | 0; 
+    let hours = ((diff % (60 * 60 * 24)) / (60 * 60)) | 0;
+    let minutes = ((diff % (60 * 60)) / 60) | 0;
+    let seconds = (diff % 60) | 0;
+
+    hours = hours.toString().padStart(2, '0');
+    days = days.toString().padStart(2, '0');
+    minutes = minutes.toString().padStart(2, '0');
+    seconds = seconds.toString().padStart(2, '0');
+
+    document.getElementById("hoursValue").textContent = hours;
+    document.getElementById("daysValue").textContent = days;
+    document.getElementById("minutesValue").textContent = minutes;
+    document.getElementById("secondsValue").textContent = seconds;
+
+    if (diff <= 0) {
+      clearInterval(interval);
+    }
+  };
+
+  timer();
+
+  const interval = setInterval(timer, 1000);
+}
+
+window.onload = function () {
+  startCountdown(60 * 60 * 24);
+};
+/*Buse/JU-5 Homepage Featured Product End*/
