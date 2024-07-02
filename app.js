@@ -11,18 +11,27 @@ async function productsRender() {
 
   const ürünListe = document.getElementById("ürün-liste");
 
+  function indirimYap(fiyat, indirimYuzdesi) {
+    return fiyat - (fiyat * indirimYuzdesi) / 100;
+  }
+
   selectedProducts.forEach((product) => {
     const ürünKart = `
       <div class="ürün-kart">
       <div class="img-box">
         <img class="ürün-images" src="${product.image}" alt="${product.title}">
       </div>
-        
         <div><p class="ürün-bilgi">${product.title
           .substring(0, 20)
           .concat(" ...")} </p>
     </div>
-        <p class="fiyat">$${product.price}</p>
+    <div class="prices">
+      <p class="discounted-price">${indirimYap(product.price, 20).toFixed(
+        2
+      )}₺</p>
+      <strike class="price">${product.price.toFixed(2)}₺</strike>
+    </div>
+        
       </div>
     `;
     ürünListe.innerHTML += ürünKart;
