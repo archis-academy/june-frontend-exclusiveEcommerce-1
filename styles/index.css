@@ -3,7 +3,6 @@
   background-color: black;
   flex-wrap: wrap;
   display: flex;
-  height: 50vh;
   padding: 15px;
   margin-top: 120px;
 }
@@ -87,13 +86,13 @@
   display: flex;
   gap: 20px;
 }
-.exclusive-area {
+.ft-input-section {
   position: relative;
 }
 .ft-send-icon {
   position: absolute;
-  left: 425px;
-  top: 342px;
+  left: 195px;
+  top: 35px;
 }
 .ft-second-title:hover {
   cursor: pointer;
