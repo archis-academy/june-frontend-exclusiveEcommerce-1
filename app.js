@@ -13,16 +13,16 @@ let end = 8;
 
 nextProductsBtn.addEventListener("click", () => {
   if (end <= 20) {
-    start += 8;
-    end += 8;
+    start += 1;
+    end += 1;
     productsRender(start, end);
   }
 });
 
 preProductsBtn.addEventListener("click", () => {
   if (start > 0) {
-    start -= 8;
-    end -= 8;
+    start -= 1;
+    end -= 1;
     productsRender(start, end);
   }
 });
@@ -65,7 +65,7 @@ async function productsRender(start, end) {
               <i class="fa-solid fa-cart-shopping"></i>
             </span>
           </div>
-          <div class="exprotitle"><h3>${truncateTitle(product.title, 25)}</h3></div>
+          <div class="exprotitle"><h3>${truncateTitle(product.title, 20)}</h3></div>
           <div class="expdattotaly">
             <div class="exproprice"><p>$${product.price}</p></div>
             <div class="exprorate"><p>${getStarRating(product.rating.rate)}</p></div>
