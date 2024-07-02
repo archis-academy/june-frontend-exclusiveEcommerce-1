@@ -1,0 +1,123 @@
+.new-arrivals {
+    font-family: "Inter", sans-serif;
+    gap: 30px;
+    margin-inline: auto;
+    width: max-content;
+}
+
+.featured-container {
+    display: flex;
+    color: #DB4444;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.red-box {
+    width: 20px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #DB4444;
+}
+
+
+.new-arrivals .title {
+    font-size: 36px;
+    font-weight: 600px;
+    
+}
+.product-cards{
+    display: flex;
+    
+}
+.product-details{
+    position: absolute;
+    color: white;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+   
+
+}
+.product-details .title{
+    font-weight: 600;
+    font-size: 24px;
+}
+.product-details .description{
+    font-weight: 400;
+    font-size: 10px;
+
+}
+.product-details .shop-now{
+    font-weight: 500;
+    font-size: 16px;
+}
+.left-col{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 570px;
+    height: 600px;
+    background-color: black;
+    margin-right: 20px;
+}
+
+
+
+.right-col{
+    width: 570px;
+    height: 600px;
+   
+}
+
+.small-cards{
+    position: relative;
+    display: flex;
+    margin-top: 23px;
+    gap: 15px;
+    
+    
+   
+}
+.hat, .speakers, .perfume{
+    position: relative;
+}
+.speakers, .perfume{
+   display: flex;
+   justify-content: center;
+
+    width: 270px;
+    height: 284px;
+    background-color: black;
+    gap: 10px;
+}
+
+
+.customer-rel {
+    display: flex;
+    margin: 150px auto 0 auto;
+    justify-content: space-between;
+    max-width: 800px;
+    width: 100%;
+    
+     
+   
+   
+}
+.cust-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cust-icon{
+    background-color: black;
+    border-radius: 100px;
+    padding: 4px;
+    border: 6px solid rgb(186, 181, 181);
+    margin-bottom: 20px;
+}
+
