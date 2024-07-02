@@ -1,34 +1,75 @@
-.exploreprocontainer{
-    padding: 0 10px;
+.exploreproducts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; /* Öğeler arasındaki boşluğu azaltmak için gap kullanıyoruz */
+    max-width: 1300px; /* Genişliği 1300px olarak belirlediniz. */
+    justify-content: center; /* Grid öğelerini yatayda merkeze alır */
+    margin: 0 auto; /* Grid container'ı sayfa ortasına yerleştirir */
 }
+
+.exploreprocontainer {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Flex öğelerini dikeyde ortalar */
+    text-align: center; /* Metni ortalar */
+}
+
 .exproducts {
-    
-    max-width: 270px;
-    margin-bottom: 10px;
+    position: relative; /* Bu, absolute pozisyonlandırma için referans noktası olur */
+    width: 100%; /* Tüm kutuların genişliği eşit olur */
     padding: 20px;
     background-color: white;
     border: 1px solid #ccc;
     text-align: center;
+}
 
+.exproimg {
+    width: 170px;
+    height: 170px;
+    object-fit: contain;
 }
-.exproimg{
-   max-width: 100%;
+
+.icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px; 
+    
 }
-.expdattotaly{
+
+.fa-regular,
+.fa-solid {
+    font-size: 20px; /* İkonların boyutunu ayarlar */
+    color: #333; /* İkonların rengini ayarlar */
+}
+
+.expdattotaly {
     display: flex;
     gap: 5px;
     margin-bottom: 10px;
+    justify-content: center; /* Flex öğelerini yatayda ortalar */
 }
-.exprotitle{
+
+.exprotitle {
     font-size: 16px;
-    font-family:'Poppins' sans-serif;
+    font-family: 'Poppins';
     margin-bottom: 5px;
 }
-.fa-star{
+
+.fa-star {
     color: #FFAD33;
 }
-.exprocount{
+
+.exprocount {
     font-size: 14px;
-    font-family:'Poppins' sans-serif;
-    font-style: bold;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: gray; /* font-weight 'bold' olarak düzeltildi */
+}
+
+.exproprice {
+    color: #DB4444;
 }
