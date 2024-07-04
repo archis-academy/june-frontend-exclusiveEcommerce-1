@@ -1,4 +1,9 @@
-.exploreproducts {
+.exp-pro-container /* html ana container */ {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.exploreproducts /* ürünler */{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
@@ -6,40 +11,28 @@
     justify-content: center; 
     margin: 0 auto; 
 }
-
-.exp-pro-container {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    text-align: center; 
-}
-
-.exproducts {
+.exproducts /* resimlerin container */ {
     position: relative; 
     width: 100%; 
     padding: 20px;
     background-color: white;
     border: 1px solid #ccc;
-    text-align: center;
+    align-items: center; 
+    text-align: center; 
 }
-.exprotitle{
-
-}
-.exproimg {
+.exproimg /* resimler */ {
     width: 170px;
     height: 170px;
     object-fit: contain;
 }
 
-.icons {
+.icons /* ürünlerin içinde ki iconlar */ {
     position: absolute;
     top: 10px;
     right: 10px;
     display: flex;
     flex-direction: column;
     gap: 5px; 
-    
 }
 
 .fa-regular,
@@ -48,7 +41,7 @@
     color: #333; 
 }
 
-.expdattotaly {
+.expdattotaly/* ürünlerin fiyat yorum ve değerlendirmenin container */ {
     display: flex;
     gap: 5px;
     margin-bottom: 10px;
@@ -56,26 +49,65 @@
     justify-content: left;
 }
 
-.exprotitle {
+.exprotitle /* ürünün yazısı*/ {
+    max-width: 1350px;
     font-size: 16px;
     font-family: 'Poppins';
     margin-bottom: 5px;
     text-align: left;
+    
 }
 
-.fa-star {
+.fa-star /* ürünün yıldız*/ {
     color: #FFAD33;
 }
 
-.exprocount {
+.exprocount /* ürünün yorum sayısı*/ {
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     color: gray;
 }
 
-.exproprice {
+.exproprice /* ürünün fiyatı */ {
     color: #DB4444;
+}
+.browse-by-cat {
+    margin: 0 auto;
+    padding: 75px 25px;
+    max-width: 1300px;
+}
+.browse-by-cat-titles {
+    
+}
+.bbc-titles-h6 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.bbc-titles-h6 div{
+    background-color: #DB4444;
+    width: 20px;
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.bbc-titles-h6 h6 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #db4444;
+    font-size: 16px;
+}
+.bbc-titles-h1 {
+    display: flex;
+}
+.bbc-titles-h1 h1{
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 600;
 }
 .pre-button, 
 .next-button{
@@ -93,10 +125,29 @@
 .next-button:hover{
     background-color: #E0E0E0;
 }
-.orange-rectangle {
-    width: 20px;
-    height: 40px;
-    border-radius: 4px;
-    background-color: #DB4444;
+.exprobutton{
+    margin-left: auto;
+    margin-bottom: 20px;
+}
+.btn-buttons{
     display: flex;
-};
+    align-items: center;
+    justify-content: center;
+    
+}
+.btn-view-prd{
+    padding: 16px 48px 16px 48px;
+    background-color: #DB4444;
+    border: none;
+    margin-top: 20px;
+}
+.bla{
+    transition: .4s;
+}
+.bla:hover{
+    color:#f50057;
+}
+liked{
+    transition: .4s;
+    color: #f50057;
+}

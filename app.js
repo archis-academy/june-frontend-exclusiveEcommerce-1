@@ -3,6 +3,18 @@ async function getProducts() {
   const productsData = await productsResponse.json();
   return productsData;
 }
+document.addEventListener('DOMContentLoaded',  () =>{
+  const exproheart = document.getElementById('exproheart');
+
+  exproheart.addEventListener('click', () =>{
+    exproheart.classList.toggle('liked');
+    if(exproheart.classList.contains("far")){
+      exproheart.classList.remove("far");
+      exproheart.classList.add("fas");
+    }
+  })
+})
+
 
 const preProductsBtn = document.querySelector(".pre-button");
 const nextProductsBtn = document.querySelector(".next-button");
@@ -61,7 +73,7 @@ async function productsRender(start, end) {
           <div class="exproducts">
             <img class="exproimg" src=${product.image} alt="Product Image">
             <span class="icons">
-              <i class="fa-regular fa-heart"></i>
+              <i onclick="Toggle" id=exproheart class="bla fa-regular fa-heart"></i>
               <i class="fa-solid fa-cart-shopping"></i>
             </span>
           </div>
