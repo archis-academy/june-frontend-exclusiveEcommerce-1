@@ -43,10 +43,7 @@ async function productsRender() {
                 </div>
                 <div class="goods-rating-container">
                   <i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i>
-                  <i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i>
-                  <i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i>
-                  <i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i>
-                  <i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i>
+                  <div class="transparent-stars-container"></div>
                   <h4 class="goods-amount">(${product.rating.count})</h4>
                 </div>
               </div>
