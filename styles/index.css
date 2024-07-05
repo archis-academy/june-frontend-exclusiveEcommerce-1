@@ -1,116 +1,151 @@
-.exp-pro-container /* html ana container */ {
+.exp-pro-container
+
+/* html ana container */
+    {
     padding: 10px;
     display: flex;
     flex-direction: column;
 }
-.exploreproducts /* ürünler */{
+
+.exploreproducts
+
+/* ürünler */
+    {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    max-width: 1350px; 
-    justify-content: center; 
-    margin: 0 auto; 
+    max-width: 1350px;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top:20px ;
 }
-.exproducts /* resimlerin container */ {
-    position: relative; 
-    width: 100%; 
+
+.exproducts
+
+/* resimlerin container */
+    {
+    position: relative;
+    width: 100%;
     padding: 20px;
     background-color: white;
     border: 1px solid #ccc;
-    align-items: center; 
-    text-align: center; 
+    align-items: center;
+    text-align: center;
 }
-.exproimg /* resimler */ {
+
+.exproimg
+
+/* resimler */
+    {
     width: 170px;
     height: 170px;
     object-fit: contain;
 }
 
-.icons /* ürünlerin içinde ki iconlar */ {
+.exp-pro-icons /* ürünlerin içinde ki iconlar */
+    {
     position: absolute;
     top: 10px;
     right: 10px;
     display: flex;
     flex-direction: column;
-    gap: 5px; 
+    gap: 5px;
 }
 
 .fa-regular,
 .fa-solid {
-    font-size: 20px; 
-    color: #333; 
+    font-size: 20px;
+    color: #333;
 }
 
-.expdattotaly/* ürünlerin fiyat yorum ve değerlendirmenin container */ {
+.expdattotaly
+
+/* ürünlerin fiyat yorum ve değerlendirmenin container */
+    {
     display: flex;
     gap: 5px;
     margin-bottom: 10px;
-    justify-content: center; 
+    justify-content: center;
     justify-content: left;
 }
 
-.exprotitle /* ürünün yazısı*/ {
+.exprotitle
+
+/* ürünün yazısı*/
+    {
     max-width: 1350px;
     font-size: 16px;
     font-family: 'Poppins';
     margin-bottom: 5px;
     text-align: left;
-    
+
 }
 
-.fa-star /* ürünün yıldız*/ {
+.fa-star
+
+/* ürünün yıldız*/
+    {
     color: #FFAD33;
 }
 
-.exprocount /* ürünün yorum sayısı*/ {
+.exprocount
+
+/* ürünün yorum sayısı*/
+    {
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     color: gray;
 }
 
-.exproprice /* ürünün fiyatı */ {
+.exproprice
+
+/* ürünün fiyatı */
+    {
     color: #DB4444;
 }
-.browse-by-cat {
+
+.exp-pro-div {
     margin: 0 auto;
     padding: 75px 25px;
     max-width: 1300px;
 }
-.browse-by-cat-titles {
-    
-}
-.bbc-titles-h6 {
+.exp-titles-h6 {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
-.bbc-titles-h6 div{
+
+.exp-titles-h6 div {
     background-color: #DB4444;
     width: 20px;
     height: 40px;
     border-radius: 4px;
     margin-right: 10px;
 }
-.bbc-titles-h6 h6 {
+
+.exp-titles-h6 h6 {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
     color: #db4444;
     font-size: 16px;
 }
-.bbc-titles-h1 {
+
+.exp-titles-h1 {
     display: flex;
 }
-.bbc-titles-h1 h1{
+
+.exp-titles-h1 h1 {
     font-family: "Inter", sans-serif;
     font-style: normal;
     font-size: 36px;
     line-height: 48px;
     font-weight: 600;
 }
-.pre-button, 
-.next-button{
+
+.pre-button,
+.next-button {
     width: 46px;
     height: 46px;
     background-color: #F5F5F5;
@@ -121,33 +156,120 @@
     border-radius: 50%;
     border: none;
 }
+
 .pre-button:hover,
-.next-button:hover{
+.next-button:hover {
     background-color: #E0E0E0;
 }
-.exprobutton{
+
+.exprobutton {
     margin-left: auto;
-    margin-bottom: 20px;
 }
-.btn-buttons{
+
+.btn-buttons {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
-.btn-view-prd{
+
+.btn-view-prd {
     padding: 16px 48px 16px 48px;
     background-color: #DB4444;
     border: none;
     margin-top: 20px;
+    cursor: pointer;
 }
-.bla{
-    transition: .4s;
+.btn-view-prd:hover {
+    background-color: #ee3939;;
 }
-.bla:hover{
-    color:#f50057;
-}
-liked{
-    transition: .4s;
+
+#exproheart:hover {
     color: #f50057;
+}
+
+#exproheart {
+    cursor: pointer;
+}
+
+#exproheart {
+    color: #999;
+}
+
+@media screen and (max-width:1000px) {
+    .exploreproducts
+
+    /* ürünler */
+        {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:710px) {
+    .exploreproducts
+
+    /* ürünler */
+        {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .exp-titles-h1 {
+        display: flex;
+    }
+
+    .exp-titles-h1 h1 {
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-size: 26px;
+        line-height: 48px;
+        font-weight: 600;
+    }
+}
+
+@media screen and (max-width:510px) {
+    .exploreproducts
+
+    /* ürünler */
+        {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .exp-titles-h1 {
+        display: flex;
+        align-items: center;
+    }
+
+
+    .exp-titles-h1 h1 {
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-size: 14px;
+        line-height: 48px;
+        font-weight: 600;
+        gap: 10px;
+        
+        
+    }
+
+    .pre-button,
+    .next-button {
+        width: 26px;
+        height: 26px;
+        background-color: #F5F5F5;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 50%;
+        border: none;
+    }
 }

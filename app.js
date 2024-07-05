@@ -3,17 +3,17 @@ async function getProducts() {
   const productsData = await productsResponse.json();
   return productsData;
 }
-document.addEventListener('DOMContentLoaded',  () =>{
-  const exproheart = document.getElementById('exproheart');
-
-  exproheart.addEventListener('click', () =>{
-    exproheart.classList.toggle('liked');
-    if(exproheart.classList.contains("far")){
+  var exproheart = document.getElementById("exproheart");
+  function Likexprohearth(){
+    if(exproheart.classList.contains("far")) {
       exproheart.classList.remove("far");
       exproheart.classList.add("fas");
     }
-  })
-})
+    else {
+      exproheart.classList.remove("far");
+      exproheart.classList.add("fas");
+    };
+};
 
 
 const preProductsBtn = document.querySelector(".pre-button");
@@ -72,8 +72,8 @@ async function productsRender(start, end) {
         <div class="exploreprocontainer">
           <div class="exproducts">
             <img class="exproimg" src=${product.image} alt="Product Image">
-            <span class="icons">
-              <i onclick="Toggle" id=exproheart class="bla fa-regular fa-heart"></i>
+            <span class="exp-pro-icons">
+              <i onclick="Likexprohearth()" id=exproheart class="bla fa-regular fa-heart"></i>
               <i class="fa-solid fa-cart-shopping"></i>
             </span>
           </div>
