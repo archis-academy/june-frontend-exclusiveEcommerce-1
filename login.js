@@ -3,7 +3,7 @@
 
     form.addEventListener("submit",(e)=>{
 
-    e.preventDefault(); //formun gönderilmesini engeller
+    e.preventDefault(); 
 
     const email = document.getElementById('login-text').value.trim();
     const password = document.getElementById('login-password').value.trim();
@@ -30,6 +30,7 @@
             userList[userIndex].isLogin = true;
             localStorage.setItem("userList", JSON.stringify(userList));
             alert("Giriş Başarılı!");
+           // window.location.href = "/index.html";
         }
 
 });
