@@ -56,10 +56,19 @@ function discount(all_products) {
 }
 
 function ratingMaker(star_rating) {
-  return Math.ceil((1 - star_rating * (20 / 100)) * 100);
+  return Math.ceil((star_rating / 5) * 100);
 }
 
 function hideStars(product) {
   const starRatio = ratingMaker(product.rating.rate);
   return starRatio;
+}
+
+function getStarRating(rating) {
+  const fullStar = '<i class="fas fa-star"></i>';
+  const emptyStar = '<i class="far fa-star"></i>';
+  const maxStars = 5;
+  const fullStarsCount = Math.round(rating);
+  const emptyStarsCount = maxStars - fullStarsCount;
+  return fullStar.repeat(fullStarsCount) + emptyStar.repeat(emptyStarsCount);
 }
