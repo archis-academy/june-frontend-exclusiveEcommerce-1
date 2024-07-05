@@ -73,8 +73,6 @@
 }
 
 .homepage-best-selling-products-container-goods-img {
-    width: 270px;
-    height: 250px;
     border-radius: 4px;
     background-color: #F5F5F5;
     display: flex;
@@ -83,8 +81,14 @@
     position: relative;
 }
 
+.homepage-best-selling-products-img-container {
+    max-width: 270px;
+    max-height: 250px;
+}
+
 .homepage-best-selling-products-container-goods-img img {
     object-fit: contain;
+    width: 100%;
 }
 
 .goods-info {
@@ -159,6 +163,60 @@
     .homepage-best-selling-products {
         padding: 20px 0;
     }
+}
+
+.icon-heart {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.fa-heart {
+    color: default;
+}
+
+.icon-eye {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: lightgray;
+    color: #000000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    left: 30px;
+}
+
+.icon-heart:hover .tooltip {
+    visibility: visible;
+}
+
+.icon-eye:hover .tooltip {
+    visibility: visible;
 }
 
 /* Best Selling Products Section End */

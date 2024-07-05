@@ -22,10 +22,12 @@ async function productsRender() {
     bestSellingProducts[i] = products[i];
   }
 
-  bestSellingProducts.map((product) => {
+  bestSellingProductsContainer.innerHTML = bestSellingProducts.map((product) => {
     return `<div class="homepage-best-selling-products-container-goods">
               <div class="homepage-best-selling-products-container-goods-img">
-                <img src="${product.image}" alt="${product.title}">
+                <div class="homepage-best-selling-products-img-container">
+                  <img src="${product.image}" alt="${product.title}">
+                </div>
                 <div class="icon-heart">
                   <i class="fa-regular fa-heart fa-sm"></i>
                   <span class="tooltip">Add to favourite</span>
@@ -51,7 +53,6 @@ async function productsRender() {
             </div>`
   })
   .join("");
-  bestSellingProductsContainer.innerHTML = bestSellingProducts;
 }
 
 function discount(all_products) {
@@ -66,3 +67,5 @@ function hideTransStars(product) {
   const starRatio = starRatingMaker(product.rating.rate);
   return starRatio;
 }
+
+productsRender();
