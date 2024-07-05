@@ -1,4 +1,68 @@
+.homepage-best-selling-products {
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 150px;
+}
+
+.homepage-best-selling-products-head {
+    display: flex;
+    flex-direction: column;
+}
+
+.upper-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+}
+
+.orange-rectangle {
+    width: 20px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #DB4444;
+}
+
+.homepage-best-selling-products-h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #DB4444;
+}
+
+.lower-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    flex-wrap: wrap;
+}
+
+.homepage-best-selling-products-h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 48px;
+    color: #000000;
+    letter-spacing: 4%;
+}
+
+.homepage-best-selling-products-btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FAFAFA;
+    padding: 16px 48px;
+    background-color: #DB4444;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
 /* Best Selling Products Section Start */
+/*
 .homepage-best-selling-products {
     padding: 100px 0;
     display: flex;
@@ -63,7 +127,7 @@
     cursor: pointer;
 }
 
-.homepage-best-selling-products-goods {
+.homepage-best-selling-products-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,7 +136,7 @@
     flex-wrap: wrap;
 }
 
-.homepage-best-selling-products-goods-item-img {
+.homepage-best-selling-products-container-goods-img {
     width: 270px;
     height: 250px;
     border-radius: 4px;
@@ -195,4 +259,6 @@
         padding: 20px 0;
     }
 }
+*/
 /* Best Selling Products Section End */
+
