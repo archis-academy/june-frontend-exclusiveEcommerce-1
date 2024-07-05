@@ -1,68 +1,4 @@
-.homepage-best-selling-products {
-    padding: 100px 0;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 150px;
-}
-
-.homepage-best-selling-products-head {
-    display: flex;
-    flex-direction: column;
-}
-
-.upper-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 15px;
-}
-
-.orange-rectangle {
-    width: 20px;
-    height: 40px;
-    border-radius: 4px;
-    background-color: #DB4444;
-}
-
-.homepage-best-selling-products-h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-    color: #DB4444;
-}
-
-.lower-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 0;
-    flex-wrap: wrap;
-}
-
-.homepage-best-selling-products-h2 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 48px;
-    color: #000000;
-    letter-spacing: 4%;
-}
-
-.homepage-best-selling-products-btn {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    color: #FAFAFA;
-    padding: 16px 48px;
-    background-color: #DB4444;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-}
 /* Best Selling Products Section Start */
-/*
 .homepage-best-selling-products {
     padding: 100px 0;
     display: flex;
@@ -147,6 +83,87 @@
     position: relative;
 }
 
+.homepage-best-selling-products-container-goods-img img {
+    object-fit: contain;
+}
+
+.goods-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 0;
+}
+
+.goods-info h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 550;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.goods-price {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.goods-price h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 550;
+    font-size: 16px;
+    line-height: 24px;
+    color: #DB4444;
+}
+
+.base-price {
+    color: #000000 !important;
+    opacity: 50% !important;
+}
+
+.goods-rating-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+}
+
+.transparent-stars-container, .filled-stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.filled-stars-container {
+    color: #FFD43B;
+}
+
+.transparent-stars-container {
+    color: #ccc;
+}
+
+.goods-amount {
+    padding-left: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+    opacity: 50%;
+}
+
+@media screen and (max-width: 450px) {
+    .homepage-best-selling-products {
+        padding: 20px 0;
+    }
+}
+
+/* Best Selling Products Section End */
+
+/*
 .icon-heart {
     width: 30px;
     height: 30px;
@@ -200,65 +217,5 @@
 .icon-eye:hover .tooltip {
     visibility: visible;
 }
-
-.goods-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 10px 0;
-}
-
-.goods-info h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 550;
-    font-size: 16px;
-    line-height: 24px;
-    color: #000000;
-}
-
-.goods-price {
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px;
-}
-
-.goods-price h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 550;
-    font-size: 16px;
-    line-height: 24px;
-    color: #DB4444;
-}
-
-.base-price {
-    color: #000000 !important;
-    opacity: 50% !important;
-    text-decoration: line-through;
-}
-
-.goods-rating {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 4px;
-}
-
-.goods-amount {
-    padding-left: 5px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-    color: #000000;
-    opacity: 50%;
-}
-
-@media screen and (max-width: 450px) {
-    .homepage-best-selling-products {
-        padding: 20px 0;
-    }
-}
 */
-/* Best Selling Products Section End */
 

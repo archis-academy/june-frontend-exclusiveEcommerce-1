@@ -22,7 +22,7 @@ async function productsRender() {
     bestSellingProducts[i] = products[i];
   }
 
-  bestSellingProducts.map((bsproducts) => {
+  bestSellingProducts.map((product) => {
     return `<div class="homepage-best-selling-products-container-goods">
               <div class="homepage-best-selling-products-container-goods-img">
                 <img src="${product.image}" alt="${product.title}">
@@ -39,36 +39,30 @@ async function productsRender() {
                 <h3>${product.title}</h3>
                 <div class="goods-price">
                   <h3>$${discount(product).toFixed(2)}</h3>
-                  <h3 class="base-price">$${product.price}</h3>
+                  <h3 class="base-price"><s>$${product.price}</s></h3>
                 </div>
                 <div class="goods-rating-container">
                   <i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i>
+                  <div class="filled-stars-container" style="width:${hideTransStars(product)}%"></div>
                   <div class="transparent-stars-container"></div>
                   <h4 class="goods-amount">(${product.rating.count})</h4>
                 </div>
               </div>
             </div>`
   })
+  .join("");
+  bestSellingProductsContainer.innerHTML = bestSellingProducts;
 }
 
 function discount(all_products) {
   return all_products.price - (all_products.price * 30) / 100;
 }
 
-function ratingMaker(star_rating) {
+function starRatingMaker(star_rating) {
   return Math.ceil((star_rating / 5) * 100);
 }
 
-function hideStars(product) {
-  const starRatio = ratingMaker(product.rating.rate);
+function hideTransStars(product) {
+  const starRatio = starRatingMaker(product.rating.rate);
   return starRatio;
-}
-
-function getStarRating(rating) {
-  const fullStar = '<i class="fas fa-star"></i>';
-  const emptyStar = '<i class="far fa-star"></i>';
-  const maxStars = 5;
-  const fullStarsCount = Math.round(rating);
-  const emptyStarsCount = maxStars - fullStarsCount;
-  return fullStar.repeat(fullStarsCount) + emptyStar.repeat(emptyStarsCount);
 }
