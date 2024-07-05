@@ -25,7 +25,7 @@ async function productsRender() {
   bestSellingProducts.map((bsproducts) => {
     return `<div class="homepage-best-selling-products-container-goods">
               <div class="homepage-best-selling-products-container-goods-img">
-                <img src="${product.image}" alt="The North Coat">
+                <img src="${product.image}" alt="${product.title}">
                 <div class="icon-heart">
                   <i class="fa-regular fa-heart fa-sm"></i>
                   <span class="tooltip">Add to favourite</span>
@@ -38,18 +38,31 @@ async function productsRender() {
               <div class="goods-info">
                 <h3>${product.title}</h3>
                 <div class="goods-price">
-                  <h3>$260</h3>
-                  <h3 class="base-price">$360</h3>
+                  <h3>$${discount(product).toFixed(2)}</h3>
+                  <h3 class="base-price">$${product.price}</h3>
                 </div>
-                <div class="goods-rating">
+                <div class="goods-rating-container">
                   <i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i>
                   <i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i>
                   <i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i>
                   <i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i>
                   <i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i>
-                  <h4 class="goods-amount">(65)</h4>
+                  <h4 class="goods-amount">(${product.rating.count})</h4>
                 </div>
               </div>
             </div>`
   })
+}
+
+function discount(all_products) {
+  return all_products.price - (all_products.price * 30) / 100;
+}
+
+function ratingMaker(star_rating) {
+  return Math.ceil((1 - star_rating * (20 / 100)) * 100);
+}
+
+function hideStars(product) {
+  const starRatio = ratingMaker(product.rating.rate);
+  return starRatio;
 }
