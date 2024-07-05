@@ -4,18 +4,63 @@ async function getProducts() {
   return productsData;
 }
 
-async function productsRender() {
+const prevProductsBtn = document.getElementById("prev-products");
+const nextProductsBtn = document.getElementById("next-products");
+const ürünListe = document.getElementById("ürün-liste");
+
+let start = 0;
+let end = 4;
+
+nextProductsBtn.addEventListener("click", () => {
+  if (end >= 20) {
+    start = 0;
+    end = 4;
+  } else {
+    start += 4;
+    end += 4;
+  }
+  ürünListe.innerHTML = "";
+  productsRender(start, end);
+});
+
+prevProductsBtn.addEventListener("click", () => {
+  if (start <= 0) {
+    start = 16;
+    end = 20;
+  } else {
+    start -= 4;
+    end -= 4;
+  }
+  ürünListe.innerHTML = "";
+  productsRender(start, end);
+});
+
+async function productsRender(start, end) {
   const products = await getProducts();
+  console.log(products);
 
-  const selectedProducts = products.slice(0, 4);
-
-  const ürünListe = document.getElementById("ürün-liste");
+  const selectedProducts = products.slice(start, end);
 
   function indirimYap(fiyat, indirimYuzdesi) {
     return fiyat - (fiyat * indirimYuzdesi) / 100;
   }
 
   selectedProducts.forEach((product) => {
+    let starCounter = 0;
+    if (product.rating.rate > 4) {
+      starCounter = 5;
+    } else if (product.rating.rate > 3) {
+      starCounter = 4;
+    } else if (product.rating.rate > 2) {
+      starCounter = 3;
+    } else if (product.rating.rate > 1) {
+      starCounter = 2;
+    } else if (product.rating.rate > 0) {
+      starCounter = 1;
+    } else {
+      starCounter = 0;
+    }
+
     const ürünKart = `
       <div class="ürün-kart">
       <div class="img-box">
@@ -31,14 +76,17 @@ async function productsRender() {
       )}₺</p>
       <strike class="price">${product.price.toFixed(2)}₺</strike>
     </div>
-        
+    <div class="rating">
+      ${starCounter * ""}
+    </div>
       </div>
     `;
+
     ürünListe.innerHTML += ürünKart;
   });
 }
 
-productsRender();
+productsRender(start, end);
 
 function startCountdown() {
   const targetDate = new Date();
