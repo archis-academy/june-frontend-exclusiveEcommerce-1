@@ -16,27 +16,33 @@
   margin-bottom: 60px;
 }
 
-.table-header-container{
-}
-
-.table-header-titles{}
-
 .table-header, .table-row td{
   text-align: center;
   width: 25%;
 }
 
-.table-row td{
-}
-
 .table-product-name{
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   min-width: 300px;
 }
 
-.table-product-name img{
+.delete-product-btn{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: -6px;
+  left: -4px;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  background-color: #DB4444;
+  cursor: pointer;
+}
+
+.table-product-img{
   width: 54px;
   height: 54px;
   object-fit: contain;
@@ -47,7 +53,15 @@
   margin: 0;
 }
 
-.table-price{}
+.delete-product{
+  background-color: transparent;
+  border: 1.5px solid black;
+  border-radius: 50%;
+  padding: 2px 4px;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+}
 
 #quantityHeaderTitle {
   display: flex;
@@ -85,8 +99,6 @@
   transform: rotate(180deg);
 }
 
-.table-subtotal{}
-
 .buttons-container{
   display: flex;
   justify-content: space-between;
@@ -113,9 +125,6 @@
   margin-top: 70px;
 }
 
-.coupon-container{
-}
-
 .coupon-input{
   padding: 15px 20px;
   border: 1px solid black;
@@ -125,8 +134,6 @@
   margin-bottom: 10px;
 
 }
-
-.coupon-button{}
 
 .coupon-button:hover,
 .checkout-button:hover{
@@ -178,5 +185,8 @@
   }
   .coupon-container{
     margin-bottom: 10px;
+  }
+  .cart-page-section{
+    margin: 0 10px;
   }
 }

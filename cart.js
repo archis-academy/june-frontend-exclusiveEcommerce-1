@@ -19,7 +19,8 @@ async function productsRender() {
 
     productRow.innerHTML = `
       <td class="table-product-name">
-        <img src="${product.image}" alt="${product.title}"> 
+        <button class="delete-product-btn">X</button>
+        <img class="table-product-img" src="${product.image}" alt="${product.title}"> 
         <p class="product-name">${limitedTitle}</p>
       </td>
       <td class="table-price">$${product.price}</td>
@@ -38,6 +39,13 @@ async function productsRender() {
     `;
 
     productTableBody.appendChild(productRow);
+
+    productRow.querySelector(".delete-product-btn").addEventListener("click", () => {
+      productRow.remove();
+      updateTotalSum();
+    });
+
+    updateTotalSum();
   });
 
   const quantityIncrease = document.querySelectorAll("#quantityIncrease"); 
@@ -54,8 +62,6 @@ async function productsRender() {
       const totalProductPrice = event.target.closest("tr").querySelector(".table-subtotal");
       totalProductPrice.innerText = `$${((quantityValue + 1) * price).toFixed(2)}`;
       updateTotalSum();
-
-
     });
   });
 
@@ -63,7 +69,7 @@ async function productsRender() {
     button.addEventListener("click", event => {
       const quantityValueElement = event.target.closest("td").querySelector(".table-quantity-value");
       let quantityValue = parseInt(quantityValueElement.innerText);
-      if (quantityValue > 0) {
+      if (quantityValue > 1) {
         quantityValueElement.innerText = quantityValue - 1;
         const priceElement = event.target.closest("tr").querySelector(".table-price");
         const price = parseFloat(priceElement.innerText.replace('$', ''));
@@ -86,6 +92,9 @@ function updateTotalSum () {
 
   const totalSumProducts = document.getElementById("totalSumProducts");
   totalSumProducts.innerText = `$${totalSumTable.toFixed(2)}`;
+
+  const totalPrice = document.getElementById("totalPrice");
+  totalPrice.innerText = `$${totalSumTable.toFixed(2)}`;
 }
 
 document.querySelector('.coupon-button').addEventListener('click', function() {
@@ -93,12 +102,16 @@ document.querySelector('.coupon-button').addEventListener('click', function() {
   const subtotalElement = document.getElementById('totalSumProducts');
   const totalPriceElement = document.getElementById('totalPrice');
   const subtotal = parseFloat(subtotalElement.innerText.replace('$', ''));
+  const discountQuantity = subtotal * 0.20;
+
 
   if (couponCode === 'COUPON20') {
-    const discountPrice = subtotal - (subtotal * 0.20);
+    const discountPrice = subtotal - discountQuantity;
     totalPriceElement.innerText = `$${discountPrice.toFixed(2)}`; 
+    document.getElementById('discount').innerText = `$${discountQuantity.toFixed(2)}`;
   } else {
     totalPriceElement.innerText = `$${subtotal.toFixed(2)}`; 
+    document.getElementById('discount').innerText = `$0`;
   }
 });
 
