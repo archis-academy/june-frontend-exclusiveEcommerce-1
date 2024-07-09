@@ -4,14 +4,12 @@ async function getProducts() {
   return productsData;
 }
 
-const prevProductsBtn = document.getElementById("prev-products");
-const nextProductsBtn = document.getElementById("next-products");
 const productsList = document.getElementById("products-list");
 
 let start = 0;
 let end = 4;
 
-nextProductsBtn.addEventListener("click", () => {
+const nextProductsBtn = () => {
   if (end >= 20) {
     start = 0;
     end = 4;
@@ -21,9 +19,9 @@ nextProductsBtn.addEventListener("click", () => {
   }
   productsList.innerHTML = "";
   productsRender(start, end);
-});
+};
 
-prevProductsBtn.addEventListener("click", () => {
+const prevProductsBtn = () => {
   if (start <= 0) {
     start = 16;
     end = 20;
@@ -33,7 +31,7 @@ prevProductsBtn.addEventListener("click", () => {
   }
   productsList.innerHTML = "";
   productsRender(start, end);
-});
+};
 
 async function productsRender(start, end) {
   const products = await getProducts();
@@ -46,21 +44,6 @@ async function productsRender(start, end) {
   }
 
   selectedProducts.forEach((product) => {
-    let starCounter = 0;
-    if (product.rating.rate > 4) {
-      starCounter = 5;
-    } else if (product.rating.rate > 3) {
-      starCounter = 4;
-    } else if (product.rating.rate > 2) {
-      starCounter = 3;
-    } else if (product.rating.rate > 1) {
-      starCounter = 2;
-    } else if (product.rating.rate > 0) {
-      starCounter = 1;
-    } else {
-      starCounter = 0;
-    }
-
     const productsCard = `
       <div class="products-kart">
       <div class="img-box">
@@ -77,9 +60,6 @@ async function productsRender(start, end) {
         2
       )}₺</p>
       <strike class="price">${product.price.toFixed(2)}₺</strike>
-    </div>
-    <div class="rating">
-      ${starCounter * ""}
     </div>
       </div>
     `;
