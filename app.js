@@ -8,18 +8,22 @@ async function productsRender() {
   const products = await getProducts();
 }
 
-productsRender();
-
 // Best Selling Products Section Start
 const bestSellingProductsContainer = document.getElementById("best-selling-products-api");
 
 let bestSellingProducts = [];
+let allBestSellingProducts = [];
 
-async function productsRender() {
-  const products = await getProducts();
+async function productsRender(viewAll = false) {
+  if (allBestSellingProducts.length === 0) {
+    allBestSellingProducts = await getProducts();
+  }
 
-  for (let i = 0; i < products.length; i++) {
-    bestSellingProducts[i] = products[i];
+  bestSellingProducts;
+  if (viewAll) {
+    bestSellingProducts = allBestSellingProducts;
+  } else {
+    bestSellingProducts = allBestSellingProducts.slice(0, 4);
   }
 
   bestSellingProductsContainer.innerHTML = bestSellingProducts.map((product) => {
@@ -30,11 +34,11 @@ async function productsRender() {
                 </div>
                 <div class="icon-heart">
                   <i class="fa-regular fa-heart fa-sm"></i>
-                  <span class="tooltip">Add to favourite</span>
+                  <span class="tooltip">Add to wishlist</span>
                 </div>
                 <div class="icon-eye">
                   <i class="fa-regular fa-eye fa-sm"></i>
-                  <span class="tooltip">Add to wishlist</span>
+                  <span class="tooltip">Add to cart</span>
                 </div>
               </div>
               <div class="goods-info">
@@ -66,6 +70,12 @@ function starRatingMaker(star_rating) {
 function hideTransStars(product) {
   const starRatio = starRatingMaker(product.rating.rate);
   return starRatio;
+}
+
+function viewAll() {
+  productsRender(true);
+  const viewAllBtn = document.getElementById("best-selling-products-btn");
+  viewAllBtn.style.display = "none";
 }
 
 productsRender();
