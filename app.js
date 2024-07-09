@@ -42,7 +42,7 @@ async function productsRender(viewAll = false) {
                 </div>
               </div>
               <div class="goods-info">
-                <h3>${product.title}</h3>
+                <h3>${product.title, 20}</h3>
                 <div class="goods-price">
                   <h3>$${discount(product).toFixed(2)}</h3>
                   <h3 class="base-price"><s>$${product.price}</s></h3>
