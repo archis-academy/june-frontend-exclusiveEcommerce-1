@@ -10,6 +10,30 @@ async function productsRender() {
 
 productsRender();
 
+/* Homepage Header Section Start */
+document.getElementById("dropdownButton").addEventListener("click", function() {
+  const content = document.getElementById("dropdownContent");
+  const arrow = document.querySelector(".dropdown-arrow");
+  content.classList.toggle("show");
+  arrow.classList.toggle("rotate");
+});
+
+function changeLang (content) {
+  const button = document.getElementById("dropdownButton");
+  const newButtonText = content.textContent
+  button.innerHTML = `${newButtonText} <span class="dropdown-arrow">&#9662;</span>
+          <div id="dropdownContent" class="black-dropdown-content">
+            <a href="#" class="dropdown-content" onclick="changeLang(this)">English</a>
+            <a href="#" class="dropdown-content" onclick="changeLang(this)">Turkish</a>
+            <a href="#" class="dropdown-content" onclick="changeLang(this)">Arabic</a>
+          </div>`;
+  button.click();
+
+}
+
+/* Homepage Header Section End */
+
+
 /* Homepage Browse By Category Section Start */
 const categories = Array.from(document.querySelectorAll(".bbc-category"));
 const leftArrow = document.querySelector(".bbc-left-arrow");
