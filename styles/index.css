@@ -138,3 +138,8 @@
   border-radius: 50%;
   border: none;
 }
+
+.fa-star-half-alt,
+.fa-star {
+  color: #ffad33;
+}
