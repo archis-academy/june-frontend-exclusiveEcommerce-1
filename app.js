@@ -75,9 +75,10 @@ async function productsRender(start, end) {
       )}₺</p>
       <strike class="price">${product.price.toFixed(2)}₺</strike>
     </div>
-   <div>
-          ${getStarRating(product.rating.rate)}
-        </div>
+    <div>
+   <div>${getStarRating(product.rating.rate)}</div>
+    <div>(${product.rating.count})</div>
+    </div>
       </div>
     `;
 
