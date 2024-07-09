@@ -42,7 +42,7 @@ async function productsRender(viewAll = false) {
                 </div>
               </div>
               <div class="goods-info">
-                <h3>${product.title, 20}</h3>
+                <h3>${maxTitleCharacter(product.title, 28)}</h3>
                 <div class="goods-price">
                   <h3>$${discount(product).toFixed(2)}</h3>
                   <h3 class="base-price"><s>$${product.price}</s></h3>
@@ -70,6 +70,14 @@ function starRatingMaker(star_rating) {
 function hideTransStars(product) {
   const starRatio = starRatingMaker(product.rating.rate);
   return starRatio;
+}
+
+function maxTitleCharacter(title, maxLength) {
+  if (title.length > maxLength) {
+    return title.slice(0, maxLength) + "...";
+  } else {
+    return title;
+  }
 }
 
 function viewAll() {
