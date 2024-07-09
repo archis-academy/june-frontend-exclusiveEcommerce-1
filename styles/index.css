@@ -63,7 +63,7 @@
   font-weight: 700;
 }
 
-.ürün-liste {
+.products-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 280px));
   justify-content: center;
@@ -80,7 +80,7 @@
   justify-content: center;
 }
 
-.ürün-images {
+.products-images {
   max-width: 270px;
   max-height: 250px;
   object-fit: contain;
@@ -117,4 +117,11 @@
   font-weight: 500;
   font-style: normal;
   line-height: 24px;
+}
+
+.button-div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-right: 15px;
 }

@@ -6,7 +6,7 @@ async function getProducts() {
 
 const prevProductsBtn = document.getElementById("prev-products");
 const nextProductsBtn = document.getElementById("next-products");
-const ürünListe = document.getElementById("ürün-liste");
+const productsList = document.getElementById("products-list");
 
 let start = 0;
 let end = 4;
@@ -19,7 +19,7 @@ nextProductsBtn.addEventListener("click", () => {
     start += 4;
     end += 4;
   }
-  ürünListe.innerHTML = "";
+  productsList.innerHTML = "";
   productsRender(start, end);
 });
 
@@ -31,7 +31,7 @@ prevProductsBtn.addEventListener("click", () => {
     start -= 4;
     end -= 4;
   }
-  ürünListe.innerHTML = "";
+  productsList.innerHTML = "";
   productsRender(start, end);
 });
 
@@ -61,12 +61,14 @@ async function productsRender(start, end) {
       starCounter = 0;
     }
 
-    const ürünKart = `
-      <div class="ürün-kart">
+    const productsCard = `
+      <div class="products-kart">
       <div class="img-box">
-        <img class="ürün-images" src="${product.image}" alt="${product.title}">
+        <img class="products-images" src="${product.image}" alt="${
+      product.title
+    }">
       </div>
-        <div><p class="ürün-bilgi">${product.title
+        <div><p class="products-information">${product.title
           .substring(0, 20)
           .concat(" ...")} </p>
     </div>
@@ -82,7 +84,7 @@ async function productsRender(start, end) {
       </div>
     `;
 
-    ürünListe.innerHTML += ürünKart;
+    productsList.innerHTML += productsCard;
   });
 }
 
