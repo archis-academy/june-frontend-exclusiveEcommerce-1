@@ -26,7 +26,7 @@ const registerForm=document.getElementById("register-form");
             alert("Bu e-posta kayıtlı.Lütfen farklı e-posta ile tekrar deneyiniz !");
             
         }else{
-            const newUser = { fullname, mail, password, isLogin:false };
+            const newUser = { fullname, mail, password, isLogin:null };
             userList.push(newUser);
         
             localStorage.setItem("userList", JSON.stringify(userList));
