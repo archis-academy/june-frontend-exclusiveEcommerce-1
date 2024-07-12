@@ -11,16 +11,18 @@ async function productsRender() {
 productsRender();
 
 /* Homepage Header Section Start */
-document.getElementById("dropdownButton").addEventListener("click", function() {
-  const content = document.getElementById("dropdownContent");
-  const arrow = document.querySelector(".dropdown-arrow");
-  content.classList.toggle("show");
-  arrow.classList.toggle("rotate");
-});
+document
+  .getElementById("dropdownButton")
+  .addEventListener("click", function () {
+    const content = document.getElementById("dropdownContent");
+    const arrow = document.querySelector(".dropdown-arrow");
+    content.classList.toggle("show");
+    arrow.classList.toggle("rotate");
+  });
 
-function changeLang (content) {
+function changeLang(content) {
   const button = document.getElementById("dropdownButton");
-  const newButtonText = content.textContent
+  const newButtonText = content.textContent;
   button.innerHTML = `${newButtonText} <span class="dropdown-arrow">&#9662;</span>
           <div id="dropdownContent" class="black-dropdown-content">
             <a href="#" class="dropdown-content" onclick="changeLang(this)">English</a>
@@ -28,21 +30,22 @@ function changeLang (content) {
             <a href="#" class="dropdown-content" onclick="changeLang(this)">Arabic</a>
           </div>`;
   button.click();
-
 }
 
 /* Homepage Header Section End */
 /* Berhan Homepage Header Section(2) Start */
-document.getElementById("languageButton").addEventListener("click", function() {
-  const content = document.getElementById("languagesContent");
-  const arrow = document.querySelector(".white-arrow");
-  content.classList.toggle("show");
-  arrow.classList.toggle("rotate");
-});
+document
+  .getElementById("languageButton")
+  .addEventListener("click", function () {
+    const content = document.getElementById("languagesContent");
+    const arrow = document.querySelector(".white-arrow");
+    content.classList.toggle("show");
+    arrow.classList.toggle("rotate");
+  });
 
-function changeLang (content) {
+function changeLang(content) {
   const button = document.getElementById("languageButton");
-  const newButtonText = content.textContent
+  const newButtonText = content.textContent;
   button.innerHTML = `${newButtonText} <span class="white-arrow">&#9662;</span>
           <div id="dropdownContent" class="black-language-content">
             <a href="#" class="language-content" onclick="changeLang(this)">English</a>
@@ -51,7 +54,7 @@ function changeLang (content) {
             <a href="#" class="language-content" onclick="changeLang(this)">French</a>
           </div>`;
   button.click();
-
+}
 
 /* Homepage Browse By Category Section Start */
 const categories = Array.from(document.querySelectorAll(".bbc-category"));
@@ -60,38 +63,39 @@ const rightArrow = document.querySelector(".bbc-right-arrow");
 
 leftArrow.addEventListener("click", () => {
   const activeCat = document.querySelector(".active-category");
-  if(activeCat){
-    activeCat.classList.remove('active-category');
+  if (activeCat) {
+    activeCat.classList.remove("active-category");
     const currentIndex = categories.indexOf(activeCat);
-    const newIndex = (currentIndex > 0) ? currentIndex - 1 : categories.length - 1;
-    categories[newIndex].classList.add('active-category');
+    const newIndex =
+      currentIndex > 0 ? currentIndex - 1 : categories.length - 1;
+    categories[newIndex].classList.add("active-category");
   } else {
-    categories[categories.length - 1].classList.add('active-category');
-  };
+    categories[categories.length - 1].classList.add("active-category");
+  }
 });
 rightArrow.addEventListener("click", () => {
   const activeCat = document.querySelector(".active-category");
-  if(activeCat){
-    activeCat.classList.remove('active-category');
+  if (activeCat) {
+    activeCat.classList.remove("active-category");
     const currentIndex = categories.indexOf(activeCat);
-    const newIndex = (currentIndex < categories.length - 1) ? currentIndex + 1 : 0;
-    categories[newIndex].classList.add('active-category');
+    const newIndex =
+      currentIndex < categories.length - 1 ? currentIndex + 1 : 0;
+    categories[newIndex].classList.add("active-category");
   } else {
-    categories[0].classList.add('active-category');
-  };
+    categories[0].classList.add("active-category");
+  }
 });
-
 
 categories.forEach((cat) => {
   cat.addEventListener("click", () => {
     categories.forEach((cat2) => {
-      if(cat == cat2){
-        cat.classList.toggle('active-category');
+      if (cat == cat2) {
+        cat.classList.toggle("active-category");
       } else {
-        if (cat2.classList.contains('active-category')){
-          cat2.classList.remove('active-category');
-        };
-      };
+        if (cat2.classList.contains("active-category")) {
+          cat2.classList.remove("active-category");
+        }
+      }
     });
   });
 });
@@ -102,17 +106,17 @@ categories.forEach((cat) => {
 function startCountdown(duration) {
   let start = Date.now();
 
-  function timer () {
+  function timer() {
     let diff = duration - (((Date.now() - start) / 1000) | 0);
-    let days = 5 - (diff / (60 * 60 * 24)) | 0; 
+    let days = (5 - diff / (60 * 60 * 24)) | 0;
     let hours = ((diff % (60 * 60 * 24)) / (60 * 60)) | 0;
     let minutes = ((diff % (60 * 60)) / 60) | 0;
-    let seconds = (diff % 60) | 0;
+    let seconds = diff % 60 | 0;
 
-    hours = hours.toString().padStart(2, '0');
-    days = days.toString().padStart(2, '0');
-    minutes = minutes.toString().padStart(2, '0');
-    seconds = seconds.toString().padStart(2, '0');
+    hours = hours.toString().padStart(2, "0");
+    days = days.toString().padStart(2, "0");
+    minutes = minutes.toString().padStart(2, "0");
+    seconds = seconds.toString().padStart(2, "0");
 
     document.getElementById("hoursValue").textContent = hours;
     document.getElementById("daysValue").textContent = days;
@@ -122,7 +126,7 @@ function startCountdown(duration) {
     if (diff <= 0) {
       clearInterval(interval);
     }
-  };
+  }
 
   timer();
 
