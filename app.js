@@ -46,36 +46,26 @@ async function productsRender() {
                   <h3 class="base-price"><s>$${product.price}</s></h3>
                 </div>
                 <div class="goods-rating-container">
-                  <i class="fa-solid fa-star fa-xs" style="color: #FFD43B;"></i>
-                  <div class="filled-stars-container" style="width:${hideTransStars(product)}%"></div>
-                  <div class="transparent-stars-container"></div>
+                  <div class="filled-stars-container" style="width:${hideTransStars(product)}%;">
+                    <i class="fa-solid fa-star fa-xs"></i>
+                    <i class="fa-solid fa-star fa-xs"></i>
+                    <i class="fa-solid fa-star fa-xs"></i>
+                    <i class="fa-solid fa-star fa-xs"></i>
+                    <i class="fa-solid fa-star fa-xs"></i>
+                  </div>
+                  <div class="transparent-stars-container">
+                    <i class="fa-solid fa-star fa-xs"></i>
+                    <i class="fa-solid fa-star fa-xs"></i>
+                    <i class="fa-solid fa-star fa-xs"></i>
+                    <i class="fa-solid fa-star fa-xs"></i>
+                    <i class="fa-solid fa-star fa-xs"></i>
+                  </div>
                   <h4 class="goods-amount">(${product.rating.count})</h4>
                 </div>
               </div>
             </div>`
   })
   .join("");
-}
-
-function discount(all_products) {
-  return all_products.price - (all_products.price * 30) / 100;
-}
-
-function starRatingMaker(star_rating) {
-  return Math.ceil((star_rating / 5) * 100);
-}
-
-function hideTransStars(product) {
-  const starRatio = starRatingMaker(product.rating.rate);
-  return starRatio;
-}
-
-function maxTitleCharacter(title, maxLength) {
-  if (title.length > maxLength) {
-    return title.slice(0, maxLength) + "...";
-  } else {
-    return title;
-  }
 }
 
 function toggleProductsView() {
@@ -86,6 +76,27 @@ function toggleProductsView() {
     bestSellingProducts = allBestSellingProducts;
     toggleBtnText.textContent = "View Less";
   }
+}
+
+function discount(all_products) {
+  return all_products.price - (all_products.price * 30) / 100;
+}
+
+function maxTitleCharacter(title, maxLength) {
+  if (title.length > maxLength) {
+    return title.slice(0, maxLength) + "...";
+  } else {
+    return title;
+  }
+}
+
+function starRatingMaker(star_rating) {
+  return Math.ceil((star_rating / 5) * 100);
+}
+
+function hideTransStars(product) {
+  const starRatio = starRatingMaker(product.rating.rate);
+  return starRatio;
 }
 
 productsRender();
