@@ -14,6 +14,7 @@ async function productsRender() {
   products.forEach(product => {
     const productRow = document.createElement("tr");
     productRow.classList.add("table-row");
+    productRow.setAttribute('data-product-id', product.id);
 
     const limitedTitle = product.title.length > 20 ? product.title.substring(0, 20) + '...' : product.title;
 
@@ -27,10 +28,10 @@ async function productsRender() {
       <td class="table-quantity-container">
         <p class="table-quantity-value">1</p>
         <div class="quantity-buttons">
-          <button class="quantity-button">
-            <img id="quantityIncrease" src="images/arrow-vector.png">
+          <button onclick="quantityIncrease(${product.id})" class="quantity-button">
+            <img src="images/arrow-vector.png">
           </button>
-          <button class="quantity-button">
+          <button onclick="quantityDecrease(${product.id})" class="quantity-button">
             <img id="quantityDecrease" src="images/arrow-vector.png">
           </button>
         </div>
@@ -47,38 +48,32 @@ async function productsRender() {
 
     updateTotalSum();
   });
+}
 
-  const quantityIncrease = document.querySelectorAll("#quantityIncrease"); 
-  const quantityDecrease = document.querySelectorAll("#quantityDecrease"); 
+function quantityDecrease (productId) {
+  const rowElement = document.querySelector(`tr[data-product-id="${productId}"]`);
+  const quantityValueElement = rowElement.querySelector(".table-quantity-value");
+  let quantityValue = parseInt(quantityValueElement.innerText);
+  if (quantityValue > 1) {
+    quantityValueElement.innerText = quantityValue - 1;
+    const priceElement = rowElement.querySelector(".table-price");
+    const price = parseFloat(priceElement.innerText.replace('$', ''));
+    const totalProductPrice = rowElement.querySelector(".table-subtotal");
+    totalProductPrice.innerText = `$${((quantityValue - 1) * price).toFixed(2)}`;
+    updateTotalSum();
+  }
+}
 
-  quantityIncrease.forEach(button => {
-    button.addEventListener("click", event => {
-      const quantityValueElement = event.target.closest("td").querySelector(".table-quantity-value");
-      let quantityValue = parseInt(quantityValueElement.innerText);
-      quantityValueElement.innerText = quantityValue + 1;
-
-      const priceElement = event.target.closest("tr").querySelector(".table-price");
-      const price = parseFloat(priceElement.innerText.replace('$', ''));
-      const totalProductPrice = event.target.closest("tr").querySelector(".table-subtotal");
-      totalProductPrice.innerText = `$${((quantityValue + 1) * price).toFixed(2)}`;
-      updateTotalSum();
-    });
-  });
-
-  quantityDecrease.forEach(button => {
-    button.addEventListener("click", event => {
-      const quantityValueElement = event.target.closest("td").querySelector(".table-quantity-value");
-      let quantityValue = parseInt(quantityValueElement.innerText);
-      if (quantityValue > 1) {
-        quantityValueElement.innerText = quantityValue - 1;
-        const priceElement = event.target.closest("tr").querySelector(".table-price");
-        const price = parseFloat(priceElement.innerText.replace('$', ''));
-        const totalProductPrice = event.target.closest("tr").querySelector(".table-subtotal");
-        totalProductPrice.innerText = `$${((quantityValue - 1) * price).toFixed(2)}`;
-        updateTotalSum();
-      }
-    });
-  });
+function quantityIncrease (productId) {
+  const rowElement = document.querySelector(`tr[data-product-id="${productId}"]`);
+  const quantityValueElement = rowElement.querySelector(".table-quantity-value");
+  let quantityValue = parseInt(quantityValueElement.innerText);
+  quantityValueElement.innerText = quantityValue + 1;
+  const priceElement = rowElement.querySelector(".table-price");
+  const price = parseFloat(priceElement.innerText.replace('$', ''));
+  const totalProductPrice = rowElement.querySelector(".table-subtotal");
+  totalProductPrice.innerText = `$${((quantityValue + 1) * price).toFixed(2)}`;
+  updateTotalSum();
 }
 
 function updateTotalSum () {

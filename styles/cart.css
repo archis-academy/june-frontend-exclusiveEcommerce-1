@@ -63,10 +63,6 @@
   margin-left: 10px;
 }
 
-#quantityHeaderTitle {
-  display: flex;
-}
-
 .table-quantity-container{
   display: flex;
   align-items: center;
@@ -179,14 +175,23 @@
   background-color: #DB4444;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 900px) {
   .coupon-cart-frame{
     flex-wrap: wrap;
   }
   .coupon-container{
     margin-bottom: 10px;
   }
-  .cart-page-section{
-    margin: 0 10px;
+}
+
+@media (max-width: 700px) {
+  .table-container{
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+  .table-container table {
+    width: 100%;
   }
 }
+
