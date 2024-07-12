@@ -31,10 +31,10 @@ async function productsRender() {
                   <img src="${product.image}" alt="${product.title}">
                 </div>
                 <div class="icon-heart">
-                  <i class="fa-regular fa-heart fa-sm"></i>
+                  <i class="far bla fa-regular fa-heart"></i>
                   <span class="tooltip">Add to wishlist</span>
                 </div>
-                <div class="icon-eye">
+                <div class="icon-cart">
                   <i class="fas bla fa-solid fa-cart-shopping"></i>
                   <span class="tooltip">Add to cart</span>
                 </div>
