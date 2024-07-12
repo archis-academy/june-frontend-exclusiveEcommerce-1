@@ -10,19 +10,17 @@ async function productsRender() {
 
 // Best Selling Products Section Start
 const bestSellingProductsContainer = document.getElementById("best-selling-products-api");
+const toggleBtnText = document.getElementById("best-selling-products-btn");
 
 let bestSellingProducts = [];
 let allBestSellingProducts = [];
 
-async function productsRender(viewAll = false) {
+async function productsRender() {
   if (allBestSellingProducts.length === 0) {
     allBestSellingProducts = await getProducts();
   }
 
-  bestSellingProducts;
-  if (viewAll) {
-    bestSellingProducts = allBestSellingProducts;
-  } else {
+  if (bestSellingProducts.length === 0) {
     bestSellingProducts = allBestSellingProducts.slice(0, 4);
   }
 
@@ -80,10 +78,14 @@ function maxTitleCharacter(title, maxLength) {
   }
 }
 
-function viewAll() {
-  productsRender(true);
-  const viewAllBtn = document.getElementById("best-selling-products-btn");
-  viewAllBtn.style.display = "none";
+function toggleProductsView() {
+  if (bestSellingProducts.length === allBestSellingProducts.length) {
+    bestSellingProducts = allBestSellingProducts.slice(0, 4);
+    toggleBtnText.textContent = "View All";
+  } else {
+    bestSellingProducts = allBestSellingProducts;
+    toggleBtnText.textContent = "View Less";
+  }
 }
 
 productsRender();
