@@ -35,7 +35,7 @@ async function productsRender() {
                   <span class="tooltip">Add to wishlist</span>
                 </div>
                 <div class="icon-eye">
-                  <i class="fa-regular fa-eye fa-sm"></i>
+                  <i class="fas bla fa-solid fa-cart-shopping"></i>
                   <span class="tooltip">Add to cart</span>
                 </div>
               </div>
