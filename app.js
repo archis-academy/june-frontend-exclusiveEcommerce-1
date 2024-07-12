@@ -46,20 +46,7 @@ async function productsRender() {
                   <h3 class="base-price"><s>$${product.price}</s></h3>
                 </div>
                 <div class="goods-rating-container">
-                  <div class="filled-stars-container" style="width:${hideTransStars(product)}%;">
-                    <i class="fa-solid fa-star fa-xs"></i>
-                    <i class="fa-solid fa-star fa-xs"></i>
-                    <i class="fa-solid fa-star fa-xs"></i>
-                    <i class="fa-solid fa-star fa-xs"></i>
-                    <i class="fa-solid fa-star fa-xs"></i>
-                  </div>
-                  <div class="transparent-stars-container">
-                    <i class="fa-solid fa-star fa-xs"></i>
-                    <i class="fa-solid fa-star fa-xs"></i>
-                    <i class="fa-solid fa-star fa-xs"></i>
-                    <i class="fa-solid fa-star fa-xs"></i>
-                    <i class="fa-solid fa-star fa-xs"></i>
-                  </div>
+                  ${generateStars(product.rating.rate)}
                   <h4 class="goods-amount">(${product.rating.count})</h4>
                 </div>
               </div>
@@ -90,13 +77,13 @@ function maxTitleCharacter(title, maxLength) {
   }
 }
 
-function starRatingMaker(star_rating) {
-  return Math.ceil((star_rating / 5) * 100);
-}
-
-function hideTransStars(product) {
-  const starRatio = starRatingMaker(product.rating.rate);
-  return starRatio;
+function generateStars(starRating) {
+  const filledStars = Math.round(starRating);
+  const emptyStars = 5 - filledStars;
+  return `
+    ${'<i class="fa-solid fa-star star filled"></i>'.repeat(filledStars)}
+    ${'<i class="fa-solid fa-star star"></i>'.repeat(emptyStars)}
+  `;
 }
 
 productsRender();

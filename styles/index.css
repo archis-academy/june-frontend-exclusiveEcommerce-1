@@ -134,16 +134,12 @@
     gap: 4px;
 }
 
-.transparent-stars-container, .filled-stars-container {
-    display: flex;
-}
-
-.filled-stars-container {
-    color: #FFD43B;
-}
-
-.transparent-stars-container {
+.star {
     color: #ccc;
+}
+
+.star.filled {
+    color: #FFD43B;
 }
 
 .goods-amount {
