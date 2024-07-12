@@ -32,6 +32,25 @@ function changeLang (content) {
 }
 
 /* Homepage Header Section End */
+/* Berhan Homepage Header Section(2) Start */
+document.getElementById("languageButton").addEventListener("click", function() {
+  const content = document.getElementById("languagesContent");
+  const arrow = document.querySelector(".white-arrow");
+  content.classList.toggle("show");
+  arrow.classList.toggle("rotate");
+});
+
+function changeLang (content) {
+  const button = document.getElementById("languageButton");
+  const newButtonText = content.textContent
+  button.innerHTML = `${newButtonText} <span class="white-arrow">&#9662;</span>
+          <div id="dropdownContent" class="black-language-content">
+            <a href="#" class="language-content" onclick="changeLang(this)">English</a>
+            <a href="#" class="language-content" onclick="changeLang(this)">Turkish</a>
+            <a href="#" class="language-content" onclick="changeLang(this)">German</a>
+            <a href="#" class="language-content" onclick="changeLang(this)">French</a>
+          </div>`;
+  button.click();
 
 
 /* Homepage Browse By Category Section Start */
