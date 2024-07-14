@@ -170,10 +170,7 @@
     position: absolute;
     top: 15px;
     right: 15px;
-}
-
-.fa-heart {
-    color: default;
+    color: #850000;
 }
 
 .icon-cart {
@@ -188,6 +185,15 @@
     position: absolute;
     top: 55px;
     right: 15px;
+    color: #0DA2D3;
+}
+
+.icon-heart:hover {
+    color: #BF0D0D;
+}
+
+.icon-cart:hover {
+    color: #00CC29;
 }
 
 .tooltip {
@@ -210,6 +216,10 @@
 
 .icon-cart:hover .tooltip {
     visibility: visible;
+}
+
+.active {
+    color: #D21414;
 }
 /* Best Selling Products Section End */
 

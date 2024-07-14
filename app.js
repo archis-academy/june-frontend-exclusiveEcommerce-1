@@ -31,11 +31,11 @@ async function productsRender() {
                   <img src="${product.image}" alt="${product.title}">
                 </div>
                 <div class="icon-heart">
-                  <i class="far bla fa-regular fa-heart"></i>
+                  <i class="far bla fa-regular fa-heart" id="icon-heart-${product.id}"></i>
                   <span class="tooltip">Add to wishlist</span>
                 </div>
                 <div class="icon-cart">
-                  <i class="fas bla fa-solid fa-cart-shopping"></i>
+                  <i class="fas bla fa-solid fa-cart-shopping" id="icon-cart-${product.id}"></i>
                   <span class="tooltip">Add to cart</span>
                 </div>
               </div>
@@ -64,6 +64,14 @@ function toggleProductsView() {
     toggleBtnText.textContent = "View Less";
   }
   productsRender();
+}
+
+function addToWishlist (productId) {
+  const heartIcon = document.getElementById(`icon-heart-${productId}`);
+}
+
+function addToCart(productId) {
+  const cartIcon = document.getElementById(`icon-cart-${productId}`);
 }
 
 function discount(all_products) {
