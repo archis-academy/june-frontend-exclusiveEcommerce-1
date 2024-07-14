@@ -31,7 +31,7 @@ async function productsRender() {
                   <img src="${product.image}" alt="${product.title}">
                 </div>
                 <div class="icon-heart">
-                  <i class="fa-regular fa-heart fa-beat-fade" id="icon-heart-${product.id}" onclick="toggleWishlist(${product.id})"></i>
+                  <i class="fa-regular fa-heart" id="icon-heart-${product.id}" onclick="toggleWishlist(${product.id})"></i>
                   <span class="tooltip">Add to wishlist</span>
                 </div>
                 <div class="icon-cart">
@@ -70,12 +70,12 @@ function toggleWishlist (productId) {
   const heartIcon = document.getElementById(`icon-heart-${productId}`);
   heartIcon.classList.toggle('active');
   if (heartIcon.classList.contains('active')) {
-    heartIcon.classList.remove('fa-regular', 'fa-beat-fade');
+    heartIcon.classList.remove('fa-regular');
     heartIcon.classList.add('fa-solid');
     heartIcon.style.color = '#C20000';
   } else {
     heartIcon.classList.remove('fa-solid');
-    heartIcon.classList.add('fa-regular', 'fa-beat-fade');
+    heartIcon.classList.add('fa-regular');
     heartIcon.style.color = '';
   }
 }
