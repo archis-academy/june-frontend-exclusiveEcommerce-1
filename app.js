@@ -66,7 +66,7 @@ function toggleProductsView() {
   productsRender();
 }
 
-function toggleWishlist (productId) {
+function toggleWishlist(productId) {
   const heartIcon = document.getElementById(`icon-heart-${productId}`);
   heartIcon.classList.toggle('active');
   if (heartIcon.classList.contains('active')) {
@@ -116,3 +116,4 @@ function generateStars(starRating) {
 }
 
 productsRender();
+// Best Selling Products Section End
