@@ -63,6 +63,7 @@ function toggleProductsView() {
     bestSellingProducts = allBestSellingProducts;
     toggleBtnText.textContent = "View Less";
   }
+  productsRender();
 }
 
 function discount(all_products) {
