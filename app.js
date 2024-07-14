@@ -31,11 +31,11 @@ async function productsRender() {
                   <img src="${product.image}" alt="${product.title}">
                 </div>
                 <div class="icon-heart">
-                  <i class="far bla fa-regular fa-heart" id="icon-heart-${product.id}"></i>
+                  <i class="fa-regular fa-heart fa-beat-fade" id="icon-heart-${product.id}" onclick="toggleWishlist(${product.id})"></i>
                   <span class="tooltip">Add to wishlist</span>
                 </div>
                 <div class="icon-cart">
-                  <i class="fas bla fa-solid fa-cart-shopping" id="icon-cart-${product.id}"></i>
+                  <i class="fa-solid fa-cart-shopping" id="icon-cart-${product.id}" onclick="toggleCart(${product.id})"></i>
                   <span class="tooltip">Add to cart</span>
                 </div>
               </div>
@@ -66,12 +66,32 @@ function toggleProductsView() {
   productsRender();
 }
 
-function addToWishlist (productId) {
+function toggleWishlist (productId) {
   const heartIcon = document.getElementById(`icon-heart-${productId}`);
+  heartIcon.classList.toggle('active');
+  if (heartIcon.classList.contains('active')) {
+    heartIcon.classList.remove('fa-regular', 'fa-beat-fade');
+    heartIcon.classList.add('fa-solid');
+    heartIcon.style.color = '#C20000';
+  } else {
+    heartIcon.classList.remove('fa-solid');
+    heartIcon.classList.add('fa-regular', 'fa-beat-fade');
+    heartIcon.style.color = '';
+  }
 }
 
-function addToCart(productId) {
+function toggleCart(productId) {
   const cartIcon = document.getElementById(`icon-cart-${productId}`);
+  cartIcon.classList.toggle('active');
+  if (cartIcon.classList.contains('active')) {
+    cartIcon.classList.remove('fa-cart-shopping');
+    cartIcon.classList.add('fa-check');
+    cartIcon.style.color = '#1A9900';
+  } else {
+    cartIcon.classList.remove('fa-check');
+    cartIcon.classList.add('fa-cart-shopping');
+    cartIcon.style.color = '';
+  }
 }
 
 function discount(all_products) {
