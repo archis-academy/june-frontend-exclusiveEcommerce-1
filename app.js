@@ -14,6 +14,8 @@ const toggleBtnText = document.getElementById("best-selling-products-btn");
 
 let bestSellingProducts = [];
 let allBestSellingProducts = [];
+let allWishlistProducts = [];
+let allCartProducts = [];
 
 async function productsRender() {
   if (allBestSellingProducts.length === 0) {
@@ -94,8 +96,8 @@ function toggleCart(productId) {
   }
 }
 
-function discount(all_products) {
-  return all_products.price - (all_products.price * 30) / 100;
+function discount(product) {
+  return product.price - (product.price * 30) / 100;
 }
 
 function maxTitleCharacter(title, maxLength) {
@@ -113,6 +115,42 @@ function generateStars(starRating) {
     ${'<i class="fa-solid fa-star star filled"></i>'.repeat(filledStars)}
     ${'<i class="fa-solid fa-star star"></i>'.repeat(emptyStars)}
   `;
+}
+
+function addToWishlist(productId, products) {
+  allWishlistProducts = JSON.parse(localStorage.getItem("allWishlistProducts")) || [];
+  const addedProduct = products.find((product) => product.id === productId);
+  if (!addedProduct) return;
+  const inWishlist = allWishlistProducts.some((product) => product.id === productId);
+  if (inWishlist) {
+    allWishlistProducts = allWishlistProducts.filter((product) => product.id !== productId);
+    alert("Product removed from wishlist");
+  } else {
+    allWishlistProducts.push(addedProduct);
+    alert("Product added to wishlist");
+  }
+  localStorage.setItem("allWishlistProducts", JSON.stringify(allWishlistProducts));
+}
+
+function addToCart(productId, products) {
+  allCartProducts = JSON.parse(localStorage.getItem("allCartProducts")) || [];
+  const addedProduct = products.find((product) => product.id === productId);
+  if (!addedProduct) return;
+  const inCart = allCartProducts.some((product) => product.id === productId);
+  if (inCart) {
+    alert("Product removed from cart");
+    removeFromCart(productId);
+  } else {
+    allCartProducts.push(addedProduct);
+    localStorage.setItem("allCartProducts", JSON.stringify(allCartProducts));
+    alert("Product added to Cart");
+  }
+}
+
+function removeFromCart(productId) {
+  allCartProducts = JSON.parse(localStorage.getItem("allCartProducts")) || [];
+  const updatedCartProducts = allCartProducts.filter((product) => product.id !== productId);
+  localStorage.setItem("allCartProducts", JSON.stringify(updatedCartProducts));
 }
 
 productsRender();
