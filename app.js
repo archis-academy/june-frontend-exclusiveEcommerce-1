@@ -130,7 +130,9 @@ function addToWishlist(productId, products) {
     alert("Product added to wishlist");
   }
   localStorage.setItem("allWishlistProducts", JSON.stringify(allWishlistProducts));
+  console.log(çalişiyomu);
 }
+
 
 function addToCart(productId, products) {
   allCartProducts = JSON.parse(localStorage.getItem("allCartProducts")) || [];
