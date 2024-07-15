@@ -43,18 +43,12 @@ async function productsRender(start, end) {
     return fiyat - (fiyat * indirimYuzdesi) / 100;
   }
 
-  function getStarRating(rating) {
-    const fullStar = '<i class="fas fa-star"></i>';
-    const halfStar = '<i class="fas fa-star-half-alt"></i>';
-    const emptyStar = '<i class="far fa-star"></i>';
-    const fullStarCount = Math.floor(rating);
-    const halfStarCount = rating - fullStarCount >= 0.5 ? 1 : 0;
-    const emptyStarCount = 5 - fullStarCount - halfStarCount;
-    return (
-      fullStar.repeat(fullStarCount) +
-      halfStar.repeat(halfStarCount) +
-      emptyStar.repeat(emptyStarCount)
-    );
+  function starsRating(rating) {
+    const maxStar = Math.floor(rating);
+    const emptyStar = 5 - maxStar;
+    const maxStarimg = '<i class="fas fa-star"></i>';
+    const emptyStarimg = '<i class="far fa-star"></i>';
+    return maxStarimg.repeat(maxStar) + emptyStarimg.repeat(emptyStar);
   }
 
   selectedProducts.forEach((product) => {
@@ -76,7 +70,7 @@ async function productsRender(start, end) {
       <strike class="price">${product.price.toFixed(2)}₺</strike>
     </div>
     <div>
-   <div>${getStarRating(product.rating.rate)}</div>
+   <div>${starsRating(product.rating.rate)}</div>
     <div>(${product.rating.count})</div>
     </div>
       </div>
