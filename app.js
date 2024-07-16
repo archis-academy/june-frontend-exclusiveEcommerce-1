@@ -54,10 +54,11 @@ async function productsRender(start, end) {
   selectedProducts.forEach((product) => {
     const productsCard = `
       <div class="products-kart">
-      <div class="img-box">
+      <div class="img-box" onmouseenter="showAddToCart(this)" onmouseleave="hideAddToCart(this)">
         <img class="products-images" src="${product.image}" alt="${
       product.title
     }">
+        <button class="add-to-cart">Add To Cart</button>
       </div>
         <div><p class="products-information">${product.title
           .substring(0, 20)
@@ -106,3 +107,11 @@ function startCountdown() {
 }
 
 startCountdown();
+
+function showAddToCart(show) {
+  show.querySelector(".add-to-cart").style.display = "block";
+}
+
+function hideAddToCart(hidden) {
+  hidden.querySelector(".add-to-cart").style.display = "none";
+}
