@@ -110,6 +110,7 @@ function toggleCart(productId) {
     cartIcon.classList.add('fa-cart-shopping');
     cartIcon.style.color = '';
   }
+  addToCart(productId, allBestSellingProducts);
 }
 
 function addToCart(productId, products) {
@@ -118,19 +119,13 @@ function addToCart(productId, products) {
   if (!addedProduct) return;
   const inCart = allCartProducts.some((product) => product.id === productId);
   if (inCart) {
+    allCartProducts = allCartProducts.filter((product) => product.id !== productId);
     alert("Product removed from cart");
-    removeFromCart(productId);
   } else {
     allCartProducts.push(addedProduct);
-    localStorage.setItem("allCartProducts", JSON.stringify(allCartProducts));
-    alert("Product added to Cart");
+    alert("Product added to cart");
   }
-}
-
-function removeFromCart(productId) {
-  allCartProducts = JSON.parse(localStorage.getItem("allCartProducts")) || [];
-  const updatedCartProducts = allCartProducts.filter((product) => product.id !== productId);
-  localStorage.setItem("allCartProducts", JSON.stringify(updatedCartProducts));
+  localStorage.setItem("allCartProducts", JSON.stringify(allCartProducts));
 }
 
 function discount(product) {
