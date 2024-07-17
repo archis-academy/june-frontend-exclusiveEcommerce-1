@@ -20,7 +20,7 @@ async function productsRender() {
 
     productRow.innerHTML = `
       <td class="table-product-name">
-        <button class="delete-product-btn">X</button>
+        <button onclick="deleteProduct(${product.id})"  class="delete-product-btn">X</button>
         <img class="table-product-img" src="${product.image}" alt="${product.title}"> 
         <p class="product-name">${limitedTitle}</p>
       </td>
@@ -40,14 +40,18 @@ async function productsRender() {
     `;
 
     productTableBody.appendChild(productRow);
-
-    productRow.querySelector(".delete-product-btn").addEventListener("click", () => {
-      productRow.remove();
-      updateTotalSum();
     });
 
     updateTotalSum();
-  });
+}
+
+function deleteProduct(productId) {
+  const rowElement = document.querySelector(`tr[data-product-id="${productId}"]`);
+  rowElement.remove();
+  let cartProducts = JSON.parse(localStorage.getItem("cartProducts")); 
+  cartProducts = cartProducts.filter(product => product.id !== productId);
+  localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  updateTotalSum();
 }
 
 function quantityDecrease (productId) {
