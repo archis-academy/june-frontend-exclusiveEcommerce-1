@@ -190,11 +190,11 @@
     color: #999;
     
 }
-.likeproduct i:hover{
+.exprowhistlist i:hover{
     color: red;
 }
-.exproshoping i:hover{
-    color: blue;
+.exproshopingi i:hover{
+    color: rgb(27, 27, 29);
 }
 .exproshoping i{
     
@@ -203,7 +203,7 @@
 
     width: 30px;
     height: 30px;
-    background-color: #E0E0E0;
+    background-color: #ffffff;
     display: inline-flex;
     justify-content: center;
     align-items: center;
