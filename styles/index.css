@@ -1,0 +1,300 @@
+/* Homepage Browse By Category Section Start */
+.browse-by-cat {
+  margin: 0 auto;
+  padding: 75px 25px;
+  max-width: 1300px;
+  border-bottom: #0000004d 0.5px solid;
+  border-top: #0000004d 0.5px solid;
+}
+.browse-by-cat-titles {
+}
+.bbc-titles-h6 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.bbc-titles-h6 div {
+  background-color: #db4444;
+  width: 20px;
+  height: 40px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+.bbc-titles-h6 h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #db4444;
+  font-size: 16px;
+}
+.bbc-titles-h1 {
+  display: flex;
+}
+.bbc-titles-h1 h1 {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 600;
+}
+.bbc-left-arrow {
+  margin-left: auto;
+  max-width: 46px;
+  max-height: 46px;
+}
+.bbc-right-arrow {
+  max-width: 46px;
+  max-height: 46px;
+}
+.browse-by-cat-categories {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.bbc-category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: #0000004d 1px solid;
+  border-radius: 4px;
+  width: 170px;
+  height: 145px;
+}
+
+.bbc-cat-img {
+  max-width: 56px;
+}
+
+.bbc-cat-text {
+  max-height: 24px;
+  font-family: "Popins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  margin-top: 16px;
+}
+
+.active-category {
+  background-color: #db4444;
+}
+.active-category p {
+  color: #fafafa;
+}
+.active-category img {
+  filter: invert(100%);
+}
+
+/* Homepage Browse By Category Section End */
+/*Buse/JU-5 Homepage Featured Product START*/
+.featured-products-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1350px;
+  min-height: 500px;
+  margin: auto;
+  padding: 70px 50px;
+  background-color: black;
+}
+
+.featured-products {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 400px;
+  min-height: 400px;
+}
+
+.categories-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #00ff66;
+}
+
+.featured-slogan {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 60px;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+.timer-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 62px;
+  height: 62px;
+  border: none;
+  border-radius: 50%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 18px;
+  background-color: white;
+}
+
+.timer-value {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.buy-button {
+  width: 200px;
+  padding: 16px 48px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  background-color: #00ff66;
+  color: white;
+  cursor: pointer;
+}
+
+.buy-button:hover {
+  background: rgb(0, 255, 102);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 102, 1) 0%,
+    rgba(2, 133, 55, 1) 100%
+  );
+}
+
+.speaker-photo {
+  z-index: 2;
+  filter: drop-shadow(5px 5px 100px #717171);
+}
+
+@media (max-width: 880px) {
+  .featured-products-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 50px 20px;
+  }
+  .speaker-photo {
+    width: 100%;
+  }
+}
+/*Buse/JU-5 Homepage Featured Product*/
+/* Berhan Footer Start*/
+.footer-container {
+  background-color: black;
+  flex-wrap: wrap;
+  display: flex;
+  padding: 15px;
+  margin-top: 120px;
+}
+.information-areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-left: 15px;
+  margin: auto;
+}
+.ft-raid-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  color: #fafafa;
+}
+.ft-lower-title {
+  font-family: "poppins", sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fafafa;
+}
+.ft-second-title {
+  font-family: "poppins", sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fafafa;
+  margin-top: 20px;
+}
+.ft-information-text {
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #fafafa;
+  margin-top: 15px;
+}
+.ft-adress {
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #fafafa;
+  margin-top: 15px;
+  width: 190px;
+}
+.ft-money-information {
+  font-family: "poppins", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #fafafa;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  opacity: 70%;
+}
+.ft-input {
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 15px 15px;
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  background-color: black;
+  color: #fafafa;
+  margin-top: 20px;
+}
+.Download-app-area {
+  position: relative;
+}
+.store-img1 {
+  position: absolute;
+}
+.ft-image-box2 {
+  margin-top: 20px;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 20px;
+}
+.ft-input-section {
+  position: relative;
+}
+.ft-send-icon {
+  position: absolute;
+  left: 195px;
+  top: 35px;
+}
+.ft-second-title:hover {
+  cursor: pointer;
+  color: #db4444;
+}
+.ft-information-text:hover {
+  cursor: pointer;
+  color: #db4444;
+}
+.ft-send-icon:hover {
+  cursor: pointer;
+}
+/* Berhan Footer End*/
