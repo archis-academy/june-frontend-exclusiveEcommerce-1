@@ -58,7 +58,9 @@ async function productsRender(start, end) {
         <img class="products-images" src="${product.image}" alt="${
       product.title
     }">
-        <button class="add-to-cart">Add To Cart</button>
+        <button onclick="addCartProduct(${product.id})" id="cart-${
+      product.id
+    }" class="add-to-cart">Add To Cart</button>
       </div>
         <div><p class="products-information">${product.title
           .substring(0, 20)
@@ -114,4 +116,22 @@ function showAddToCart(show) {
 
 function hideAddToCart(hidden) {
   hidden.querySelector(".add-to-cart").style.display = "none";
+}
+
+async function addCartProduct(productId) {
+  const products = await getProducts();
+  const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+  const product = products.find((product) => product.id == productId);
+  const isProductInCart = cartProducts.some(
+    (product) => product.id == productId
+  );
+  if (!isProductInCart) {
+    localStorage.setItem(
+      "cartProducts",
+      JSON.stringify([...cartProducts, product])
+    );
+    document.getElementById(`cart-${productId}`).innerHTML = "Go To Cart";
+  } else {
+    alert("Ürün zaten sepetinizde!");
+  }
 }
