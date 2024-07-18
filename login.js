@@ -30,8 +30,9 @@
             userList[userIndex].isLogin = true;
             localStorage.setItem("userList", JSON.stringify(userList));
             alert("Giriş Başarılı!");
-           // window.location.href = "/index.html";
+            window.location.href = "/index.html";
         }
+
 
 });
 
