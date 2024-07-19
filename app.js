@@ -69,9 +69,9 @@ function exprotoggleCartIcon(productId) {
   expupdateCartStorage(productId, !isAdded);
 }
 
-const expreProductsBtn = document.querySelector(".pre-button");
-const expnextProductsBtn = document.querySelector(".next-button");
-const expviewExpallProductsBtn = document.querySelector(".btn-view-prd");
+const expreProductsBtn = document.querySelector(".exp-pre-button");
+const expnextProductsBtn = document.querySelector(".exp-next-button");
+const expviewExpallProductsBtn = document.querySelector(".exp-btn-view-prd");
 
 expreProductsBtn.addEventListener("click", () => {
   if (exprostart > 0) {

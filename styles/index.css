@@ -167,12 +167,12 @@
     line-height: 48px;
     font-weight: 600;
 }
-.pre-button,
-.next-button {
+.exp-pre-button,
+.exp-next-button {
     max-width: 100%;
 }
-.pre-button,
-.next-button {
+.exp-pre-button,
+.exp-next-button {
     width: 46px;
     height: 46px;
     background-color: #F5F5F5;
@@ -184,8 +184,8 @@
     border: none;
 }
 
-.pre-button:hover,
-.next-button:hover {
+.exp-pre-button:hover,
+.exp-next-button:hover {
     background-color: #E0E0E0;
 }
 
@@ -193,21 +193,21 @@
     margin-left: auto;
 }
 
-.btn-buttons {
+.exp-view-container {
     display: flex;
     align-items: center;
     justify-content: center;
 
 }
 
-.btn-view-prd {
+.exp-btn-view-prd {
     padding: 16px 48px 16px 48px;
     background-color: #DB4444;
     border: none;
     margin-top: 20px;
     cursor: pointer;
 }
-.btn-view-prd:hover {
+.exp-btn-view-prd:hover {
     background-color: #ee3939;;
 }
 #exproheart {
@@ -302,8 +302,8 @@
         
     }
 
-    .pre-button,
-    .next-button {
+    .exp-pre-button,
+    .exp-next-button {
         width: 26px;
         height: 26px;
         background-color: #F5F5F5;
