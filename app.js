@@ -1,131 +1,131 @@
-let allProducts = [];
-let start = 0;
-let end = 8;
-const productsPerPage = 8;
+let ExpallProducts = [];
+let exprostart = 0;
+let exproend = 8;
+const exproductsPerPage = 8;
 
 async function getProducts() {
-  if (allProducts.length > 0) return allProducts;
+  if (ExpallProducts.length > 0) return ExpallProducts;
 
   const productsResponse = await fetch("https://fakestoreapi.com/products");
   const productsData = await productsResponse.json();
-  allProducts = productsData;
+  ExpallProducts = productsData;
   return productsData;
 }
 
-function updateWishlistStorage(productId, add) {
-  let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+function expupdateWishlistStorage(productId, add) {
+  let wishlist = JSON.parse(localStorage.getItem('expwishlist')) || [];
   if (add) {
     if (!wishlist.includes(productId)) wishlist.push(productId);
   } else {
     wishlist = wishlist.filter(id => id !== productId);
   }
-  localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  localStorage.setItem('expwishlist', JSON.stringify(wishlist));
 }
 
-function updateCartStorage(productId, add) {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+function expupdateCartStorage(productId, add) {
+  let expcart = JSON.parse(localStorage.getItem('expcart')) || [];
   if (add) {
-    if (!cart.includes(productId)) cart.push(productId);
+    if (!expcart.includes(productId)) expcart.push(productId);
   } else {
-    cart = cart.filter(id => id !== productId);
+    expcart = expcart.filter(id => id !== productId);
   }
-  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('expcart', JSON.stringify(expcart));
 }
 
-function loadInitialStates() {
-  const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+function exploadInitialStates() {
+  const wishlist = JSON.parse(localStorage.getItem('expwishlist')) || [];
   wishlist.forEach(productId => {
-    const heartIcon = document.getElementById(`wishlist-${productId}`);
+    const heartIcon = document.getElementById(`expwishlist-${productId}`);
     if (heartIcon) {
       heartIcon.classList.replace('far', 'fas');
       heartIcon.style.color = 'red';
     }
   });
 
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  cart.forEach(productId => {
-    const cartIcon = document.getElementById(`cart-${productId}`);
-    if (cartIcon) {
-      cartIcon.classList.add('fa-check');
-      cartIcon.style.color = 'green';
+  const expcart = JSON.parse(localStorage.getItem('expcart')) || [];
+  expcart.forEach(productId => {
+    const expcartIcon = document.getElementById(`expcart-${productId}`);
+    if (expcartIcon) {
+      expcartIcon.classList.add('fa-check');
+      expcartIcon.style.color = 'green';
     }
   });
 }
 
-function toggleWishlistIcon(productId) {
-  const wishlistIcon = document.getElementById(`wishlist-${productId}`);
+function exprotoggleWishlistIcon(productId) {
+  const wishlistIcon = document.getElementById(`expwishlist-${productId}`);
   const isAdded = wishlistIcon.classList.contains('fas');
   wishlistIcon.classList.toggle('fas');
   wishlistIcon.classList.toggle('far');
   wishlistIcon.style.color = isAdded ? '' : 'red';
-  updateWishlistStorage(productId, !isAdded);
+  expupdateWishlistStorage(productId, !isAdded);
 }
 
-function toggleCartIcon(productId) {
-  const cartIcon = document.getElementById(`cart-${productId}`);
-  const isAdded = cartIcon.classList.contains('fa-check');
-  cartIcon.classList.toggle('fa-check');
-  cartIcon.style.color = isAdded ? '' : 'green';
-  updateCartStorage(productId, !isAdded);
+function exprotoggleCartIcon(productId) {
+  const expcart = document.getElementById(`expcart-${productId}`);
+  const isAdded = expcart.classList.contains('fa-check');
+  expcart.classList.toggle('fa-check');
+  expcart.style.color = isAdded ? '' : 'green';
+  expupdateCartStorage(productId, !isAdded);
 }
 
-const preProductsBtn = document.querySelector(".pre-button");
-const nextProductsBtn = document.querySelector(".next-button");
-const viewAllProductsBtn = document.querySelector(".btn-view-prd");
+const expreProductsBtn = document.querySelector(".pre-button");
+const expnextProductsBtn = document.querySelector(".next-button");
+const expviewExpallProductsBtn = document.querySelector(".btn-view-prd");
 
-preProductsBtn.addEventListener("click", () => {
-  if (start > 0) {
-    start -= 1;
-    end -= 1;
-    productsRender();
-    nextProductsBtn.disabled = false;
+expreProductsBtn.addEventListener("click", () => {
+  if (exprostart > 0) {
+    exprostart -= 1;
+    exproend -= 1;
+    expproductsRender();
+    expnextProductsBtn.disabled = false;
   }
-  if (start <= 0) preProductsBtn.disabled = true;
+  if (exprostart <= 0) expreProductsBtn.disabled = true;
 });
 
-nextProductsBtn.addEventListener("click", async () => {
-  if (end < allProducts.length) {
-    start += 1;
-    end += 1;
-    productsRender();
-    preProductsBtn.disabled = false;
+expnextProductsBtn.addEventListener("click", async () => {
+  if (exproend < ExpallProducts.length) {
+    exprostart += 1;
+    exproend += 1;
+    expproductsRender();
+    expreProductsBtn.disabled = false;
   }
-  if (end >= allProducts.length) nextProductsBtn.disabled = true;
+  if (exproend >= ExpallProducts.length) expnextProductsBtn.disabled = true;
 });
 
-viewAllProductsBtn.addEventListener("click", async () => {
-  if (viewAllProductsBtn.textContent === "View All Products") {
-    viewAllProductsBtn.textContent = "View Less Products";
-    start = 0;
-    end = allProducts.length;
-    productsRender();
-    preProductsBtn.disabled = true;
-    nextProductsBtn.disabled = true;
+expviewExpallProductsBtn.addEventListener("click", async () => {
+  if (expviewExpallProductsBtn.textContent === "View All Products") {
+    expviewExpallProductsBtn.textContent = "View Less Products";
+    exprostart = 0;
+    exproend = ExpallProducts.length;
+    expproductsRender();
+    expreProductsBtn.disabled = true;
+    expnextProductsBtn.disabled = true;
   } else {
-    start = 0;
-    end = productsPerPage;
-    viewAllProductsBtn.textContent = "View All Products";
-    productsRender();
-    preProductsBtn.disabled = false;
-    nextProductsBtn.disabled = false;
+    exprostart = 0;
+    exproend = exproductsPerPage;
+    expviewExpallProductsBtn.textContent = "View All Products";
+    expproductsRender();
+    expreProductsBtn.disabled = false;
+    expnextProductsBtn.disabled = false;
   }
 });
 
-async function productsRender() {
-  const loader = document.getElementById("loader");
+async function expproductsRender() {
+  const loader = document.getElementById("exploader");
   const container = document.getElementById("exprocontainer");
 
   loader.classList.remove("hidden");
   container.classList.add("hidden");
 
   const products = await getProducts();
-  let slicedProducts = products.slice(start, end);
+  let slicedProducts = products.slice(exprostart, exproend);
 
   function truncateTitle(title, maxLength) {
     return title.length > maxLength ? title.substring(0, maxLength) + "..." : title;
   }
 
-  function getStarRating(rating) {
+  function ExpgetStarRating(rating) {
     const fullStar = '<i class="fas fa-star"></i>';
     const emptyStar = '<i class="far fa-star"></i>';
     const maxStars = 5;
@@ -141,25 +141,25 @@ async function productsRender() {
           <div class="exproducts">
             <img class="exproimg" src=${product.image} alt="Product Image">
             <span class="exp-pro-icons">
-              <div class="exprowhistlist"><i onclick="toggleWishlistIcon(${product.id})" id="wishlist-${product.id}" class="far fa-heart"></i></div>
-              <div class="exproshopingi"><i onclick="toggleCartIcon(${product.id})" id="cart-${product.id}" class="fas fa-cart-plus"></i></div>
+              <div class="exprowhistlist"><i onclick="exprotoggleWishlistIcon(${product.id})" id="expwishlist-${product.id}" class="far fa-heart"></i></div>
+              <div class="exproshopingi"><i onclick="exprotoggleCartIcon(${product.id})" id="expcart-${product.id}" class="fas fa-cart-plus"></i></div>
             </span>
           </div>
           <div class="exprotitle"><h3>${truncateTitle(product.title, 20)}</h3></div>
           <div class="expdattotaly">
             <div class="exproprice"><span>$${product.price}</span></div>
-            <div class="exprorate"><span>${getStarRating(product.rating.rate)}</span></div>
+            <div class="exprorate"><span>${ExpgetStarRating(product.rating.rate)}</span></div>
             <div class="exprocount"><span>(${product.rating.count})</span></div>
           </div>
         </div>`;
     })
     .join("");
 
-  loadInitialStates();
+    exploadInitialStates();
 
   loader.classList.add("hidden");
   container.classList.remove("hidden");
 }
 
-productsRender();
+expproductsRender();
 
