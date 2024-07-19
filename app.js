@@ -1,8 +1,11 @@
 let allProducts = [];
+let start = 0;
+let end = 8;
+const productsPerPage = 8;
 
 async function getProducts() {
   if (allProducts.length > 0) return allProducts;
-  
+
   const productsResponse = await fetch("https://fakestoreapi.com/products");
   const productsData = await productsResponse.json();
   allProducts = productsData;
@@ -12,9 +15,7 @@ async function getProducts() {
 function updateWishlistStorage(productId, add) {
   let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
   if (add) {
-    if (!wishlist.includes(productId)) {
-      wishlist.push(productId);
-    }
+    if (!wishlist.includes(productId)) wishlist.push(productId);
   } else {
     wishlist = wishlist.filter(id => id !== productId);
   }
@@ -24,9 +25,7 @@ function updateWishlistStorage(productId, add) {
 function updateCartStorage(productId, add) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   if (add) {
-    if (!cart.includes(productId)) {
-      cart.push(productId);
-    }
+    if (!cart.includes(productId)) cart.push(productId);
   } else {
     cart = cart.filter(id => id !== productId);
   }
@@ -35,8 +34,6 @@ function updateCartStorage(productId, add) {
 
 function loadInitialStates() {
   const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
   wishlist.forEach(productId => {
     const heartIcon = document.getElementById(`wishlist-${productId}`);
     if (heartIcon) {
@@ -45,6 +42,7 @@ function loadInitialStates() {
     }
   });
 
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
   cart.forEach(productId => {
     const cartIcon = document.getElementById(`cart-${productId}`);
     if (cartIcon) {
@@ -75,48 +73,51 @@ const preProductsBtn = document.querySelector(".pre-button");
 const nextProductsBtn = document.querySelector(".next-button");
 const viewAllProductsBtn = document.querySelector(".btn-view-prd");
 
-let start = 0;
-let end = 8;
-
 preProductsBtn.addEventListener("click", () => {
   if (start > 0) {
     start -= 1;
     end -= 1;
-    productsRender(start, end);
+    productsRender();
     nextProductsBtn.disabled = false;
   }
-  if (start === 0) {
-    preProductsBtn.disabled = true;
-  }
+  if (start <= 0) preProductsBtn.disabled = true;
 });
 
-nextProductsBtn.addEventListener("click", () => {
+nextProductsBtn.addEventListener("click", async () => {
   if (end < allProducts.length) {
     start += 1;
     end += 1;
-    productsRender(start, end);
+    productsRender();
     preProductsBtn.disabled = false;
   }
-  if (end === allProducts.length) {
-    nextProductsBtn.disabled = true;
-  }
+  if (end >= allProducts.length) nextProductsBtn.disabled = true;
 });
 
-viewAllProductsBtn.addEventListener("click", () => {
+viewAllProductsBtn.addEventListener("click", async () => {
   if (viewAllProductsBtn.textContent === "View All Products") {
     viewAllProductsBtn.textContent = "View Less Products";
-    productsRender(0, allProducts.length);
+    start = 0;
+    end = allProducts.length;
+    productsRender();
     preProductsBtn.disabled = true;
     nextProductsBtn.disabled = true;
   } else {
-    productsRender(0, 8);
+    start = 0;
+    end = productsPerPage;
     viewAllProductsBtn.textContent = "View All Products";
+    productsRender();
     preProductsBtn.disabled = false;
     nextProductsBtn.disabled = false;
   }
 });
 
-async function productsRender(start, end) {
+async function productsRender() {
+  const loader = document.getElementById("loader");
+  const container = document.getElementById("exprocontainer");
+
+  loader.classList.remove("hidden");
+  container.classList.add("hidden");
+
   const products = await getProducts();
   let slicedProducts = products.slice(start, end);
 
@@ -154,7 +155,11 @@ async function productsRender(start, end) {
     })
     .join("");
 
-  loadInitialStates(); // Load the state of wishlist and cart icons
+  loadInitialStates();
+
+  loader.classList.add("hidden");
+  container.classList.remove("hidden");
 }
 
-productsRender(start, end);
+productsRender();
+
