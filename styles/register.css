@@ -127,5 +127,26 @@
     color: #db4444;;
 }
 
+@media (max-width: 600px) {
+    .register-container {
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .register-form{
+      margin: 30px 0 0 0;
+    }
+    
+    .image-box {
+      max-width: 100%;
+      max-height: 50%;
+    }
+    
+    .register-form {
+      margin-left: 0;
+    }
+  }
+  
 
 
