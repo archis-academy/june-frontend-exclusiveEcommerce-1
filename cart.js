@@ -106,7 +106,6 @@ document.querySelector('.coupon-button').addEventListener('click', function() {
   const subtotal = parseFloat(subtotalElement.innerText.replace('$', ''));
   const discountQuantity = subtotal * 0.20;
 
-
   if (couponCode === 'COUPON20') {
     const discountPrice = subtotal - discountQuantity;
     totalPriceElement.innerText = `$${discountPrice.toFixed(2)}`; 
