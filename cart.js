@@ -5,15 +5,18 @@ async function getProducts() {
 }
 async function productsRender() {
   // gelen datayı burda düzenlenmesi bekleyerek products içine atıyoruz ve bu fonksiyonun içinde kullanmaya devam ediyoruz
-  const products = await getProducts();
-
-  localStorage.setItem("cartProducts", JSON.stringify(products));
+  
+  let products = JSON.parse(localStorage.getItem("cartProducts"));
+  if (!products) {
+    products = await getProducts();
+    localStorage.setItem("cartProducts", JSON.stringify(products));
+  }
 
   const productTableBody = document.getElementById("productTableBody");
 
   products.forEach(product => {
     const productRow = document.createElement("tr");
-    productRow.classList.add("table-row");
+    productRow.classList.add("table-row");  
     productRow.setAttribute('data-product-id', product.id);
 
     const limitedTitle = product.title.length > 20 ? product.title.substring(0, 20) + '...' : product.title;
@@ -48,10 +51,10 @@ async function productsRender() {
 function deleteProduct(productId) {
   const rowElement = document.querySelector(`tr[data-product-id="${productId}"]`);
   rowElement.remove();
-  let cartProducts = JSON.parse(localStorage.getItem("cartProducts")); 
+  let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [] ; 
   cartProducts = cartProducts.filter(product => product.id !== productId);
   localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
-  updateTotalSum();
+  productsRender();
 }
 
 function quantityDecrease (productId) {
