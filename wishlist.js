@@ -14,6 +14,7 @@ function renderProducts(){
    }
 
 }
+renderProducts();
 
 function displayWishList(products){
     wishlistcard.innerHTML=products.map(product =>createProductCard(product)).join("");
@@ -22,14 +23,16 @@ function displayWishList(products){
 function createProductCard(product){
     return `
             <div class="container-card">
-                <img onclick="deleteProduct(${product.id})" class="icons" src="images/wishlist-icon-svg/>
+                <img onclick="deleteProduct(${product.id})" class="icons" src="images/cart-icon.svg"/>
+                 <div class="img-container">
                 <img class="img-product" src="${product.image}" alt="${product.title}" />
+                </div>
                 <p onclick="addProductToCart(${product.id})" class="product-paragraph">Add To Cart</p>
                 <div>
                     <p class="explanation-product">${truncateText(product.title, 20)}</p>
                 </div>
                 <div class="prices">
-                    <p>${product.price}₺</p>
+                    <p>$${product.price}</p>
                 </div>
             </div>
         `;
@@ -40,7 +43,7 @@ function truncateText(text, maxLength) {
 }
 
 function addProductToCart(productID){
-    const newCartProduct=wishlistProducts.find((product)=>product.id===productID);
+    const newCartProduct=JSON.parse(localStorage.getItem("wishlistProducts")).find((product)=>product.id===productID);
     let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
 
     if (!cartProducts.some(product => product.id === newCartProduct.id)) {
