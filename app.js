@@ -18,43 +18,47 @@ let wishlistProducts = [];
 let cartProducts = [];
 
 async function productsRender() {
-  if (allBestSellingProducts.length === 0) {
-    allBestSellingProducts = await getProducts();
-  }
+  try {
+    if (allBestSellingProducts.length === 0) {
+      allBestSellingProducts = await getProducts();
+    }
 
-  if (bestSellingProducts.length === 0) {
-    bestSellingProducts = allBestSellingProducts.slice(0, 4);
-  }
+    if (bestSellingProducts.length === 0) {
+      bestSellingProducts = allBestSellingProducts.slice(0, 4);
+    }
 
-  bestSellingProductsContainer.innerHTML = bestSellingProducts.map((product) => {
-    return `<div class="homepage-best-selling-products-container-goods">
-              <div class="homepage-best-selling-products-container-goods-img">
-                <div class="homepage-best-selling-products-img-container">
-                  <img src="${product.image}" alt="${product.title}">
+    bestSellingProductsContainer.innerHTML = bestSellingProducts.map((product) => {
+      return `<div class="homepage-best-selling-products-container-goods">
+                <div class="homepage-best-selling-products-container-goods-img">
+                  <div class="homepage-best-selling-products-img-container">
+                    <img src="${product.image}" alt="${product.title}">
+                  </div>
+                  <div class="icon-wishlist">
+                    <i class="fa-regular fa-heart" id="icon-wishlist-${product.id}" onclick="toggleItem(${product.id}, 'wishlist', allBestSellingProducts)"></i>
+                    <span class="tooltip">Add to wishlist</span>
+                  </div>
+                  <div class="icon-cart">
+                    <i class="fa-solid fa-cart-shopping" id="icon-cart-${product.id}" onclick="toggleItem(${product.id}, 'cart', allBestSellingProducts)"></i>
+                    <span class="tooltip">Add to cart</span>
+                  </div>
                 </div>
-                <div class="icon-wishlist">
-                  <i class="fa-regular fa-heart" id="icon-wishlist-${product.id}" onclick="toggleItem(${product.id}, 'wishlist', allBestSellingProducts)"></i>
-                  <span class="tooltip">Add to wishlist</span>
+                <div class="goods-info">
+                  <h3>${maxTitleCharacter(product.title, 28)}</h3>
+                  <div class="goods-price">
+                    <h3>$${discount(product).toFixed(2)}</h3>
+                    <h3 class="base-price"><s>$${product.price}</s></h3>
+                  </div>
+                  <div class="goods-rating-container">
+                    ${generateStars(product.rating.rate)}
+                    <h4 class="goods-amount">(${product.rating.count})</h4>
+                  </div>
                 </div>
-                <div class="icon-cart">
-                  <i class="fa-solid fa-cart-shopping" id="icon-cart-${product.id}" onclick="toggleItem(${product.id}, 'cart', allBestSellingProducts)"></i>
-                  <span class="tooltip">Add to cart</span>
-                </div>
-              </div>
-              <div class="goods-info">
-                <h3>${maxTitleCharacter(product.title, 28)}</h3>
-                <div class="goods-price">
-                  <h3>$${discount(product).toFixed(2)}</h3>
-                  <h3 class="base-price"><s>$${product.price}</s></h3>
-                </div>
-                <div class="goods-rating-container">
-                  ${generateStars(product.rating.rate)}
-                  <h4 class="goods-amount">(${product.rating.count})</h4>
-                </div>
-              </div>
-            </div>`
-  })
-  .join("");
+              </div>`
+    })
+    .join("");
+  } catch (error) {
+    console.error("Coundn't render products:", error);
+  }
 }
 
 function toggleProductsView() {
@@ -71,7 +75,6 @@ function toggleProductsView() {
 function toggleItem(productId, listType, products) {
   const icon = document.getElementById(`icon-${listType}-${productId}`);
   if (!icon) return;
-  console.error("zzz");
   const storageKey = `${listType}Products`;
   let allItems = JSON.parse(localStorage.getItem(storageKey)) || [];
   const addedProduct = products.find((product) => product.id === productId);
