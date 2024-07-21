@@ -7,6 +7,7 @@ const wishlistcard=document.getElementById("wishlist-card");
 }
 getProducts();
 
+/* localStora ten ürünleri alır ve gösteren fonk çağırır*/
 function renderProducts(){
  let products=JSON.parse(localStorage.getItem("wishlistProducts"));
    if(products){
@@ -16,6 +17,7 @@ function renderProducts(){
 }
 renderProducts();
 
+/*ürünleri gösterir */
 function displayWishList(products){
     wishlistcard.innerHTML=products.map(product =>createProductCard(product)).join("");
 }
@@ -38,10 +40,12 @@ function createProductCard(product){
         `;
 }
 
+
 function truncateText(text, maxLength) {
     return text.length > maxLength ? text.substring(0, maxLength) + " ..." : text;
 }
 
+/*carta ekler */
 function addProductToCart(productID){
     const newCartProduct=JSON.parse(localStorage.getItem("wishlistProducts")).find((product)=>product.id===productID);
     let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
@@ -54,9 +58,30 @@ function addProductToCart(productID){
 
 }
 
+/*ürünleri siler*/
 function deleteProduct(productID){
     const wishlistProducts = JSON.parse(localStorage.getItem("wishlistProducts")) || [];
     const kalanUrunler = wishlistProducts.filter(product => product.id !== productID);
     localStorage.setItem("wishlistProducts",JSON.stringify(kalanUrunler));
     renderProducts();
+    updateWishlistCount();
+}
+
+const wishlistCount=document.getElementById("wishlistCount");
+/*wishlistteki ürün sayısını bulur*/
+function updateWishlistCount(){
+    const wishlistProducts = JSON.parse(localStorage.getItem("wishlistProducts")) || [];
+    wishlistCount.innerHTML = `${wishlistProducts.length}`;
+}
+
+updateWishlistCount();
+
+const addAllProducts=document.getElementById("whislist-href");
+addAllProducts.addEventListener("click",addAllProductsToCart);
+
+/*tüm ürünleri sepete ekler*/
+function addAllProductsToCart(){
+  let  allProducts=JSON.parse(localStorage.getItem("wishlistProducts")) || [];
+  localStorage.setItem("cartProducts", JSON.stringify(allProducts));
+
 }
