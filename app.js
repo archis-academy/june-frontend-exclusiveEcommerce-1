@@ -12,61 +12,65 @@ async function getProducts() {
   return productsData;
 }
 
-function expupdateWishlistStorage(productId, add) {
-  let wishlist = JSON.parse(localStorage.getItem('expwishlist')) || [];
+function expupdateWishlistStorage(product, add) {
+  let wishlist = JSON.parse(localStorage.getItem('wishlistProducts')) || [];
   if (add) {
-    if (!wishlist.includes(productId)) wishlist.push(productId);
+    if (!wishlist.some(item => item.id === product.id)) wishlist.push(product);
   } else {
-    wishlist = wishlist.filter(id => id !== productId);
+    wishlist = wishlist.filter(item => item.id !== product.id);
   }
-  localStorage.setItem('expwishlist', JSON.stringify(wishlist));
+  localStorage.setItem('wishlistProducts', JSON.stringify(wishlist));
+  console.log("Updated Wishlist:", wishlist); // Konsola yazdırma
 }
 
-function expupdateCartStorage(productId, add) {
-  let expcart = JSON.parse(localStorage.getItem('expcart')) || [];
+function expupdateCartStorage(product, add) {
+  let expcart = JSON.parse(localStorage.getItem('cartProducts')) || [];
   if (add) {
-    if (!expcart.includes(productId)) expcart.push(productId);
+    if (!expcart.some(item => item.id === product.id)) expcart.push(product);
   } else {
-    expcart = expcart.filter(id => id !== productId);
+    expcart = expcart.filter(item => item.id !== product.id);
   }
-  localStorage.setItem('expcart', JSON.stringify(expcart));
+  localStorage.setItem('cartProducts', JSON.stringify(expcart));
+  console.log("Updated Cart:", expcart); // Konsola yazdırma
 }
 
 function exploadInitialStates() {
-  const wishlist = JSON.parse(localStorage.getItem('expwishlist')) || [];
-  wishlist.forEach(productId => {
-    const heartIcon = document.getElementById(`expwishlist-${productId}`);
+  const wishlist = JSON.parse(localStorage.getItem('wishlistProducts')) || [];
+  wishlist.forEach(product => {
+    const heartIcon = document.getElementById(`wishlistProducts-${product.id}`);
     if (heartIcon) {
       heartIcon.classList.replace('far', 'fas');
       heartIcon.style.color = 'red';
     }
   });
 
-  const expcart = JSON.parse(localStorage.getItem('expcart')) || [];
-  expcart.forEach(productId => {
-    const expcartIcon = document.getElementById(`expcart-${productId}`);
-    if (expcartIcon) {
-      expcartIcon.classList.add('fa-check');
-      expcartIcon.style.color = 'green';
+  const expcart = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  expcart.forEach(product => {
+    const cartIcon = document.getElementById(`cartProducts-${product.id}`);
+    if (cartIcon) {
+      cartIcon.classList.add('fa-check');
+      cartIcon.style.color = 'green';
     }
   });
 }
 
 function exprotoggleWishlistIcon(productId) {
-  const wishlistIcon = document.getElementById(`expwishlist-${productId}`);
+  const product = ExpallProducts.find(item => item.id === productId);
+  const wishlistIcon = document.getElementById(`wishlistProducts-${product.id}`);
   const isAdded = wishlistIcon.classList.contains('fas');
   wishlistIcon.classList.toggle('fas');
   wishlistIcon.classList.toggle('far');
   wishlistIcon.style.color = isAdded ? '' : 'red';
-  expupdateWishlistStorage(productId, !isAdded);
+  expupdateWishlistStorage(product, !isAdded);
 }
 
 function exprotoggleCartIcon(productId) {
-  const expcart = document.getElementById(`expcart-${productId}`);
-  const isAdded = expcart.classList.contains('fa-check');
-  expcart.classList.toggle('fa-check');
-  expcart.style.color = isAdded ? '' : 'green';
-  expupdateCartStorage(productId, !isAdded);
+  const product = ExpallProducts.find(item => item.id === productId);
+  const cartIcon = document.getElementById(`cartProducts-${product.id}`);
+  const isAdded = cartIcon.classList.contains('fa-check');
+  cartIcon.classList.toggle('fa-check');
+  cartIcon.style.color = isAdded ? '' : 'green';
+  expupdateCartStorage(product, !isAdded);
 }
 
 const expreProductsBtn = document.querySelector(".exp-pre-button");
@@ -139,10 +143,10 @@ async function expproductsRender() {
       return `
         <div class="exploreprocontainer">
           <div class="exproducts">
-            <img class="exproimg" src=${product.image} alt="Product Image">
+            <img class="exproimg" src="${product.image}" alt="Product Image">
             <span class="exp-pro-icons">
-              <div class="exprowhistlist"><i onclick="exprotoggleWishlistIcon(${product.id})" id="expwishlist-${product.id}" class="far fa-heart"></i></div>
-              <div class="exproshopingi"><i onclick="exprotoggleCartIcon(${product.id})" id="expcart-${product.id}" class="fas fa-cart-plus"></i></div>
+              <div class="exprowhistlist"><i onclick="exprotoggleWishlistIcon(${product.id})" id="wishlistProducts-${product.id}" class="far fa-heart"></i></div>
+              <div class="exproshopingi"><i onclick="exprotoggleCartIcon(${product.id})" id="cartProducts-${product.id}" class="fas fa-cart-plus"></i></div>
             </span>
           </div>
           <div class="exprotitle"><h3>${truncateTitle(product.title, 20)}</h3></div>
@@ -155,11 +159,10 @@ async function expproductsRender() {
     })
     .join("");
 
-    exploadInitialStates();
+  exploadInitialStates();
 
   loader.classList.add("hidden");
   container.classList.remove("hidden");
 }
 
 expproductsRender();
-
