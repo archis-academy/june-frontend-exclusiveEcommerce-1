@@ -14,8 +14,8 @@ const toggleBtnText = document.getElementById("best-selling-products-btn");
 
 let bestSellingProducts = [];
 let allBestSellingProducts = [];
-let allWishlistProducts = [];
-let allCartProducts = [];
+let wishlistProducts = [];
+let cartProducts = [];
 
 async function productsRender() {
   if (allBestSellingProducts.length === 0) {
@@ -33,11 +33,11 @@ async function productsRender() {
                   <img src="${product.image}" alt="${product.title}">
                 </div>
                 <div class="icon-heart">
-                  <i class="fa-regular fa-heart" id="icon-heart-${product.id}" onclick="toggleWishlist(${product.id})"></i>
+                  <i class="fa-regular fa-heart" id="icon-heart-${product.id}" onclick="toggleItem(${product.id}, 'wishlist', allBestSellingProducts)"></i>
                   <span class="tooltip">Add to wishlist</span>
                 </div>
                 <div class="icon-cart">
-                  <i class="fa-solid fa-cart-shopping" id="icon-cart-${product.id}" onclick="toggleCart(${product.id})"></i>
+                  <i class="fa-solid fa-cart-shopping" id="icon-cart-${product.id}" onclick="toggleItem(${product.id}, 'cart', allBestSellingProducts)"></i>
                   <span class="tooltip">Add to cart</span>
                 </div>
               </div>
@@ -68,64 +68,34 @@ function toggleProductsView() {
   productsRender();
 }
 
-function toggleWishlist(productId) {
-  const heartIcon = document.getElementById(`icon-heart-${productId}`);
-  heartIcon.classList.toggle('active');
-  if (heartIcon.classList.contains('active')) {
-    heartIcon.classList.remove('fa-regular');
-    heartIcon.classList.add('fa-solid');
-    heartIcon.style.color = '#C20000';
-  } else {
-    heartIcon.classList.remove('fa-solid');
-    heartIcon.classList.add('fa-regular');
-    heartIcon.style.color = '';
-  }
-  addToWishlist(productId, allBestSellingProducts);
-}
-
-function addToWishlist(productId, products) {
-  allWishlistProducts = JSON.parse(localStorage.getItem("allWishlistProducts")) || [];
+function toggleItem(productId, listType, products) {
+  const icon = document.getElementById(`icon-${listType}-${productId}`);
+  if (!icon) return;
+  const storageKey = `all${listType}Products`;
+  let allItems = JSON.parse(localStorage.getItem(storageKey)) || [];
   const addedProduct = products.find((product) => product.id === productId);
   if (!addedProduct) return;
-  const inWishlist = allWishlistProducts.some((product) => product.id === productId);
-  if (inWishlist) {
-    allWishlistProducts = allWishlistProducts.filter((product) => product.id !== productId);
-    alert("Product removed from wishlist");
-  } else {
-    allWishlistProducts.push(addedProduct);
-    alert("Product added to wishlist");
-  }
-  localStorage.setItem("allWishlistProducts", JSON.stringify(allWishlistProducts));
-}
+  const inList = allItems.some((product) => product.id === productId);
 
-function toggleCart(productId) {
-  const cartIcon = document.getElementById(`icon-cart-${productId}`);
-  cartIcon.classList.toggle('active');
-  if (cartIcon.classList.contains('active')) {
-    cartIcon.classList.remove('fa-cart-shopping');
-    cartIcon.classList.add('fa-check');
-    cartIcon.style.color = '#1A9900';
+  icon.classList.toggle('active');
+  if (icon.classList.contains('active')) {
+    icon.classList.remove('fa-regular', 'fa-cart-shopping');
+    icon.classList.add('fa-solid', listType === 'wishlist' ? 'fa-heart' : 'fa-check');
+    icon.style.color = listType === 'wishlist' ? '#C20000' : '#1A9900';
   } else {
-    cartIcon.classList.remove('fa-check');
-    cartIcon.classList.add('fa-cart-shopping');
-    cartIcon.style.color = '';
+    icon.classList.remove('fa-solid', listType === 'wishlist' ? 'fa-heart' : 'fa-check');
+    icon.classList.add('fa-regular', listType === 'cart' ? 'fa-cart-shopping' : '');
+    icon.style.color = '';
   }
-  addToCart(productId, allBestSellingProducts);
-}
 
-function addToCart(productId, products) {
-  allCartProducts = JSON.parse(localStorage.getItem("allCartProducts")) || [];
-  const addedProduct = products.find((product) => product.id === productId);
-  if (!addedProduct) return;
-  const inCart = allCartProducts.some((product) => product.id === productId);
-  if (inCart) {
-    allCartProducts = allCartProducts.filter((product) => product.id !== productId);
-    alert("Product removed from cart");
+  if (inList) {
+    allItems = allItems.filter((product) => product.id !== productId);
+    alert(`Product removed from ${listType}`);
   } else {
-    allCartProducts.push(addedProduct);
-    alert("Product added to cart");
+    allItems.push(addedProduct);
+    alert(`Product added to ${listType}`);
   }
-  localStorage.setItem("allCartProducts", JSON.stringify(allCartProducts));
+  localStorage.setItem(storageKey, JSON.stringify(allItems));
 }
 
 function discount(product) {
