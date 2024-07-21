@@ -167,7 +167,7 @@
     }
 }
 
-.icon-heart i {
+.icon-wishlist i {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -183,7 +183,7 @@
     transition: color 0.3s ease-in-out;
 }
 
-.icon-heart i.active {
+.icon-wishlist i.active {
     color: #850000;
     animation: heart-pulse 0.5s forwards;
 }

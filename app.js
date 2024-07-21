@@ -32,8 +32,8 @@ async function productsRender() {
                 <div class="homepage-best-selling-products-img-container">
                   <img src="${product.image}" alt="${product.title}">
                 </div>
-                <div class="icon-heart">
-                  <i class="fa-regular fa-heart" id="icon-heart-${product.id}" onclick="toggleItem(${product.id}, 'wishlist', allBestSellingProducts)"></i>
+                <div class="icon-wishlist">
+                  <i class="fa-regular fa-heart" id="icon-wishlist-${product.id}" onclick="toggleItem(${product.id}, 'wishlist', allBestSellingProducts)"></i>
                   <span class="tooltip">Add to wishlist</span>
                 </div>
                 <div class="icon-cart">
@@ -71,7 +71,8 @@ function toggleProductsView() {
 function toggleItem(productId, listType, products) {
   const icon = document.getElementById(`icon-${listType}-${productId}`);
   if (!icon) return;
-  const storageKey = `all${listType}Products`;
+  console.error("zzz");
+  const storageKey = `${listType}Products`;
   let allItems = JSON.parse(localStorage.getItem(storageKey)) || [];
   const addedProduct = products.find((product) => product.id === productId);
   if (!addedProduct) return;
@@ -79,12 +80,12 @@ function toggleItem(productId, listType, products) {
 
   icon.classList.toggle('active');
   if (icon.classList.contains('active')) {
-    icon.classList.remove('fa-regular', 'fa-cart-shopping');
-    icon.classList.add('fa-solid', listType === 'wishlist' ? 'fa-heart' : 'fa-check');
+    icon.classList.remove(listType === 'wishlist' ? 'fa-regular' : 'fa-cart-shopping');
+    icon.classList.add(listType === 'wishlist' ? 'fa-solid' : 'fa-check');
     icon.style.color = listType === 'wishlist' ? '#C20000' : '#1A9900';
   } else {
-    icon.classList.remove('fa-solid', listType === 'wishlist' ? 'fa-heart' : 'fa-check');
-    icon.classList.add('fa-regular', listType === 'cart' ? 'fa-cart-shopping' : '');
+    icon.classList.remove(listType === 'wishlist' ? 'fa-solid' : 'fa-check');
+    icon.classList.add(listType === 'wishlist' ? 'fa-regular' : 'fa-cart-shopping');
     icon.style.color = '';
   }
 
