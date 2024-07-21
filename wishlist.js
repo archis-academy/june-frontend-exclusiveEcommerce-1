@@ -25,7 +25,7 @@ function displayWishList(products){
 function createProductCard(product){
     return `
             <div class="container-card">
-                <img onclick="deleteProduct(${product.id})" class="icons" src="images/cart-icon.svg"/>
+                <img onclick="deleteProduct(${product.id})" class="icons" src="images/Frame 568.png"/>
                  <div class="img-container">
                 <img class="img-product" src="${product.image}" alt="${product.title}" />
                 </div>
