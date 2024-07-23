@@ -27,13 +27,15 @@ async function productsRender() {
                   <div class="homepage-best-selling-products-img-container">
                     <img src="${product.image}" alt="${product.title}">
                   </div>
-                  <div class="icon-wishlist">
-                    <i class="fa-regular fa-heart" id="icon-wishlist-${product.id}" onclick="toggleItem(${product.id}, 'wishlist', allBestSellingProducts)"></i>
-                    <span class="tooltip">Add to wishlist</span>
-                  </div>
-                  <div class="icon-cart">
-                    <i class="fa-solid fa-cart-shopping" id="icon-cart-${product.id}" onclick="toggleItem(${product.id}, 'cart', allBestSellingProducts)"></i>
-                    <span class="tooltip">Add to cart</span>
+                  <div class="icon-container">
+                    <div class="icon-wishlist">
+                      <i class="fa-regular fa-heart" id="icon-wishlist-${product.id}" onclick="toggleItem(${product.id}, 'wishlist', allBestSellingProducts)"></i>
+                      <span class="tooltip">Add to wishlist</span>
+                    </div>
+                    <div class="icon-cart">
+                      <i class="fa-solid fa-cart-shopping" id="icon-cart-${product.id}" onclick="toggleItem(${product.id}, 'cart', allBestSellingProducts)"></i>
+                      <span class="tooltip">Add to cart</span>
+                    </div>
                   </div>
                 </div>
                 <div class="goods-info">

@@ -167,6 +167,15 @@
     }
 }
 
+.icon-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .icon-wishlist i {
     width: 30px;
     height: 30px;
@@ -176,9 +185,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 15px;
-    right: 15px;
+    position: relative;
     color: #850000;
     transition: color 0.3s ease-in-out;
     -webkit-transition: color 0.3s ease-in-out;
@@ -199,9 +206,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 55px;
-    right: 15px;
+    position: relative;
     color: #001B6B;
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
     -webkit-transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -223,7 +228,7 @@
     position: absolute;
     z-index: 1;
     top: -10px;
-    left: 45%;
+    left: -130px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     -webkit-transition: opacity 0.5s ease-in-out;
