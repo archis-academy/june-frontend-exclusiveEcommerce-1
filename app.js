@@ -106,8 +106,10 @@ function toggleItem(productId, listType, products) {
 
 function updateIconsState() {
   const wishlistIcons = document.querySelectorAll(".icon-wishlist i");
+  const cartIcons = document.querySelectorAll(".icon-cart i");
 
   wishlistProducts = JSON.parse(localStorage.getItem("wishlist-products")) || [];
+  cartIcons = JSON.parse(localStorage.getItem("cart-products")) || [];
 
   wishlistIcons.forEach((icon) => {
     const productId = icon.id.split("-")[2];
@@ -120,6 +122,21 @@ function updateIconsState() {
     } else {
       icon.classList.remove("fa-solid");
       icon.classList.add("fa-regular");
+      icon.style.color = "";
+    }
+  });
+
+  cartIcons.forEach((icon) => {
+    const productId = icon.id.split("-")[2];
+    const inCart = cartProducts.some((product) => product.id === productId);
+    icon.classList.toggle("active", inCart);
+    if (inCart) {
+      icon.classList.remove("fa-cart-shopping");
+      icon.classList.add("fa-check");
+      icon.style.color = "#1A9900";
+    } else {
+      icon.classList.remove("fa-check");
+      icon.classList.add("fa-cart-shopping");
       icon.style.color = "";
     }
   });
