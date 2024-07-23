@@ -3,7 +3,7 @@
     padding: 100px 0;
     display: flex;
     flex-direction: column;
-    padding: 20px 150px;
+    padding: 20px;
 }
 
 .homepage-best-selling-products-head {
@@ -219,12 +219,12 @@
     position: absolute;
     z-index: 1;
     top: -10px;
-    left: 95%;
+    left: 45%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
 
-.icon-heart:hover .tooltip, .icon-cart:hover .tooltip {
+.icon-wishlist:hover .tooltip, .icon-cart:hover .tooltip {
     visibility: visible;
     opacity: 1;
 }

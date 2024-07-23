@@ -80,10 +80,8 @@ function toggleItem(productId, listType, products) {
 
   if (inList) {
     allItems = allItems.filter((product) => product.id !== productId);
-    alert(`Product removed from ${listType}`);
   } else {
     allItems.push(addedProduct);
-    alert(`Product added to ${listType}`);
   }
   localStorage.setItem(storageKey, JSON.stringify(allItems));
 
