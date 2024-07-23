@@ -3,10 +3,6 @@ async function getProducts() {
   const productsData = await productsResponse.json();
   return productsData;
 }
-async function productsRender() {
-  // gelen datayı burda düzenlenmesi bekleyerek products içine atıyoruz ve bu fonksiyonun içinde kullanmaya devam ediyoruz
-  const products = await getProducts();
-}
 
 // Best Selling Products Section Start
 const bestSellingProductsContainer = document.getElementById("best-selling-products-api");
@@ -14,8 +10,6 @@ const toggleBtnText = document.getElementById("best-selling-products-btn");
 
 let bestSellingProducts = [];
 let allBestSellingProducts = [];
-let wishlistProducts = JSON.parse(localStorage.getItem("wishlistProducts")) || [];
-let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
 
 async function productsRender() {
   try {
@@ -57,7 +51,7 @@ async function productsRender() {
     })
     .join("");
 
-    updateIconsState();
+    updateIconState();
 
   } catch (error) {
     console.error("Couldn't render products:", error);
@@ -93,45 +87,40 @@ function toggleItem(productId, listType, products) {
   }
   localStorage.setItem(storageKey, JSON.stringify(allItems));
 
-  updateIconsState();
+  toggleIconState(icon, listType, !inList);
 }
 
-function updateIconsState() {
-  const wishlistIcons = document.querySelectorAll(".icon-wishlist i");
-  const cartIcons = document.querySelectorAll(".icon-cart i");
+function updateIconState() {
+  const wishlistProducts = JSON.parse(localStorage.getItem("wishlistProducts")) || [];
+  const cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
 
-  wishlistProducts = JSON.parse(localStorage.getItem("wishlistProducts")) || [];
-  cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+  allBestSellingProducts.forEach(product => {
+    const wishlistIcon = document.getElementById(`icon-wishlist-${product.id}`);
+    const cartIcon = document.getElementById(`icon-cart-${product.id}`);
 
-  wishlistIcons.forEach((icon) => {
-    const productId = icon.id.split("-")[2];
-    const inWishlist = wishlistProducts.some((product) => product.id === productId);
-    icon.classList.toggle("active", inWishlist);
-    if (inWishlist) {
-      icon.classList.remove("fa-regular");
-      icon.classList.add("fa-solid");
-      icon.style.color = "#C20000";
-    } else {
-      icon.classList.remove("fa-solid");
-      icon.classList.add("fa-regular");
-      icon.style.color = "";
+    if (wishlistIcon) {
+      const inWishlist = wishlistProducts.some(item => item.id === product.id);
+      toggleIconState(wishlistIcon, 'wishlist', inWishlist);
+    }
+    
+    if (cartIcon) {
+      const inCart = cartProducts.some(item => item.id === product.id);
+      toggleIconState(cartIcon, 'cart', inCart);
     }
   });
+}
 
-  cartIcons.forEach((icon) => {
-    const productId = icon.id.split("-")[2];
-    const inCart = cartProducts.some((product) => product.id === productId);
-    icon.classList.toggle("active", inCart);
-    if (inCart) {
-      icon.classList.remove("fa-cart-shopping");
-      icon.classList.add("fa-check");
-      icon.style.color = "#1A9900";
-    } else {
-      icon.classList.remove("fa-check");
-      icon.classList.add("fa-cart-shopping");
-      icon.style.color = "";
-    }
-  });
+function toggleIconState(iconType, listType, inList) {
+  iconType.classList.toggle('active', inList);
+  if (inList) {
+    iconType.classList.remove(listType === 'wishlist' ? 'fa-regular' : 'fa-cart-shopping');
+    iconType.classList.add(listType === 'wishlist' ? 'fa-solid' : 'fa-check');
+    iconType.style.color = listType === 'wishlist' ? '#C20000' : '#1A9900';
+  } else {
+    iconType.classList.remove(listType === 'wishlist' ? 'fa-solid' : 'fa-check');
+    iconType.classList.add(listType === 'wishlist' ? 'fa-regular' : 'fa-cart-shopping');
+    iconType.style.color = '';
+  }
 }
 
 function discount(product) {
