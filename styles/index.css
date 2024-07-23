@@ -37,7 +37,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0;
+    padding: 20px 0;
     flex-wrap: wrap;
 }
 
@@ -181,11 +181,13 @@
     right: 15px;
     color: #850000;
     transition: color 0.3s ease-in-out;
+    -webkit-transition: color 0.3s ease-in-out;
 }
 
 .icon-wishlist i.active {
     color: #850000;
     animation: heart-pulse 0.5s forwards;
+    -webkit-animation: heart-pulse 0.5s forwards;
 }
 
 .icon-cart i {
@@ -202,10 +204,12 @@
     right: 15px;
     color: #001B6B;
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    -webkit-transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .icon-cart i.fa-check {
     animation: cart-to-check 0.3s forwards;
+    -webkit-animation: cart-to-check 0.3s forwards;
 }
 
 .tooltip {
@@ -222,6 +226,7 @@
     left: 45%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    -webkit-transition: opacity 0.5s ease-in-out;
 }
 
 .icon-wishlist:hover .tooltip, .icon-cart:hover .tooltip {
