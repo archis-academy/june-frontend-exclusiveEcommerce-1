@@ -14,8 +14,8 @@ const toggleBtnText = document.getElementById("best-selling-products-btn");
 
 let bestSellingProducts = [];
 let allBestSellingProducts = [];
-let wishlistProducts = [];
-let cartProducts = [];
+let wishlistProducts = JSON.parse(localStorage.getItem("wishlistProducts")) || [];
+let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
 
 async function productsRender() {
   try {
@@ -56,11 +56,12 @@ async function productsRender() {
               </div>`
     })
     .join("");
+
+    updateIconsState();
+
   } catch (error) {
     console.error("Couldn't render products:", error);
   }
-
-  updateIconsState();
 }
 
 function toggleProductsView() {
@@ -83,17 +84,6 @@ function toggleItem(productId, listType, products) {
   if (!addedProduct) return;
   const inList = allItems.some((product) => product.id === productId);
 
-  icon.classList.toggle('active');
-  if (icon.classList.contains('active')) {
-    icon.classList.remove(listType === 'wishlist' ? 'fa-regular' : 'fa-cart-shopping');
-    icon.classList.add(listType === 'wishlist' ? 'fa-solid' : 'fa-check');
-    icon.style.color = listType === 'wishlist' ? '#C20000' : '#1A9900';
-  } else {
-    icon.classList.remove(listType === 'wishlist' ? 'fa-solid' : 'fa-check');
-    icon.classList.add(listType === 'wishlist' ? 'fa-regular' : 'fa-cart-shopping');
-    icon.style.color = '';
-  }
-
   if (inList) {
     allItems = allItems.filter((product) => product.id !== productId);
     alert(`Product removed from ${listType}`);
@@ -102,14 +92,16 @@ function toggleItem(productId, listType, products) {
     alert(`Product added to ${listType}`);
   }
   localStorage.setItem(storageKey, JSON.stringify(allItems));
+
+  updateIconsState();
 }
 
 function updateIconsState() {
   const wishlistIcons = document.querySelectorAll(".icon-wishlist i");
   const cartIcons = document.querySelectorAll(".icon-cart i");
 
-  wishlistProducts = JSON.parse(localStorage.getItem("wishlist-products")) || [];
-  cartIcons = JSON.parse(localStorage.getItem("cart-products")) || [];
+  wishlistProducts = JSON.parse(localStorage.getItem("wishlistProducts")) || [];
+  cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
 
   wishlistIcons.forEach((icon) => {
     const productId = icon.id.split("-")[2];
