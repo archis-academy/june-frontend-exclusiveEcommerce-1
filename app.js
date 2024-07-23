@@ -57,8 +57,10 @@ async function productsRender() {
     })
     .join("");
   } catch (error) {
-    console.error("Coundn't render products:", error);
+    console.error("Couldn't render products:", error);
   }
+
+  updateIconsState();
 }
 
 function toggleProductsView() {
@@ -100,6 +102,27 @@ function toggleItem(productId, listType, products) {
     alert(`Product added to ${listType}`);
   }
   localStorage.setItem(storageKey, JSON.stringify(allItems));
+}
+
+function updateIconsState() {
+  const wishlistIcons = document.querySelectorAll(".icon-wishlist i");
+
+  wishlistProducts = JSON.parse(localStorage.getItem("wishlist-products")) || [];
+
+  wishlistIcons.forEach((icon) => {
+    const productId = icon.id.split("-")[2];
+    const inWishlist = wishlistProducts.some((product) => product.id === productId);
+    icon.classList.toggle("active", inWishlist);
+    if (inWishlist) {
+      icon.classList.remove("fa-regular");
+      icon.classList.add("fa-solid");
+      icon.style.color = "#C20000";
+    } else {
+      icon.classList.remove("fa-solid");
+      icon.classList.add("fa-regular");
+      icon.style.color = "";
+    }
+  });
 }
 
 function discount(product) {
