@@ -54,9 +54,9 @@
     min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    left: 0; /* Butonun sol kenarına hizalar */
-    top: 100%; /* Butonun hemen altına yerleştirir */
-    width: 100%; /* Butonun genişliğini kaplar */
+    left: 0;
+    top: 100%;
+    width: 100%;
 }
 
 .black-dropdown-content a {
@@ -72,13 +72,123 @@
 }
 
 .show {
-    display: block;
+  display: block;
 }
 
 .rotate {
     transform: rotate(180deg);
 }
 
+.homepage-header-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.header-nav-items {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1170px;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 135px;
+}
+
+.nav-exc {
+  margin-right: 20px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 700;
+  
+
+}
+
+.items-middle {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.items-middle h4 {
+  margin: 0 20px;
+  cursor: pointer;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.items-middle h4:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+
+.nav-input {
+  margin-right: 20px;
+  padding: 7px 12px 7px 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.nav-wishlist, .nav-cart {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.nav-wishlist i, .nav-cart i {
+  font-size: 20px;
+  color: black;
+}
+
+.nav-cart i {
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ddd;
+  background-color: white;
+  z-index: 1000;
+  max-width: 300px;
+  margin-top: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-results div {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-results div:last-child {
+  border-bottom: none;
+}
 /* Homepage Header Section End */
 
 

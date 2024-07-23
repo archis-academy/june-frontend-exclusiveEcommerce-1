@@ -6,9 +6,14 @@ async function getProducts() {
 async function productsRender() {
   // gelen datayı burda düzenlenmesi bekleyerek products içine atıyoruz ve bu fonksiyonun içinde kullanmaya devam ediyoruz
   const products = await getProducts();
+  return products
 }
 
-productsRender();
+
+
+
+
+
 
 /* Homepage Header Section Start */
 document.getElementById("dropdownButton").addEventListener("click", function() {
@@ -30,6 +35,39 @@ function changeLang (content) {
   button.click();
 
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  const searchContainer = document.getElementById('search-results');
+  let products = [];
+
+  productsRender().then(products2 => {
+    products = products2
+    console.log(products)
+  });
+  
+  searchInput.addEventListener('input', function() {
+    const query = searchInput.value.toLowerCase();
+
+    if (query.length > 3) {
+      searchContainer.style.display = "block";
+      const filteredProducts = products.filter(product => product.title.toLowerCase().includes(query) || 
+      product.description.toLowerCase().includes(query)).slice(0, 3);
+
+      displayResults(filteredProducts);
+    } else {
+      searchContainer.style.display = "none";
+      searchResults.innerHTML = '';
+      searchContainer.classList.tog
+    }
+  });
+
+  function displayResults(products) {
+    searchResults.innerHTML = products.map(product => `<div>${product.title.substring(0, 20)}</div>`).join('');
+  }
+});
 
 /* Homepage Header Section End */
 
