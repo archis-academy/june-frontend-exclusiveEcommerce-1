@@ -190,9 +190,65 @@
   border-bottom: none;
 }
 /* Homepage Header Section End */
-
-
-
+/* homepage Profile Drop-down Menu */
+.drop-menu-container{
+  position: relative;
+}
+.kullanıcı-prof  {
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+}
+.kullanıcı-prof img{
+  width: 32px;
+  background-color: #DB4444;
+  border-radius: 42px;
+}
+.sub-menu-warp {
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  width: 225px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  backdrop-filter: blur(10px);
+  border-radius: 5%;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+.sub-menu-warp.open-menu{
+  max-height: 228px;
+}
+.user-info{
+  display: flex;
+  align-items: center;
+}
+.user-info img{
+  width: 60px;
+  margin-right:15px ; 
+}
+.sub-menu-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  margin: 2px 0;
+}
+.sub-menu-link p{
+  width: 100%;
+  font: 1em sans-serif;
+}
+.sub-menu-link img{
+  width: 40px;
+  padding: 8px;
+  margin: 0 auto;
+}
+ .sub-menu-link:hover{
+  transform: translateX(5px);
+ }
+ .sub-menu-link:hover p{
+  font-weight: 600;
+ }
 /* Homepage Browse By Category Section Start */
 .browse-by-cat {
   margin: 0 auto;

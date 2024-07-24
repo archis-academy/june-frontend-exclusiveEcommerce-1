@@ -116,7 +116,11 @@ categories.forEach((cat) => {
 });
 
 /* Homepage Browse By Category Section End */
-
+/* hompage profile menu start */
+function toggleMenu(){
+  const subMenu = document.getElementById("subMenu");
+  subMenu.classList.toggle("open-menu");
+}
 /*Buse/JU-5 Homepage Featured Product START*/
 function startCountdown(duration) {
   let start = Date.now();
