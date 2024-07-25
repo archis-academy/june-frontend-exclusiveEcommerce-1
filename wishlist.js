@@ -1,12 +1,5 @@
 const wishlistcard=document.getElementById("wishlist-card");
 
- async function getProducts(){
-    const productsResponse = await fetch("https://fakestoreapi.com/products");
-    const productsData = await productsResponse.json();
-    localStorage.setItem('wishlistProducts', JSON.stringify(productsData));
-}
-getProducts();
-
 /* localStora ten ürünleri alır ve gösteren fonk çağırır*/
 function renderProducts(){
  let products=JSON.parse(localStorage.getItem("wishlistProducts"));
@@ -17,10 +10,6 @@ function renderProducts(){
 }
 renderProducts();
 
-/*ürünleri gösterir */
-function displayWishList(products){
-    wishlistcard.innerHTML=products.map(product =>createProductCard(product)).join("");
-}
 
 function createProductCard(product){
     return `
@@ -29,7 +18,7 @@ function createProductCard(product){
                  <div class="img-container">
                 <img class="img-product" src="${product.image}" alt="${product.title}" />
                 </div>
-                <p onclick="addProductToCart(${product.id})" class="product-paragraph">Add To Cart</p>
+                <p onclick="addProductToCart(event,${product.id})" class="product-paragraph">Add To Cart</p>
                 <div>
                     <p class="explanation-product">${truncateText(product.title, 20)}</p>
                 </div>
@@ -40,13 +29,18 @@ function createProductCard(product){
         `;
 }
 
+/*ürünleri gösterir */
+function displayWishList(products){
+    wishlistcard.innerHTML=products.map(product =>createProductCard(product)).join("");
+}
+
 
 function truncateText(text, maxLength) {
     return text.length > maxLength ? text.substring(0, maxLength) + " ..." : text;
 }
 
 /*carta ekler */
-function addProductToCart(productID){
+function addProductToCart(event,productID){
     const newCartProduct=JSON.parse(localStorage.getItem("wishlistProducts")).find((product)=>product.id===productID);
     let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
 
@@ -54,7 +48,13 @@ function addProductToCart(productID){
         cartProducts.push(newCartProduct);
         localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
       }
-    
+   
+      const button=event.target;
+      button.innerHTML="Go To Cart";
+      /*sepete gider*/
+      button.onclick = () => {
+        window.location.href = 'cart.html';
+    };
 
 }
 
@@ -83,5 +83,10 @@ addAllProducts.addEventListener("click",addAllProductsToCart);
 function addAllProductsToCart(){
   let  allProducts=JSON.parse(localStorage.getItem("wishlistProducts")) || [];
   localStorage.setItem("cartProducts", JSON.stringify(allProducts));
+  addAllProducts.innerHTML="Go To Cart";
+  /*Sepete gider*/
+  addAllProducts.onclick = () => {
+    window.location.href = 'cart.html';
+};
 
 }
