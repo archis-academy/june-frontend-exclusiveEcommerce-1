@@ -201,8 +201,8 @@
 }
 .kullanıcı-prof img{
   width: 32px;
-  background-color: #DB4444;
   border-radius: 42px;
+  background-color: #FAFAFA;
 }
 .sub-menu-warp {
   position: absolute;
@@ -219,6 +219,13 @@
 .sub-menu-warp.open-menu{
   max-height: 228px;
 }
+.convert-img{
+
+  filter: invert(100%);
+}
+
+
+
 .user-info{
   display: flex;
   align-items: center;
@@ -242,6 +249,9 @@
   width: 40px;
   padding: 8px;
   margin: 0 auto;
+}
+.sub-menu-user img{
+  filter: invert(100%);
 }
  .sub-menu-link:hover{
   transform: translateX(5px);
