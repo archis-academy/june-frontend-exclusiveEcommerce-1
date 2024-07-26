@@ -19,7 +19,9 @@
     <link rel="stylesheet" href="styles/shared.css" />
     <link rel="stylesheet" href="styles/index.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link href="/your-path-to-uicons/css/uicons-rounded-regular.css" rel="stylesheet">
+    <link href="/your-path-to-uicons/css/uicons-rounded-bold.css" rel="stylesheet">
+    <link href="/your-path-to-uicons/css/uicons-rounded-solid.css" rel="stylesheet">
 
   </head>
   <body>
@@ -53,19 +55,18 @@
             <input class="nav-input" id="search-input" type="text" placeholder="What are you looking for?">
             <div class="search-results" id="search-results"></div>
           </div>
-          
           <button class="nav-wishlist"><i class="fa-regular fa-heart"></i></button>
+          <div class="nav-cart-container">
           <button class="nav-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+          <span class="quantity">0</span>
+          </div>
           <div class="drop-menu-container">
-            <div class="kullanıcı-prof">
-              <i class="fa-regular fa-user" id="kullanıcı-prof-img" onclick="toggleMenu()"></i>
-              
-            </div>
+            <div class="kullanıcı-prof"><img src="images/user.png" onclick="toggleMenu()" class="profil-fotoğrafı"></div>
             <div class="sub-menu-warp" id="subMenu">
               <div class="sub-menu">
                 </div>
-                <a href="" class="sub-menu-link sub-menu-user">
-                  <img src="images/user.png" alt="" srcset="">
+                <a href="" class="sub-menu-link">
+                  <img src="images/user-mini.png" alt="" srcset="">
                   <p>Manage My Account</p>
                 </a>
                 <a href="" class="sub-menu-link">
