@@ -87,7 +87,7 @@
 }
 
 /* Homepage Browse By Category Section End */
-/*Buse/JU-5 Homepage Featured Product START*/
+/* Buse/JU-5 Homepage Featured Product START */
 .featured-products-container {
   display: flex;
   align-items: center;
@@ -188,8 +188,166 @@
     width: 100%;
   }
 }
-/*Buse/JU-5 Homepage Featured Product*/
-/* Berhan Footer Start*/
+/* Buse/JU-5 Homepage Featured Product */
+/* New Arrivals Section Start */
+.na-container {
+  max-width: 1254px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.na-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: 100px;
+}
+
+.na-upper-head {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.orange-box {
+  width: 20px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #DB4444;
+}
+
+.na-upper-head h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(10px, 4vw, 16px);
+  line-height: clamp(12px, 4vw, 20px);
+  font-weight: 600;
+  color: #DB4444;
+}
+
+.na-header h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(22px, 6vw, 36px);
+  line-height: clamp(28px, 6vw, 48px);
+  font-weight: 600;
+  letter-spacing: 4%;
+  color: #000000;
+}
+
+.na-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.na-small-imgs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.na-small-imgs-lower {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.na-product-container {
+  background-color: #000000;
+  position: relative;
+  display: flex;
+}
+
+.na-product-container img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.na-product-info {
+  left: 20px;
+  bottom: 20px;
+  color: #FFFFFF;
+  position: absolute;
+  max-width: 250px;
+}
+
+.na-product-info h3 {
+  font-family: "Inter" sans-serif;
+  font-size: clamp(16px, 4vw, 24px);
+  line-height: clamp(16px, 4vw, 24px);
+  font-weight: 600;
+  letter-spacing: 3%;
+  color: #FAFAFA;
+}
+
+.na-product-info p {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(8px, 2vw, 14px);
+  line-height: clamp(12px, 4vw, 20px);
+  font-weight: 400;
+  color: #FAFAFA;
+  padding: 8px 0;
+}
+
+.na-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid lightgrey;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #FFFFFF
+}
+
+.na-advantages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.na-adv-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.na-adv-info h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(14px, 4vw, 20px);
+  line-height: clamp(18px, 4vw, 28px);
+  font-weight: 600;
+  color: #000000;
+}
+
+.na-adv-info p {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(8px, 2vw, 14px);
+  line-height: clamp(12px, 2vw, 20px);
+  font-weight: 400;
+  color: #000000;
+}
+
+.na-arrowup-container {
+  display: flex;
+  justify-content: flex-end;
+}
+/* New Arrivals Section End */
+/* Footer Start */
 .footer-container {
   background-color: black;
   flex-wrap: wrap;
@@ -296,4 +454,4 @@
 .ft-send-icon:hover {
   cursor: pointer;
 }
-/* Berhan Footer End*/
+/* Footer End */
