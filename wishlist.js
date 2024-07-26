@@ -18,7 +18,7 @@ function createProductCard(product){
                  <div class="img-container">
                 <img class="img-product" src="${product.image}" alt="${product.title}" />
                 </div>
-                <p onclick="addProductToCart(event,${product.id})" class="product-paragraph">Add To Cart</p>
+                <p onclick="addProductToCart(event,${product.id})" class="product-paragraph" id="add-to-cart-${product.id}">Add To Cart</p>
                 <div>
                     <p class="explanation-product">${truncateText(product.title, 20)}</p>
                 </div>
@@ -32,6 +32,7 @@ function createProductCard(product){
 /*ürünleri gösterir */
 function displayWishList(products){
     wishlistcard.innerHTML=products.map(product =>createProductCard(product)).join("");
+    updateButtonStates();
 }
 
 
@@ -56,7 +57,32 @@ function addProductToCart(event,productID){
         window.location.href = 'cart.html';
     };
 
+    updateButtonState(productID, "Go To Cart");
+
 }
+
+
+function updateButtonState(productID, text) {
+    let buttonStates = JSON.parse(localStorage.getItem("buttonStates")) || {};
+    buttonStates[productID] = text;
+    localStorage.setItem("buttonStates", JSON.stringify(buttonStates));
+  }
+
+
+  function updateButtonStates() {
+    let buttonStates = JSON.parse(localStorage.getItem("buttonStates")) || {};
+    for (const productID in buttonStates) {
+      const button = document.getElementById(`add-to-cart-${productID}`);
+      if (button) {
+        button.innerHTML = buttonStates[productID];
+        if (buttonStates[productID] === "Go To Cart") {
+          button.onclick = () => {
+            window.location.href = 'cart.html';
+          };
+        }
+      }
+    }
+  }
 
 /*ürünleri siler*/
 function deleteProduct(productID){
@@ -83,10 +109,30 @@ addAllProducts.addEventListener("click",addAllProductsToCart);
 function addAllProductsToCart(){
   let  allProducts=JSON.parse(localStorage.getItem("wishlistProducts")) || [];
   localStorage.setItem("cartProducts", JSON.stringify(allProducts));
+  allProducts.forEach(product => {
+    updateButtonState(product.id, "Go To Cart");
+  });
   addAllProducts.innerHTML="Go To Cart";
   /*Sepete gider*/
   addAllProducts.onclick = () => {
     window.location.href = 'cart.html';
 };
+renderProducts();
 
 }
+
+/* "Move All To Bag" düğmesinin durumunu günceller */
+function updateMoveAllButtonState() {
+    const moveAllButtonState = localStorage.getItem("moveAllButtonState");
+    if (moveAllButtonState) {
+        addAllProducts.innerHTML = moveAllButtonState;
+        if (moveAllButtonState === "Go To Cart") {
+            addAllProducts.onclick = () => {
+                window.location.href = 'cart.html';
+            };
+        }
+    }
+}
+
+addAllProducts.addEventListener("click", addAllProductsToCart);
+
