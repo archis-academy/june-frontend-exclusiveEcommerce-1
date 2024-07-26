@@ -268,7 +268,6 @@
 
 .na-product-container img {
   display: block;
-  width: 100%;
   object-fit: cover;
 }
 
@@ -314,8 +313,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 75px;
   flex-wrap: wrap;
+  padding-top: 30px;
 }
 
 .na-adv-icon {
@@ -324,6 +324,31 @@
   justify-content: center;
   align-items: center;
   gap: 25px;
+}
+
+.na-adv-icon i {
+  font-size: 30px;
+  color: #000000;
+}
+
+.gray-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #A9A9A9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.black-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .na-adv-info h3 {
@@ -345,6 +370,26 @@
 .na-arrowup-container {
   display: flex;
   justify-content: flex-end;
+}
+
+.na-arrowup-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #A9A9A9;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.na-arrowup-icon i {
+  font-size: 20px;
+  color: #021526;
+}
+
+.na-arrowup-icon i:hover {
+  color: #134B70;
 }
 /* New Arrivals Section End */
 /* Footer Start */
