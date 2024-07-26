@@ -18,8 +18,120 @@
     />
     <link rel="stylesheet" href="styles/shared.css" />
     <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
   </head>
   <body>
+    <!-- Homepage Header Section Start -->
+    <section class="homepage-header-container">
+      <div class="homepage-header-black">
+        <div class="header-black-part">
+          <h5 class="black-discount">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</h2>
+          <h5 class="black-shop-now">ShopNow</h2>
+          <button id="dropdownButton" class="black-language-dropdown-button">
+            English <span class="dropdown-arrow">&#9662;</span>
+            <div id="dropdownContent" class="black-dropdown-content">
+              <a href="#" class="dropdown-content" onclick="changeLang(this)">English</a>
+              <a href="#" class="dropdown-content" onclick="changeLang(this)">Turkish</a>
+              <a href="#" class="dropdown-content" onclick="changeLang(this)">Arabic</a>
+            </div>
+          </button>
+          
+        </div>
+      </div>
+      <div class="homepage-header-nav">
+        <div class="header-nav-items">
+          <h4 class="nav-exc">Exclusive</h4>
+          <div class="items-middle">
+            <h4>Home</h4>
+            <h4>Contact</h4>
+            <h4>About</h4>
+            <h4>Sign Up</h4>
+          </div>
+          <div class="search-container" id="search-container">
+            <input class="nav-input" id="search-input" type="text" placeholder="What are you looking for?">
+            <div class="search-results" id="search-results"></div>
+          </div>
+          
+          <button class="nav-wishlist"><i class="fa-regular fa-heart"></i></button>
+          <button class="nav-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+          <div class="drop-menu-container">
+            <div class="kullanıcı-prof">
+              <i class="fa-regular fa-user" id="kullanıcı-prof-img" onclick="toggleMenu()"></i>
+              
+            </div>
+            <div class="sub-menu-warp" id="subMenu">
+              <div class="sub-menu">
+                </div>
+                <a href="" class="sub-menu-link sub-menu-user">
+                  <img src="images/user.png" alt="" srcset="">
+                  <p>Manage My Account</p>
+                </a>
+                <a href="" class="sub-menu-link">
+                  <img src="images/Group.png" alt="">
+                  <p>My Order</p>
+                </a>
+                <a href="" class="sub-menu-link">
+                  <img src="images/icon-cancel.png" alt="">
+                  <p>My Cancellations</p>
+                </a>
+                <a href="" class="sub-menu-link">
+                  <img src="images/Icon-Reviews.png" alt="">
+                  <p>My Reviews</p>
+                </a>
+                <a href="" class="sub-menu-link">
+                  <img src="images/Icon-logout.png" alt="">
+                  <p>Logout</p>
+                </a>
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
+
+    </section>
+    <section class="resume-section">
+      <aside class="homepage-categories">
+        <ul class="category-list">
+          <li class="category-element">
+            <a class="category-title">Woman's Fashion</a>
+            <button class="category-button">
+              <img class="category-arrow" src="images/arrow-vector.png">
+            </button>
+          </li>
+          <li class="category-element">
+            <a class="category-title">Men's Fashion</a>
+            <button class="category-button">
+              <img class="category-arrow" src="images/arrow-vector.png">
+            </button>
+          </li>
+          <li class="category-element">
+            <a class="category-title">Electronics</a>
+          </li>
+          <li class="category-element">
+            <a class="category-title">Home & Lifestyle </a>
+          </li>
+          <li class="category-element">
+            <a class="category-title">Medicine</a>
+          </li>
+          <li class="category-element">
+            <a class="category-title">Sports & Outdoor</a>
+          </li>
+          <li class="category-element">
+            <a class="category-title">Baby's & Toys</a>
+          </li>
+          <li class="category-element">
+            <a class="category-title">Graceries & Pets</a>
+          </li>
+          <li class="category-element">
+            <a class="category-title">Health & Beauty</a>
+          </li>
+        </ul>
+      </aside>
+    </section> 
+    <!-- Homepage Header Section End -->
+
     <!-- Homepage Browse By Category Section Start -->
     <div class="browse-by-cat">
       <div class="browse-by-cat-titles">
@@ -203,6 +315,5 @@
     </div>
     <!-- berhan Footer end -->
     <script src="app.js"></script>
-    <script src="shared.js"></script>
   </body>
 </html>
