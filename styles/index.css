@@ -1,7 +1,7 @@
-.exp-pro-container
-
+   /* tahir homepage explore products start *\
 /* html ana container */
-    {
+.exp-pro-container    
+{
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -314,4 +314,5 @@
         border-radius: 50%;
         border: none;
     }
-}
+  }
+  /* tahir homepage explore products end *\
