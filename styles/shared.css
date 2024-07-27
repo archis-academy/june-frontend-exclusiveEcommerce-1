@@ -3,3 +3,120 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
+.orange-box {
+  width: 20px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #DB4444;
+}
+/* Berhan Footer Start*/
+.footer-container {
+  background-color: black;
+  flex-wrap: wrap;
+  display: flex;
+  padding: 15px;
+  margin-top: 120px;
+}
+.information-areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-left: 15px;
+  margin: auto;
+}
+.ft-raid-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  color: #fafafa;
+}
+.ft-lower-title {
+  font-family: "poppins", sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fafafa;
+}
+.ft-second-title {
+  font-family: "poppins", sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fafafa;
+  margin-top: 20px;
+}
+.ft-information-text {
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #fafafa;
+  margin-top: 15px;
+}
+.ft-adress {
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #fafafa;
+  margin-top: 15px;
+  width: 190px;
+}
+.ft-money-information {
+  font-family: "poppins", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #fafafa;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  opacity: 70%;
+}
+.ft-input {
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 15px 15px;
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  background-color: black;
+  color: #fafafa;
+  margin-top: 20px;
+}
+.Download-app-area {
+  position: relative;
+}
+.store-img1 {
+  position: absolute;
+}
+.ft-image-box2 {
+  margin-top: 20px;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 20px;
+}
+.ft-input-section {
+  position: relative;
+}
+.ft-send-icon {
+  position: absolute;
+  left: 195px;
+  top: 35px;
+}
+.ft-second-title:hover {
+  cursor: pointer;
+  color: #db4444;
+}
+.ft-information-text:hover {
+  cursor: pointer;
+  color: #db4444;
+}
+.ft-send-icon:hover {
+  cursor: pointer;
+}
+/* Berhan Footer End*/
