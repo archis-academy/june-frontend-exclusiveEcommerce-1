@@ -136,6 +136,9 @@
   border: none;
   cursor: pointer;
 }
+.homepage-best-selling-products-btn:hover {
+  background-color: #9A2A2A;
+}
 .homepage-best-selling-products-container {
   display: flex;
   justify-content: center;

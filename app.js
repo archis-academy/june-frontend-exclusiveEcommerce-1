@@ -35,17 +35,14 @@ rightArrow.addEventListener("click", () => {
   
 categories.forEach((cat) => {
   cat.addEventListener("click", () => {
-    categories.forEach((cat2) => {
-      if(cat == cat2){
-        cat.classList.toggle('active-category');
-      } else {
-        if (cat2.classList.contains('active-category')){
-          cat2.classList.remove('active-category');
-        };
-      };
-    });
+    categories.forEach((cat2) => cat2.classList.remove('active-category'));
+    cat.classList.add('active-category');
   });
-});  
+});
+
+if (categories.length > 0) {
+  categories[0].classList.add('active-category');
+}
 // Browse By Category Section End
 // Best Selling Products Section Start
 const bestSellingProductsContainer = document.getElementById("best-selling-products-api");
