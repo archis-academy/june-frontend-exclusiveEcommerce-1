@@ -213,13 +213,6 @@
   gap: 10px;
 }
 
-.orange-box {
-  width: 20px;
-  height: 40px;
-  border-radius: 4px;
-  background-color: #DB4444;
-}
-
 .na-upper-head h4 {
   font-family: "Poppins", sans-serif;
   font-size: clamp(10px, 4vw, 16px);
