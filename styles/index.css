@@ -1,24 +1,24 @@
 /* Homepage Header Section Start */
 .homepage-header-container {
-    
+    background-color: #000;
 }
 .header-black-part {
-    background-color: #000 ;
+    max-width: 1250px;
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
     color: #FAFAFA;
-    padding-right: 136px;
     gap: 10px;
-
+}
+.homepage-header-black{
+  padding: 5px 25px;
 }
 .black-discount {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 14px;
-    margin-left: auto;
 }
 .black-shop-now {
     font-family: "Poppins", sans-serif;
@@ -26,6 +26,7 @@
     font-style: normal;
     font-size: 14px;
     text-decoration: underline;
+    cursor: pointer;
     
 }
 
@@ -33,14 +34,15 @@
     background-color: #000;
     font-family: "Poppins", sans-serif;
     color: white;
-    padding: 10px;
-    font-size: 14px;
     font-weight: 400;
     border: none;
+    display: flex;
     cursor: pointer;
     margin-left: auto;
-    position: relative;
-    
+    position: relative;    
+}
+.black-language-dropdown-button h5{
+  font-size: 14px;
 }
 .dropdown-arrow {
     display: inline-block;
@@ -81,10 +83,11 @@
 
 .homepage-header-nav {
   display: flex;
+  margin: auto;
   justify-content: center;
   align-items: center;
   background-color: white;
-  padding: 10px 0;
+  padding: 0px 25px;
   border-bottom: 1px solid #e5e5e5;
 }
 
@@ -92,15 +95,13 @@
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 1170px;
+  max-width: 1250px;
   justify-content: space-between;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  margin-left: 135px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .nav-exc {
-  margin-right: 20px;
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-size: 24px;
@@ -114,10 +115,11 @@
   display: flex;
   flex-grow: 1;
   justify-content: center;
+  margin: auto;
 }
 
 .items-middle h4 {
-  margin: 0 20px;
+  padding: 0px 10px;
   cursor: pointer;
   position: relative;
   font-family: "Poppins", sans-serif;
@@ -324,7 +326,7 @@
 .browse-by-cat-categories {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin:60px auto;
   flex-wrap: wrap;
   gap: 25px;
 }

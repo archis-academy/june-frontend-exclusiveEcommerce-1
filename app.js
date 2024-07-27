@@ -119,11 +119,12 @@ categories.forEach((cat) => {
 /* hompage profile menu start */
 function toggleMenu(){
   const subMenu = document.getElementById("subMenu");
-  const userIcon = document.getElementById("kullanıcı-prof-img");
+  const userIcon = document.getElementById("profil-fotoğrafı");
   subMenu.classList.toggle("open-menu");
   userIcon.classList.toggle("convert-img");
   
 };
+
 /*Buse/JU-5 Homepage Featured Product START*/
 function startCountdown(duration) {
   let start = Date.now();
