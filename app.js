@@ -9,12 +9,6 @@ async function productsRender() {
   return products
 }
 
-
-
-
-
-
-
 /* Homepage Header Section Start */
 document.getElementById("dropdownButton").addEventListener("click", function() {
   const content = document.getElementById("dropdownContent");
@@ -70,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /* Homepage Header Section End */
-
 
 /* Homepage Browse By Category Section Start */
 const categories = Array.from(document.querySelectorAll(".bbc-category"));
