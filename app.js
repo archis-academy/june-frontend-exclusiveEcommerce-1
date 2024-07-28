@@ -88,6 +88,8 @@ async function productsRender(start, end) {
     `;
 
     productsList.innerHTML += productsCard;
+    updateIcon();
+    goToCard();
   });
 }
 
@@ -172,7 +174,27 @@ async function addCartProduct(productId) {
       JSON.stringify([...cartProducts, product])
     );
     document.getElementById(`cart-${productId}`).innerHTML = "Go To Cart";
-  } else {
-    alert("Ürün zaten sepetinizde!");
   }
+}
+
+async function updateIcon(productId) {
+  const wishlistProducts =
+    JSON.parse(localStorage.getItem("wishlistProducts")) || [];
+  wishlistProducts.forEach((e) => {
+    productId = e.id;
+    document
+      .querySelectorAll(`#product-${productId}`)
+      .forEach((e) => (e.style.fill = "red"));
+  });
+}
+
+async function goToCard() {
+  const cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+  cartProducts.forEach((e) => {
+    const productId = e.id;
+    const cartElement = document.getElementById(`cart-${productId}`);
+    if (cartElement) {
+      cartElement.innerHTML = "Go To Cart";
+    }
+  });
 }
