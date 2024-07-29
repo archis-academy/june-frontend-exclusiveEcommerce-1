@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
   searchInput.addEventListener('input', function() {
     const query = searchInput.value.toLowerCase();
 
-    if (query.length > 3) {
+    if (query.length > 0) {
       searchContainer.style.display = "block";
       const filteredProducts = products.filter(product => product.title.toLowerCase().includes(query) || 
       product.description.toLowerCase().includes(query)).slice(0, 3);
@@ -69,6 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+document.addEventListener(
+  
+)
 /* Homepage Header Section End */
 
 
@@ -124,6 +127,29 @@ function toggleMenu(){
   userIcon.classList.toggle("convert-img");
   
 };
+function navigationBar(){
+  const menu = document.querySelector('#home-bars-menu-icon');
+  const itemsMiddle = document.querySelector('.items-middle');
+  menu.classList.toggle('fa-x');
+  itemsMiddle.classList.toggle('open');
+  
+};
+document.addEventListener("DOMContentLoaded", function() {
+  const originalTextElement = document.getElementById('black-discount');
+  const shortenedTextElement = document.getElementById('short-black-discount');
+  const originalText = originalTextElement.textContent;
+
+  const words = originalText.split(' ');
+  const wordLimit = 8; // Kısaltılmış metin için kelime sınırı
+
+  if (words.length > wordLimit) {
+      const shortenedText = words.slice(0, wordLimit).join(' ') + '...';
+      shortenedTextElement.textContent = shortenedText;
+  } else {
+      shortenedTextElement.textContent = originalText;
+  }
+});
+
 
 /*Buse/JU-5 Homepage Featured Product START*/
 function startCountdown(duration) {

@@ -90,7 +90,6 @@
   padding: 0px 25px;
   border-bottom: 1px solid #e5e5e5;
 }
-
 .header-nav-items {
   display: flex;
   align-items: center;
@@ -159,7 +158,7 @@
 }
 
 .nav-input {
-  margin-right: 20px;
+  margin: 0px 20px 0px 20px;
   padding: 7px 12px 7px 20px;
   border: 1px solid #e5e5e5;
   border-radius: 4px;
@@ -209,6 +208,20 @@
 
 .search-results div:last-child {
   border-bottom: none;
+}
+.short-black-discount{
+  font-family:"Poppins", sans-serif ;
+  font-weight: 400;
+  font-style: normal;
+}
+@media (max-width: 768px) {
+  .black-discount {
+      display: none;
+  }
+
+  .short-black-discount {
+      display: block;
+  }
 }
 /* Homepage Header Section End */
 /* homepage Profile Drop-down Menu */
@@ -365,6 +378,70 @@
 }
 
 /* Homepage Browse By Category Section End */
+#home-bars-menu-icon{
+  position: relative;
+  cursor: pointer;
+  font-size: 25px;
+  z-index: 10001;
+  display: none;
+  color: #000;
+  padding: 0px 25px;
+} 
+@media (max-width: 720px) {
+  .header-Exclusive-container{
+    justify-content: center;
+  }
+  .nav-exc{
+    font-size: 15px;
+  }
+  .homepage-header-nav{
+    justify-content: space-between;
+  }
+  .nav-input{
+    margin: 0px 3px 0px 3px;
+  }
+  #home-bars-menu-icon{
+    display: block;
+  }
+.home-item-home, 
+.nav-wishlist,
+.nav-cart,
+.quantity{
+  display: none;
+}
+.drop-menu-container{
+  display: none;
+}
+.items-middle{
+  position: absolute;
+  top: 10%;
+  right: -100%;
+  width: 270px;
+  height: 24vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 10px;
+  padding: 20px;
+  background:  #ffffff;
+  transition: all .50s ease;
+}
+.items-middle h4.home-item-home{
+  display: none;
+}
+.items-middle h4{
+  display: block;
+  margin: 12px 0;
+  padding: 0px 25px;
+}
+.items-middle h4:hover{
+  color:black;
+  transform: translateY(5px);
+}
+.items-middle.open{
+    right: 2%;
+}
+}
 /*Buse/JU-5 Homepage Featured Product START*/
 .featured-products-container {
   display: flex;
