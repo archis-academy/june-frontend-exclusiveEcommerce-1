@@ -1,24 +1,16 @@
-/* Homepage Browse By Category Section Start */
+/* Browse By Category Section Start */
 .browse-by-cat {
   margin: 0 auto;
-  padding: 75px 25px;
-  max-width: 1300px;
+  padding: 80px 20px;
+  max-width: 1254px;
   border-bottom: #0000004d 0.5px solid;
   border-top: #0000004d 0.5px solid;
 }
-.browse-by-cat-titles {
-}
 .bbc-titles-h6 {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  margin-bottom: 20px;
-}
-.bbc-titles-h6 div {
-  background-color: #db4444;
-  width: 20px;
-  height: 40px;
-  border-radius: 4px;
-  margin-right: 10px;
+  gap: 15px;
 }
 .bbc-titles-h6 h6 {
   font-family: "Poppins", sans-serif;
@@ -29,6 +21,8 @@
 }
 .bbc-titles-h1 {
   display: flex;
+  padding: 30px 0;
+  justify-content: space-between;
 }
 .bbc-titles-h1 h1 {
   font-family: "Inter", sans-serif;
@@ -37,19 +31,24 @@
   line-height: 48px;
   font-weight: 600;
 }
+.bbc-arrows {
+  display: flex;
+  gap: 8px;
+}
 .bbc-left-arrow {
   margin-left: auto;
   max-width: 46px;
   max-height: 46px;
+  cursor: pointer;
 }
 .bbc-right-arrow {
   max-width: 46px;
   max-height: 46px;
+  cursor: pointer;
 }
 .browse-by-cat-categories {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
   flex-wrap: wrap;
   gap: 25px;
 }
@@ -62,12 +61,11 @@
   border-radius: 4px;
   width: 170px;
   height: 145px;
+  cursor: pointer;
 }
-
 .bbc-cat-img {
   max-width: 56px;
 }
-
 .bbc-cat-text {
   max-height: 24px;
   font-family: "Popins", sans-serif;
@@ -76,7 +74,6 @@
   font-weight: 400;
   margin-top: 16px;
 }
-
 .active-category {
   background-color: #db4444;
 }
@@ -86,20 +83,249 @@
 .active-category img {
   filter: invert(100%);
 }
+/* Browse By Category Section End */
+/* Best Selling Products Section Start */
+.homepage-best-selling-products {
+  max-width: 1254px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.homepage-best-selling-products-head {
+  display: flex;
+  flex-direction: column;
+}
+.upper-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+.homepage-best-selling-products-h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: clamp(12px, 4vw, 16px);
+  line-height: clamp(16px, 6vw, 20px);
+  color: #DB4444;
+}
+.lower-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  flex-wrap: wrap;
+}
+.homepage-best-selling-products-h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: clamp(28px, 8vw, 36px);
+  line-height: clamp(32px, 8vw, 48px);
+  color: #000000;
+  letter-spacing: 4%;
+}
+.homepage-best-selling-products-btn {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: clamp(12px, 4vw, 16px);
+  line-height: clamp(16px, 6vw, 24px);
+  color: #FAFAFA;
+  padding: 16px 48px;
+  background-color: #DB4444;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+.homepage-best-selling-products-btn:hover {
+  background-color: #9A2A2A;
+}
+.homepage-best-selling-products-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 10px 0;
+  flex-wrap: wrap;
+}
+.homepage-best-selling-products-container-goods-img {
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.homepage-best-selling-products-img-container {
+  width: 270px;
+  height: 250px;
+}
+.homepage-best-selling-products-container-goods-img img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.goods-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 0;
+}
+.goods-info h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 550;
+  font-size: clamp(12px, 4vw, 16px);
+  line-height: clamp(16px, 6vw, 24px);
+  color: #000000;
+}
+.goods-price {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.goods-price h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: clamp(12px, 4vw, 16px);
+  line-height: clamp(16px, 6vw, 24px);
+  color: #DB4444;
+}
+.base-price {
+  color: #000000 !important;
+  opacity: 50% !important;
+}
+.goods-rating-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+}
+.star {
+  color: #ccc;
+}
+.star.filled {
+  color: #FFD43B;
+}
+.goods-amount {
+  padding-left: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: clamp(10px, 4vw, 14px);
+  line-height: clamp(14px, 6vw, 20px);
+  color: #000000;
+  opacity: 50%;
+}
+.icon-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.icon-wishlist i {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #F5F5F5;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #850000;
+  transition: color 0.3s ease-in-out;
+  -webkit-transition: color 0.3s ease-in-out;
+}
+.icon-wishlist i.active {
+  color: #850000;
+  animation: heart-pulse 0.5s forwards;
+  -webkit-animation: heart-pulse 0.5s forwards;
+}
+.icon-cart i {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #F5F5F5;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #001B6B;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  -webkit-transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.icon-cart i.fa-check {
+  animation: cart-to-check 0.3s forwards;
+  -webkit-animation: cart-to-check 0.3s forwards;
+}
+.tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #F5F5F5;
+  color: #001B3A;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  left: -130px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
+}
+.icon-wishlist:hover .tooltip, .icon-cart:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
 
-/* Homepage Browse By Category Section End */
-/*Buse/JU-5 Homepage Featured Product START*/
+@media screen and (max-width: 450px) {
+  .homepage-best-selling-products {
+      padding: 20px 0;
+  }
+}
+@media screen and (max-width: 850px) {
+  .lower-header {
+      padding: 10px 0;
+  }
+  .lower-header h2 {
+      padding-bottom: 10px;
+  }
+}
+
+@keyframes heart-pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.2);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+@keyframes cart-to-check {
+  from {
+      transform: rotateY(0deg);
+  }
+  to {
+      transform: rotateY(360deg);
+  }
+}
+/* Best Selling Products Section End */
+/* Featured Product Section Start */
 .featured-products-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1350px;
-  min-height: 500px;
-  margin: auto;
-  padding: 70px 50px;
+  max-width: 1254px;
+  margin: 0 auto;
+  padding: 80px 20px;
   background-color: black;
+  min-height: 500px;
 }
-
 .featured-products {
   display: flex;
   flex-direction: column;
@@ -107,7 +333,6 @@
   max-width: 400px;
   min-height: 400px;
 }
-
 .categories-title {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
@@ -115,7 +340,6 @@
   line-height: 20px;
   color: #00ff66;
 }
-
 .featured-slogan {
   font-size: 48px;
   font-weight: 600;
@@ -123,12 +347,10 @@
   font-family: "Inter", sans-serif;
   color: white;
 }
-
 .timer-container {
   display: flex;
   justify-content: space-between;
 }
-
 .timer {
   display: flex;
   flex-direction: column;
@@ -144,13 +366,11 @@
   line-height: 18px;
   background-color: white;
 }
-
 .timer-value {
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
 }
-
 .buy-button {
   width: 200px;
   padding: 16px 48px;
@@ -164,7 +384,6 @@
   color: white;
   cursor: pointer;
 }
-
 .buy-button:hover {
   background: rgb(0, 255, 102);
   background: linear-gradient(
@@ -173,7 +392,6 @@
     rgba(2, 133, 55, 1) 100%
   );
 }
-
 .speaker-photo {
   z-index: 2;
   filter: drop-shadow(5px 5px 100px #717171);
@@ -189,8 +407,205 @@
     width: 100%;
   }
 }
-/*Buse/JU-5 Homepage Featured Product*/
-/* Berhan Footer Start*/
+/* Featured Product Section End */
+/* New Arrivals Section Start */
+.na-container {
+  max-width: 1254px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.na-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.na-upper-head {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.na-upper-head h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(10px, 4vw, 16px);
+  line-height: clamp(12px, 4vw, 20px);
+  font-weight: 600;
+  color: #DB4444;
+}
+.na-header h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(22px, 6vw, 36px);
+  line-height: clamp(28px, 6vw, 48px);
+  font-weight: 600;
+  letter-spacing: 4%;
+  padding: 30px 0;
+  color: #000000;
+}
+.na-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 30px 0;
+}
+.na-small-imgs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.na-small-imgs-lower {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.na-product-container {
+  position: relative;
+  display: flex;
+}
+.na-product-container img {
+  max-width: 100%;
+  height: auto;
+}
+.na-ps5-img,
+.na-hat-img,
+.na-spk-img,
+.na-prf-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background-color: #000000;
+}
+.na-ps5-img {
+  padding: 80px 30px 0;
+}
+.na-hat-img {
+  padding: 0 0 0 136px;
+}
+.na-spk-img {
+  padding: 30px 40px;
+}
+.na-prf-img {
+  padding: 40px 35px;
+}
+.na-product-info {
+  left: 20px;
+  bottom: 20px;
+  color: #FFFFFF;
+  position: absolute;
+  max-width: 250px;
+}
+.na-product-info h3 {
+  font-family: "Inter" sans-serif;
+  font-size: clamp(16px, 4vw, 24px);
+  line-height: clamp(16px, 4vw, 24px);
+  font-weight: 600;
+  letter-spacing: 3%;
+  color: #FAFAFA;
+}
+.na-product-info p {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(8px, 2vw, 14px);
+  line-height: clamp(12px, 4vw, 20px);
+  font-weight: 400;
+  color: #FAFAFA;
+  padding: 8px 0;
+}
+.na-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid lightgrey;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #FFFFFF
+}
+.na-btn:hover {
+  color: #D3D3D3;
+}
+.na-advantages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 75px;
+  flex-wrap: wrap;
+  padding-top: 50px;
+}
+.na-adv-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.na-adv-icon i {
+  font-size: 30px;
+  color: #000000;
+}
+.gray-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #A9A9A9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.black-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.na-adv-info h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(14px, 4vw, 20px);
+  line-height: clamp(18px, 4vw, 28px);
+  font-weight: 600;
+  color: #000000;
+}
+.na-adv-info p {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(8px, 2vw, 14px);
+  line-height: clamp(12px, 2vw, 20px);
+  font-weight: 400;
+  color: #000000;
+}
+.na-arrowup-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+.na-arrowup-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #A9A9A9;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.na-arrowup-icon i {
+  font-size: 20px;
+  color: #021526;
+}
+.na-arrowup-icon i:hover {
+  color: #134B70;
+}
+/* New Arrivals Section End */
+/* Footer Start */
 .footer-container {
   background-color: black;
   flex-wrap: wrap;
@@ -297,4 +712,4 @@
 .ft-send-icon:hover {
   cursor: pointer;
 }
-/* Berhan Footer End*/
+/* Footer End */

@@ -3,6 +3,15 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
+.orange-box {
+  width: 20px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #DB4444;
+}
 /* Berhan Footer Start*/
 .footer-container {
   background-color: black;
