@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.register-page-container{
+  display: flex;
+  padding: 25px;
+  justify-content: center;
+}
+
+.register-container{
+    display: flex;
+    margin: 0 auto;   
+}
+
+.image-box{
+    display: flex;
+    align-items: center;
+    max-width: 805px;
+    justify-content: center;
+    max-height: 781px;
+}
+
+.image-box > img{
+    width: 100%;
+}
+
+.register-form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-form h2{
+    font-family: "Inter", sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 50px;
+    color: black;
+}
+
+.register-form h5{
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 24px 0 48px 0;
+}
+
+#register-fullname{
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+    padding-bottom: 8px;
+    border-style: none;
+    border-bottom: 1px solid gray;
+    font-family: 'Poppins',sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px; 
+    outline: none;
+}
+
+#register-text{
+    display: block;
+    width: 100%;
+    padding-bottom: 8px;
+    border-style: none;
+    border-bottom: 1px solid gray;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    outline: none;
+
+}
+
+#register-password{
+    display: block;
+    width: 100%;
+    margin: 40px 0;
+    padding-bottom: 8px;
+    border-style: none;
+    border-bottom: 1px solid gray;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    outline: none;
+}
+
+.register-form{
+    margin-left: clamp(28px, 7vw, 129px);
+   
+}
+
+.register-form-btn-container{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+#register-btn{
+    width: 180px;
+    height: 56px;
+    border-radius: 4px;
+    background-color: #db4444;
+    color: white;
+    font-family: 'Poppins',sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    border-style: none;
+}
+
+.register-form-btn-container >a{
+    font-family: 'Poppins',sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #db4444;;
+}
+
+@media (max-width: 600px) {
+    .register-container {
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .register-form{
+      margin: 30px 0 0 0;
+    }
+    
+    .image-box {
+      max-width: 100%;
+      max-height: 50%;
+    }
+    
+    .register-form {
+      margin-left: 0;
+    }
+  }
+  
+
+
