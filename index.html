@@ -18,7 +18,22 @@
     />
     <link rel="stylesheet" href="styles/shared.css" />
     <link rel="stylesheet" href="styles/index.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body id="ecommerce-body">
     <!-- Browse By Category Section Start -->
@@ -104,11 +119,22 @@
           <h3 class="homepage-best-selling-products-h3">This Month</h3>
         </div>
         <div class="lower-header">
-          <h2 class="homepage-best-selling-products-h2">Best Selling Products</h2>
-          <button class="homepage-best-selling-products-btn" id="best-selling-products-btn" onclick="toggleProductsView()">View All</button>
+          <h2 class="homepage-best-selling-products-h2">
+            Best Selling Products
+          </h2>
+          <button
+            class="homepage-best-selling-products-btn"
+            id="best-selling-products-btn"
+            onclick="toggleProductsView()"
+          >
+            View All
+          </button>
         </div>
       </div>
-      <div class="homepage-best-selling-products-container" id="best-selling-products-api"></div>
+      <div
+        class="homepage-best-selling-products-container"
+        id="best-selling-products-api"
+      ></div>
     </div>
     <!-- Best Selling Products Section End -->
     <!-- Featured Product Section Start -->
@@ -141,6 +167,34 @@
       </div>
     </section>
     <!-- Featured Product Section End -->
+    <!-- tahir homepage explore products start -->
+    <div id="exploader" class="loader hidden"></div>
+    <div class="exp-pro-container" id="exprocontainer">
+      <div class="exp-pro-div">
+        <div class="exp-pro-div-titles">
+          <div class="exp-titles-h6">
+            <div></div>
+            <h6>Our Products</h6>
+          </div>
+          <div class="exp-titles-h1">
+            <h1 class="expOurPro">Explore Our Products</h1>
+            <div class="exprobutton">
+              <button class="exp-pre-button">
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+              <button class="exp-next-button">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="exploreproducts" id="exploreproducts"></div>
+        <div class="exp-view-container">
+          <button class="exp-btn-view-prd">View All Products</button>
+        </div>
+      </div>
+    </div>
+    <!-- tahir homepage explore products end -->
     <!-- New Arrivals Section Start -->
     <div class="na-container">
       <div class="na-main-content">
@@ -154,13 +208,11 @@
         <div class="na-products">
           <div class="na-product-container">
             <div class="na-ps5-img">
-              <img src="images/playstation5.png" alt="playstation5"/>
+              <img src="images/playstation5.png" alt="playstation5" />
             </div>
             <div class="na-product-info">
               <h3>PlayStation 5</h3>
-              <p>
-                Black and White version of the PS5 coming out on sale.
-              </p>
+              <p>Black and White version of the PS5 coming out on sale.</p>
               <button class="na-btn">Shop Now</button>
             </div>
           </div>
@@ -168,13 +220,14 @@
             <div class="na-small-imgs-upper">
               <div class="na-product-container">
                 <div class="na-hat-img">
-                  <img src="images/woman-with-hat.png" alt="beauty-with-funeral-hat"/>
+                  <img
+                    src="images/woman-with-hat.png"
+                    alt="beauty-with-funeral-hat"
+                  />
                 </div>
                 <div class="na-product-info">
                   <h3>Women's Collections</h3>
-                  <p>
-                    Featured woman collections that give you another vibe.
-                  </p>
+                  <p>Featured woman collections that give you another vibe.</p>
                   <button class="na-btn">Shop Now</button>
                 </div>
               </div>
@@ -182,25 +235,21 @@
             <div class="na-small-imgs-lower">
               <div class="na-product-container">
                 <div class="na-spk-img">
-                  <img src="images/speakers.png" alt="jbl-speakers"/>
+                  <img src="images/speakers.png" alt="jbl-speakers" />
                 </div>
                 <div class="na-product-info">
                   <h3>JBL Speakers</h3>
-                  <p>
-                    Wireless speakers by JBL
-                  </p>
+                  <p>Wireless speakers by JBL</p>
                   <button class="na-btn">Shop Now</button>
                 </div>
               </div>
               <div class="na-product-container">
                 <div class="na-prf-img">
-                  <img src="images/gucci-perfume.png" alt="gucci-perfume"/>
+                  <img src="images/gucci-perfume.png" alt="gucci-perfume" />
                 </div>
                 <div class="na-product-info">
                   <h3>Gucci Perfume</h3>
-                  <p>
-                    GUCCI INTENSE OUD EDP
-                  </p>
+                  <p>GUCCI INTENSE OUD EDP</p>
                   <button class="na-btn">Shop Now</button>
                 </div>
               </div>

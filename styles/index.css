@@ -103,11 +103,11 @@
   gap: 15px;
 }
 .homepage-best-selling-products-h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(12px, 4vw, 16px);
   line-height: clamp(16px, 6vw, 20px);
-  color: #DB4444;
+  color: #db4444;
 }
 .lower-header {
   display: flex;
@@ -117,7 +117,7 @@
   flex-wrap: wrap;
 }
 .homepage-best-selling-products-h2 {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: clamp(28px, 8vw, 36px);
   line-height: clamp(32px, 8vw, 48px);
@@ -125,19 +125,19 @@
   letter-spacing: 4%;
 }
 .homepage-best-selling-products-btn {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: clamp(12px, 4vw, 16px);
   line-height: clamp(16px, 6vw, 24px);
-  color: #FAFAFA;
+  color: #fafafa;
   padding: 16px 48px;
-  background-color: #DB4444;
+  background-color: #db4444;
   border-radius: 4px;
   border: none;
   cursor: pointer;
 }
 .homepage-best-selling-products-btn:hover {
-  background-color: #9A2A2A;
+  background-color: #9a2a2a;
 }
 .homepage-best-selling-products-container {
   display: flex;
@@ -149,7 +149,7 @@
 }
 .homepage-best-selling-products-container-goods-img {
   border-radius: 4px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,7 +172,7 @@
   padding: 10px 0;
 }
 .goods-info h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 550;
   font-size: clamp(12px, 4vw, 16px);
   line-height: clamp(16px, 6vw, 24px);
@@ -184,11 +184,11 @@
   gap: 10px;
 }
 .goods-price h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: clamp(12px, 4vw, 16px);
   line-height: clamp(16px, 6vw, 24px);
-  color: #DB4444;
+  color: #db4444;
 }
 .base-price {
   color: #000000 !important;
@@ -204,11 +204,11 @@
   color: #ccc;
 }
 .star.filled {
-  color: #FFD43B;
+  color: #ffd43b;
 }
 .goods-amount {
   padding-left: 5px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(10px, 4vw, 14px);
   line-height: clamp(14px, 6vw, 20px);
@@ -227,7 +227,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -246,13 +246,13 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  color: #001B6B;
+  color: #001b6b;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
   -webkit-transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -263,8 +263,8 @@
 .tooltip {
   visibility: hidden;
   width: 120px;
-  background-color: #F5F5F5;
-  color: #001B3A;
+  background-color: #f5f5f5;
+  color: #001b3a;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
@@ -276,42 +276,43 @@
   transition: opacity 0.5s ease-in-out;
   -webkit-transition: opacity 0.5s ease-in-out;
 }
-.icon-wishlist:hover .tooltip, .icon-cart:hover .tooltip {
+.icon-wishlist:hover .tooltip,
+.icon-cart:hover .tooltip {
   visibility: visible;
   opacity: 1;
 }
 
 @media screen and (max-width: 450px) {
   .homepage-best-selling-products {
-      padding: 20px 0;
+    padding: 20px 0;
   }
 }
 @media screen and (max-width: 850px) {
   .lower-header {
-      padding: 10px 0;
+    padding: 10px 0;
   }
   .lower-header h2 {
-      padding-bottom: 10px;
+    padding-bottom: 10px;
   }
 }
 
 @keyframes heart-pulse {
   0% {
-      transform: scale(1);
+    transform: scale(1);
   }
   50% {
-      transform: scale(1.2);
+    transform: scale(1.2);
   }
   100% {
-      transform: scale(1);
+    transform: scale(1);
   }
 }
 @keyframes cart-to-check {
   from {
-      transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
   to {
-      transform: rotateY(360deg);
+    transform: rotateY(360deg);
   }
 }
 /* Best Selling Products Section End */
@@ -408,6 +409,306 @@
   }
 }
 /* Featured Product Section End */
+/* tahir homepage explore products start *\
+/* html ana container */
+.exp-pro-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.exploreproducts
+
+/* ürünler */ {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 1350px;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.exproducts
+
+/* resimlerin container */ {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  align-items: center;
+  text-align: center;
+}
+
+.exproimg
+
+/* resimler */ {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.exp-pro-icons /* ürünlerin içinde ki iconlar */ {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fa-regular,
+.fa-solid {
+  font-size: 20px;
+  color: #333;
+}
+
+.expdattotaly
+
+/* ürünlerin fiyat yorum ve değerlendirmenin container */ {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+  justify-content: center;
+  justify-content: left;
+}
+
+.exprotitle
+
+/* ürünün yazısı*/ {
+  max-width: 1350px;
+  font-size: 16px;
+  font-family: "Poppins";
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.fa-star
+
+/* ürünün yıldız*/ {
+  color: #ffad33;
+}
+
+.exprocount
+
+/* ürünün yorum sayısı*/ {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  color: gray;
+}
+
+.exproprice
+
+/* ürünün fiyatı */ {
+  color: #db4444;
+}
+
+.exp-pro-div {
+  margin: 0 auto;
+  padding: 75px 25px;
+  max-width: 1300px;
+}
+.exp-titles-h6 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+/* Loader */
+.exploader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hidden class for loader */
+.hidden {
+  display: none;
+}
+
+.exp-titles-h6 div {
+  background-color: #db4444;
+  width: 20px;
+  height: 40px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.exp-titles-h6 h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #db4444;
+  font-size: 16px;
+}
+
+.exp-titles-h1 {
+  display: flex;
+}
+
+.exp-titles-h1 h1 {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 600;
+}
+.exp-pre-button,
+.exp-next-button {
+  max-width: 100%;
+}
+.exp-pre-button,
+.exp-next-button {
+  width: 46px;
+  height: 46px;
+  background-color: #f5f5f5;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+}
+
+.exp-pre-button:hover,
+.exp-next-button:hover {
+  background-color: #e0e0e0;
+}
+
+.exprobutton {
+  margin-left: auto;
+}
+
+.exp-view-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exp-btn-view-prd {
+  padding: 16px 48px 16px 48px;
+  background-color: #db4444;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.exp-btn-view-prd:hover {
+  background-color: #ee3939;
+}
+#exproheart {
+  color: #999;
+}
+.exprowhistlist i:hover {
+  color: red;
+}
+.exproshopingi i:hover {
+  color: rgb(27, 27, 29);
+}
+.exproshoping i {
+}
+.exp-pro-icons i {
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 1px 1px 1px 1px #999;
+}
+
+@media screen and (max-width: 1055px) {
+  .exploreproducts
+
+    /* ürünler */ {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 804px) {
+  .exploreproducts
+
+    /* ürünler */ {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .exp-titles-h1 {
+    display: flex;
+  }
+
+  .exp-titles-h1 h1 {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-size: 26px;
+    line-height: 48px;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 552px) {
+  .exploreproducts
+
+    /* ürünler */ {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .exp-titles-h1 {
+    display: flex;
+    align-items: center;
+  }
+
+  .exp-titles-h1 h1 {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 48px;
+    font-weight: 600;
+    gap: 10px;
+  }
+
+  .exp-pre-button,
+  .exp-next-button {
+    width: 26px;
+    height: 26px;
+    background-color: #f5f5f5;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+  }
+}
+/* tahir homepage explore products end *\
 /* New Arrivals Section Start */
 .na-container {
   max-width: 1254px;
@@ -433,7 +734,7 @@
   font-size: clamp(10px, 4vw, 16px);
   line-height: clamp(12px, 4vw, 20px);
   font-weight: 600;
-  color: #DB4444;
+  color: #db4444;
 }
 .na-header h2 {
   font-family: "Poppins", sans-serif;
@@ -497,7 +798,7 @@
 .na-product-info {
   left: 20px;
   bottom: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
   position: absolute;
   max-width: 250px;
 }
@@ -507,14 +808,14 @@
   line-height: clamp(16px, 4vw, 24px);
   font-weight: 600;
   letter-spacing: 3%;
-  color: #FAFAFA;
+  color: #fafafa;
 }
 .na-product-info p {
   font-family: "Poppins", sans-serif;
   font-size: clamp(8px, 2vw, 14px);
   line-height: clamp(12px, 4vw, 20px);
   font-weight: 400;
-  color: #FAFAFA;
+  color: #fafafa;
   padding: 8px 0;
 }
 .na-btn {
@@ -526,10 +827,10 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 500;
-  color: #FFFFFF
+  color: #ffffff;
 }
 .na-btn:hover {
-  color: #D3D3D3;
+  color: #d3d3d3;
 }
 .na-advantages {
   display: flex;
@@ -554,7 +855,7 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: #A9A9A9;
+  background-color: #a9a9a9;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -563,7 +864,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -591,7 +892,7 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
-  background-color: #A9A9A9;
+  background-color: #a9a9a9;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -602,7 +903,7 @@
   color: #021526;
 }
 .na-arrowup-icon i:hover {
-  color: #134B70;
+  color: #134b70;
 }
 /* New Arrivals Section End */
 /* Footer Start */
