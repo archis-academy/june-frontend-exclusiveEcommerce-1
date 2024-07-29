@@ -5,9 +5,53 @@ async function getProducts() {
 }
 async function productsRender() {
   // gelen datayı burda düzenlenmesi bekleyerek products içine atıyoruz ve bu fonksiyonun içinde kullanmaya devam ediyoruz
-  const products = await getProducts();
+  const products = await getProducts();  
   return products
 }
+
+/* Homepage Resume Category Section Start */
+async function getWomenProductsTitles() {
+  const products = await getProducts();
+  const womenProducts = products.filter(product => product.category === "women's clothing");
+  return womenProducts.map(product => product.title);
+}
+
+async function getMenProductsTitles() {
+  const products = await getProducts();
+  const menProducts = products.filter(product => product.category === "men's clothing");
+  return menProducts.map(product => product.title);
+}
+
+async function productsTitleRender() {
+  const womenClothingTitles = await getWomenProductsTitles();
+  const womenDropdown = document.getElementById("womenDropdown");
+
+  womenClothingTitles.forEach(title => {
+    const aTag = document.createElement("a");
+    const limitedTitle = title.length > 20 ? title.substring(0, 20) + '...' : title;
+    aTag.textContent = limitedTitle;
+    aTag.className = "women-category-title";
+    aTag.href = "#";
+
+    womenDropdown.appendChild(aTag);
+  });
+
+  const menClothingTitles = await getMenProductsTitles();
+  const menDropdown = document.getElementById("menDropdown");
+
+  menClothingTitles.forEach(title => {
+    const aTag = document.createElement("a");
+    const limitedTitle = title.length > 20 ? title.substring(0, 20) + '...' : title;
+    aTag.className = "men-category-title";
+    aTag.href = "#";
+    aTag.textContent = limitedTitle;
+    menDropdown.appendChild(aTag);
+  });
+}
+
+productsTitleRender();
+/* Homepage Resume Category Section End */
+
 
 /* Homepage Header Section Start */
 document.getElementById("dropdownButton").addEventListener("click", function() {

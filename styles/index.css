@@ -52,10 +52,11 @@
 
 .women-categories,
 .men-categories{
+  min-width: 220px;
   display: none;
   position: absolute;
   top: 0;
-  right: -122px;
+  left: 250px;
   padding: 13px;
   background-color: #F4F4F4;
   z-index: 1;
