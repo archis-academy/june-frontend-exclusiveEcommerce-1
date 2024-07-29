@@ -13,6 +13,12 @@
   gap: 24px;
 }
 
+@media (max-width: 1270px) {
+  .todays-left {
+    margin-left: 150px;
+  }
+}
+
 .todays-title-div {
   display: flex;
   align-items: center;
