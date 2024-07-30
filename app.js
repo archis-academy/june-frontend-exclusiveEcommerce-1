@@ -18,8 +18,32 @@ async function productsRender() {
   return products
 }
 
-
-
+const whislistNotice = () => {
+  const wishlistProducts = JSON.parse(localStorage.getItem("wishlistProducts"));
+  if(wishlistProducts.length > 0) {
+    document.querySelector(".bottom").style.backgroundColor = "red";
+    document.querySelector(".bottom").innerHTML = wishlistProducts.length
+    document.querySelector(".whistlist-quantity").style.backgroundColor = "red";
+    document.querySelector(".whistlist-quantity").innerHTML = 
+    wishlistProducts.length;
+  }else{
+    document.querySelector(".whistlist-quantity").style.backgroundColor = "transparent";
+    document.querySelector(".bottom").style.backgroundColor = "transparent";
+  }
+};
+const cartNotice = () => {
+  const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+  if(cartProducts.length > 0) {
+    document.querySelector(".quantity").style.backgroundColor = "red";
+    document.querySelector(".quantity").innerHTML = cartProducts.length;
+    document.querySelector(".bottom-quantity").style.backgroundColor = "red"
+    document.querySelector(".bottom-quantity").innerHTML = 
+    cartProducts.length;
+  }else{
+    document.querySelector(".quantity").style.backgroundColor = "transparent";
+    document.querySelector(".bottom-quantity").style.backgroundColor = "transparent"
+  }
+};
 
 
 
@@ -218,6 +242,7 @@ async function toggleWishlist(productId) {
         "wishlistProducts",
         JSON.stringify(wishlistProducts)
       );
+      whislistNotice();
       document
         .querySelectorAll(`#product-${productId}`)
         .forEach((e) => (e.style.fill = "red"));
@@ -230,6 +255,7 @@ async function toggleWishlist(productId) {
       "wishlistProducts",
       JSON.stringify(newWishlistProducts)
     );
+    whislistNotice();
     document
       .querySelectorAll(`#product-${productId}`)
       .forEach((x) => (x.style.fill = "none"));
@@ -248,6 +274,7 @@ async function addCartProduct(productId) {
       "cartProducts",
       JSON.stringify([...cartProducts, product])
     );
+    cartNotice();
     document.getElementById(`cart-${productId}`).innerHTML = "Go To Cart";
   }
 }
@@ -283,6 +310,7 @@ function expupdateWishlistStorage(product, add) {
     wishlist = wishlist.filter((item) => item.id !== product.id);
   }
   localStorage.setItem("wishlistProducts", JSON.stringify(wishlist));
+  whislistNotice();
   console.log("Updated Wishlist:", wishlist); // Konsola yazdırma
 }
 
@@ -294,6 +322,7 @@ function expupdateCartStorage(product, add) {
     expcart = expcart.filter((item) => item.id !== product.id);
   }
   localStorage.setItem("cartProducts", JSON.stringify(expcart));
+  cartNotice();
   console.log("Updated Cart:", expcart); // Konsola yazdırma
 }
 
@@ -360,7 +389,6 @@ function toggleMenu(){
   const subMenu = document.getElementById("subMenu");
   const userIcon = document.getElementById("profil-fotoğrafı");
   subMenu.classList.toggle("open-menu");
-  userIcon.classList.toggle("convert-img");
 };
 function navigationBar(){
   const menu = document.querySelector('#home-bars-menu-icon');
@@ -486,7 +514,8 @@ function toggleItem(productId, listType, products) {
     allItems.push(addedProduct);
   }
   localStorage.setItem(storageKey, JSON.stringify(allItems));
-
+cartNotice();
+whislistNotice();
   toggleIconState(icon, listType, !inList);
 }
 
@@ -714,5 +743,6 @@ window.onload = function () {
   startCountdown(60 * 60 * 24);
 };
 // Featured Product Section End
-
+whislistNotice();
+cartNotice();
 productsRender();
