@@ -24,7 +24,7 @@
     <link href="/your-path-to-uicons/css/uicons-rounded-solid.css" rel="stylesheet">
 
   </head>
-  <body class="body">
+  <body id="body">
     <!-- Homepage Header Section Start -->
     <section class="homepage-header-container">
       <div class="homepage-header-black">
@@ -42,62 +42,112 @@
           </button>
           
         </div>
-      </div>
-      <div class="homepage-header-nav">
-        <div class="header-nav-items">
-          <div class="header-Exclusive-container"><h4 class="nav-exc">Exclusive</h4></div>
-          <div class="items-middle">
-            <h4 class="home-item-home">Home</h4>
-            <h4 class="home-item-contact">Contact</h4>
-            <h4 class="home-item-about">About</h4>
-          </div>
-          <div class="search-container" id="search-container">
-            <input class="nav-input" id="search-input" type="text" placeholder="What are you looking for?">
-            <div class="search-results" id="search-results"></div>
-          </div>
-          
-          <div class="nav-wishlist-container">
-          <button class="nav-wishlist"><i class="fa-regular fa-heart"></i></button>
-          <span class="whistlist-quantity">0</span>
-          </div>
-          <div class="nav-cart-container">
-          <button class="nav-cart"><i class="fa-solid fa-cart-shopping"></i></button>
-          <span class="quantity">0</span>
-          <div class="fa fa-bars" id="home-bars-menu-icon" onclick="navigationBar()"></div>
-
-          </div>
-        <div class="drop-menu-container">
-            <div class="kullanıcı-prof"><img src="images/user.png" onclick="toggleMenu()" class="profil-fotoğrafı"></div>
-            <div class="sub-menu-warp" id="subMenu">
-              <div class="sub-menu">
-                </div>
-                <a href="" class="sub-menu-link">
-                  <img src="images/user-mini.png" alt="" srcset="">
-                  <p>Manage My Account</p>
-                </a>
-                <a href="" class="sub-menu-link">
-                  <img src="images/Group.png" alt="">
-                  <p>My Order</p>
-                </a>
-                <a href="" class="sub-menu-link">
-                  <img src="images/icon-cancel.png" alt="">
-                  <p>My Cancellations</p>
-                </a>
-                <a href="" class="sub-menu-link">
-                  <img src="images/Icon-Reviews.png" alt="">
-                  <p>My Reviews</p>
-                </a>
-                <a href="" class="sub-menu-link">
-                  <img src="images/Icon-logout.png" alt="">
-                  <p>Logout</p>
-                </a>
-              </div>
-            </div>
-        </div>
-        </div>
-      </div>       
+      </div>  
     </section>
-    
+    <div class="homepage-header-nav">
+      <div class="header-nav-items">
+        <div class="header-Exclusive-container"><h4 class="nav-exc">Exclusive</h4></div>
+        <div class="items-middle">
+          <h4 class="home-item-home">Home</h4>
+          <h4 class="home-item-contact">Contact</h4>
+          <h4 class="home-item-about">About</h4>
+        </div>
+        <div class="search-container" id="search-container">
+          <input class="nav-input" id="search-input" type="text" placeholder="What are you looking for?">
+          <div class="search-results" id="search-results"></div>
+        </div>
+        
+        <div class="nav-wishlist-container">
+        <button class="nav-wishlist"><i class="fa-regular fa-heart"></i></button>
+        <span class="whistlist-quantity">0</span>
+        </div>
+        <div class="nav-cart-container">
+        <button class="nav-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+        <span class="quantity">0</span>
+        <div class="fa fa-bars" id="home-bars-menu-icon" onclick="navigationBar()"></div>
+
+        </div>
+      <div class="drop-menu-container">
+          <div class="kullanıcı-prof"><img src="images/user.png" onclick="toggleMenu()" class="profil-fotoğrafı"></div>
+          <div class="sub-menu-warp" id="subMenu">
+            <div class="sub-menu">
+              </div>
+              <a href="" class="sub-menu-link">
+                <img src="images/user-mini.png" alt="" srcset="">
+                <p>Manage My Account</p>
+              </a>
+              <a href="" class="sub-menu-link">
+                <img src="images/Group.png" alt="">
+                <p>My Order</p>
+              </a>
+              <a href="" class="sub-menu-link">
+                <img src="images/icon-cancel.png" alt="">
+                <p>My Cancellations</p>
+              </a>
+              <a href="" class="sub-menu-link">
+                <img src="images/Icon-Reviews.png" alt="">
+                <p>My Reviews</p>
+              </a>
+              <a href="" class="sub-menu-link">
+                <img src="images/Icon-logout.png" alt="">
+                <p>Logout</p>
+              </a>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>  
+    <div class="bottom-nav-container">
+      <div class="bottom-nav-box">
+        <div class="bottom-nav-item">
+          <a href="#" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>home</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fa-solid fa-heart"></i>
+            <span>wishlist</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Shoping</span>
+          </a>
+          <a href="#" onclick="toggleMenuBottom()" class="nav-item" id="user-pic">
+            <i class="fa-solid fa-user" id=""></i>
+            <span>user</span>
+          </a>
+        </div>
+        </div>
+      </div>  
+    </div> 
+    <div class="bottom-slot-menu">
+    <div class="bottom-drop-menu-container">
+      <div class="bottom-sub-menu-warp" id="bottom-subMenu">
+        <div class="bottom-sub-menu">
+          
+          <a href="" class="bottom-sub-menu-link">
+            <i class="fa-regular fa-user"></i>
+            <p>Manage My Account</p>
+          </a>
+          <a href="" class="bottom-sub-menu-link">
+            <i class="fa-solid fa-list"></i>
+            <p>My Order</p>
+          </a>
+          <a href="" class="bottom-sub-menu-link">
+            <i class="fa-solid fa-xmark"></i>
+            <p>My Cancellations</p>
+          </a>
+          <a href="" class="bottom-sub-menu-link">
+            <i class="fa-regular fa-clock"></i>
+            <p>My Reviews</p>
+          </a>
+          <a href="" class="bottom-sub-menu-link">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <p>Logout</p>
+          </a>
+          </div>
+        </div>
+      </div>  
     <!-- Homepage Header Section End -->
 
     <!-- Homepage Browse By Category Section Start -->

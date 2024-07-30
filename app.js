@@ -125,8 +125,11 @@ function toggleMenu(){
   const userIcon = document.getElementById("profil-fotoğrafı");
   subMenu.classList.toggle("open-menu");
   userIcon.classList.toggle("convert-img");
-  
 };
+function toggleBottomMenu() {
+  const bottomSubMenu = document.getElementById("bottom-subMenu");
+  bottomSubMenu.classList.toggle("open");
+}
 function navigationBar(){
   const menu = document.querySelector('#home-bars-menu-icon');
   const itemsMiddle = document.querySelector('.items-middle');
@@ -149,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
       shortenedTextElement.textContent = originalText;
   }
 });
+
 
 
 /*Buse/JU-5 Homepage Featured Product START*/

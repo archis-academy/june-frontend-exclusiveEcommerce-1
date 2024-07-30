@@ -2,7 +2,7 @@
 .homepage-header-container {
     background-color: #000;
 }
-.body{
+#body{
   overflow-x: hidden;
 }
 .header-black-part {
@@ -200,6 +200,7 @@
 
 .search-container {
   position: relative;
+  margin: auto;
 }
 
 .search-results {
@@ -274,6 +275,9 @@
 .sub-menu-warp.open-menu{
   max-height: 228px;
 }
+.bottom-menu-warp.orpen-menu{
+  display: flex;
+}
 .user-info{
   display: flex;
   align-items: center;
@@ -303,6 +307,126 @@
  }
  .sub-menu-link:hover p{
   font-weight: 600;
+ }
+ /* hompage bottom nav start */
+ .bottom-drop-menu-container{
+  position: relative;
+ }
+ .bottom-kullanıcı-prof{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  min-width: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: sans-serif;
+  font-size: 13px;
+  color: #444444;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.1s ease-in-out;
+  margin: auto;
+ }
+ .bottom-nav-item{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 55px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  overflow-x: auto;
+  display: none;
+ }
+ #bottom-subMenu.open {
+  display: block;
+}
+
+ @media (max-width: 790px) {
+  .bottom-nav-item{
+    display: flex;
+    z-index: 1;
+  }
+ }
+ .bottom-nav-item-width{
+  max-width: 780px;
+ }
+ .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow:1 ;
+  min-width: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: sans-serif;
+  font-size: 13px;
+  color: #444444;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.1s ease-in-out;
+  margin: auto;
+ }
+ .nav-item:hover{
+  background-color: #eeeeee;
+ }
+ .nav-item i{
+  font-size: 20px;
+ }
+ .bottom-user-menu{
+  position:relative ;
+ }
+ .bottom-sub-menu {
+  display: inline-block;
+  list-style: none;
+
+ }
+ .bottom-sub-menu-link img{
+  width: 40px;
+  padding: 8px;
+  margin: 0 auto;
+ }
+ .bottom-sub-menu-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin: 10px 0;
+  padding: 0px 10px 0px 10px;
+ }
+ .bottom-sub-menu-warp{
+  position: fixed;
+  bottom: 6%;
+  width: 100%;
+  box-shadow: black;
+  background: linear-gradient(135deg, rgb(255, 255, 255), rgb(255, 255, 255));
+  backdrop-filter: blur();
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+ }
+ .bottom-sub-menu-warp {
+  display: none; /* Başlangıçta gizli */
+}
+
+ #bottom-subMenu{
+  display: none;
+  z-index: 1;
+ }
+ .bottom-sub-menu-link p{
+  padding: 8px;
+  margin-right: 15px;
+ }
+ #user-pic{
+  cursor: pointer;
+ }
+ .bottom-sub-menu{
+  width: 100%;
+  text-align: center;
+ } 
+ .sub-menu-warp{
+   position: absolute;
+   top: 100;
  }
 /* Homepage Browse By Category Section Start */
 .browse-by-cat {
@@ -456,6 +580,7 @@
 }
 .items-middle.open{
     right: 2%;
+    width: 100%;
 }
 }
 /*Buse/JU-5 Homepage Featured Product START*/
