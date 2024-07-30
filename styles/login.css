@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login-page-container{
+  display: flex;
+  padding: 25px;
+  justify-content: center;
+  
+}
+
+.login-container{
+    display: flex;  
+    margin: 0 auto;
+}
+
+.image-box{
+    
+    display: flex;
+    align-items: center;
+    max-width: 805px;
+    justify-content: center;
+    max-height: 781px;
+    
+}
+
+.image-box > img{
+    width: 100%;
+}
+
+.login-form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form h2{
+    font-family: "Inter", sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 50px;
+    color: black;
+}
+
+.login-form h5{
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 24px 0 48px 0;
+}
+
+#login-text{
+    display: block;
+    width: 100%;
+    padding-bottom: 8px;
+    border-style: none;
+    border-bottom: 1px solid gray;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    outline: none;
+
+}
+
+#login-password{
+    display: block;
+    width: 100%;
+    margin: 40px 0;
+    padding-bottom: 8px;
+    border-style: none;
+    border-bottom: 1px solid gray;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    outline: none;
+}
+
+.login-form{
+    margin-left: clamp(28px, 7vw, 129px);
+   
+}
+
+.login-form-btn{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  gap: 10px;
+}
+
+#log-in{
+  width: 143px;
+  height: 35px;
+  border-radius: 4px;
+  background-color: #db4444;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  border-style: none;
+}
+
+.log-password{
+  display: flex;
+  color: #db4444;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  
+}
+
+.login-form-register a {
+  display: flex;
+  color: #db4444;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  justify-content: center;
+   
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-form{
+    margin: 30px 0 0 0;
+  }
+  
+  .image-box {
+    max-width: 100%;
+    max-height: 50%;
+  }
+  
+  .login-form {
+    margin-left: 0;
+  }
+}
+
+
+
