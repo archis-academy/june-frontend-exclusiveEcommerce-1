@@ -71,6 +71,100 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Homepage Header Section End */
 
+/* Homepage Resume Category Section Start */
+async function getWomenProductsTitles() {
+  const products = await getProducts();
+  const womenProducts = products.filter(product => product.category === "women's clothing");
+  return womenProducts.map(product => ({ title: product.title, image: product.image }));
+
+}
+
+async function getMenProductsTitles() {
+  const products = await getProducts();
+  const menProducts = products.filter(product => product.category === "men's clothing");
+  return menProducts.map(product => ({ title: product.title, image: product.image }));
+}
+
+async function productsTitleRender() {
+  const womenClothingTitles = await getWomenProductsTitles();
+  const womenDropdown = document.getElementById("womenDropdown");
+
+  womenClothingTitles.forEach(product => {
+    const aTag = document.createElement("a");
+    const limitedTitle = product.title.length > 20 ? product.title.substring(0, 20) + '...' : product.title;
+    aTag.textContent = limitedTitle;
+    aTag.className = "women-category-title";
+    aTag.href = "#";
+
+    const womenimgTag = document.createElement("img");
+    womenimgTag.src = product.image;
+    womenimgTag.className = "women-category-img";
+
+    const womenContainerDiv = document.createElement("div");
+    womenContainerDiv.className = "women-category-row";
+
+    womenContainerDiv.appendChild(womenimgTag);
+    womenContainerDiv.appendChild(aTag);
+    womenDropdown.appendChild(womenContainerDiv);
+  });
+
+  const menClothingTitles = await getMenProductsTitles();
+  const menDropdown = document.getElementById("menDropdown");
+
+  menClothingTitles.forEach(product => {
+    const aTag = document.createElement("a");
+    const limitedTitle = product.title.length > 20 ? product.title.substring(0, 20) + '...' : product.title;
+    aTag.className = "men-category-title";
+    aTag.href = "#";
+    aTag.textContent = limitedTitle;
+    
+    const menimgTag = document.createElement("img");
+    menimgTag.src = product.image;
+    menimgTag.className = "men-category-img";
+
+    const menContainerDiv = document.createElement("div");
+    menContainerDiv.className = "men-category-row";
+
+    menContainerDiv.appendChild(menimgTag);
+    menContainerDiv.appendChild(aTag);
+    menDropdown.appendChild(menContainerDiv);
+  });
+}
+
+productsTitleRender();
+
+const adImgs = document.querySelector(".product-container-imgs");
+const navButtons = document.querySelectorAll(".img-nav-button");
+let currentIndex = 0;
+let intervalId;
+
+function showImg(index) {
+  adImgs.style.transform = `translateX(-${index * 100}%)`;
+
+  currentIndex = index;
+
+  navButtons.forEach((button, idx) => {
+    button.classList.toggle("active", idx === currentIndex);
+  });
+  resetInterval();
+}
+
+function autoSlide() {
+  currentIndex = (currentIndex + 1) % adImgs.children.length;
+  showImg(currentIndex);
+}
+
+function resetInterval() {
+  if (intervalId) {
+    clearInterval(intervalId);
+  }
+  intervalId = setInterval(autoSlide, 3000);
+}
+
+showImg(0);
+intervalId = setInterval(autoSlide, 3000);
+
+/* Homepage Resume Category Section End */
 
 /* Homepage Browse By Category Section Start */
 const categories = Array.from(document.querySelectorAll(".bbc-category"));
