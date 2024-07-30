@@ -339,13 +339,18 @@
   display: none;
  }
  #bottom-subMenu.open {
-  display: block;
+  display: flex;
 }
-
+.bottom-drop-menu-container{
+  display: none;
+}
  @media (max-width: 790px) {
   .bottom-nav-item{
     display: flex;
     z-index: 1;
+  }
+  .bottom-drop-menu-container{
+    display: block;
   }
  }
  .bottom-nav-item-width{
@@ -405,13 +410,12 @@
   overflow: hidden;
   transition: max-height 0.5s;
  }
- .bottom-sub-menu-warp {
-  display: none; /* Başlangıçta gizli */
-}
-
  #bottom-subMenu{
   display: none;
   z-index: 1;
+ }
+ #bottom-subMenu.active{
+  display: block;
  }
  .bottom-sub-menu-link p{
   padding: 8px;

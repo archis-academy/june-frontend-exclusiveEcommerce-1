@@ -68,10 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
     searchResults.innerHTML = products.map(product => `<div>${product.title.substring(0, 20)}</div>`).join('');
   }
 });
-
-document.addEventListener(
-  
-)
 /* Homepage Header Section End */
 
 
@@ -126,10 +122,6 @@ function toggleMenu(){
   subMenu.classList.toggle("open-menu");
   userIcon.classList.toggle("convert-img");
 };
-function toggleBottomMenu() {
-  const bottomSubMenu = document.getElementById("bottom-subMenu");
-  bottomSubMenu.classList.toggle("open");
-}
 function navigationBar(){
   const menu = document.querySelector('#home-bars-menu-icon');
   const itemsMiddle = document.querySelector('.items-middle');
@@ -137,6 +129,10 @@ function navigationBar(){
   itemsMiddle.classList.toggle('open');
   
 };
+function toggleMenuBottom(){
+  const BottomSubMenu = document.getElementById('bottom-subMenu');
+  BottomSubMenu.classList.toggle("active")
+}
 document.addEventListener("DOMContentLoaded", function() {
   const originalTextElement = document.getElementById('black-discount');
   const shortenedTextElement = document.getElementById('short-black-discount');
