@@ -52,7 +52,7 @@
 
 .women-categories,
 .men-categories{
-  min-width: 220px;
+  min-width: 270px;
   display: none;
   position: absolute;
   top: 0;
@@ -78,6 +78,19 @@
   display: flex;
   flex-direction: column;
 }
+
+.women-category-row,
+.men-category-row{
+  display: flex;
+}
+
+.women-category-img,
+.men-category-img{
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
 /* Homepage Resume Category Section End */
 
 

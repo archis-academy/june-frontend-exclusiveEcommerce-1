@@ -13,39 +13,59 @@ async function productsRender() {
 async function getWomenProductsTitles() {
   const products = await getProducts();
   const womenProducts = products.filter(product => product.category === "women's clothing");
-  return womenProducts.map(product => product.title);
+  return womenProducts.map(product => ({ title: product.title, image: product.image }));
+
 }
 
 async function getMenProductsTitles() {
   const products = await getProducts();
   const menProducts = products.filter(product => product.category === "men's clothing");
-  return menProducts.map(product => product.title);
+  return menProducts.map(product => ({ title: product.title, image: product.image }));
 }
 
 async function productsTitleRender() {
   const womenClothingTitles = await getWomenProductsTitles();
   const womenDropdown = document.getElementById("womenDropdown");
 
-  womenClothingTitles.forEach(title => {
+  womenClothingTitles.forEach(product => {
     const aTag = document.createElement("a");
-    const limitedTitle = title.length > 20 ? title.substring(0, 20) + '...' : title;
+    const limitedTitle = product.title.length > 20 ? product.title.substring(0, 20) + '...' : product.title;
     aTag.textContent = limitedTitle;
     aTag.className = "women-category-title";
     aTag.href = "#";
 
-    womenDropdown.appendChild(aTag);
-  });
+    const womenimgTag = document.createElement("img");
+    womenimgTag.src = product.image;
+    womenimgTag.className = "women-category-img";
+
+    const womenContainerDiv = document.createElement("div");
+    womenContainerDiv.className = "women-category-row";
+    
+    womenContainerDiv.appendChild(womenimgTag);
+    womenContainerDiv.appendChild(aTag);
+    womenDropdown.appendChild(womenContainerDiv);
+  })
 
   const menClothingTitles = await getMenProductsTitles();
   const menDropdown = document.getElementById("menDropdown");
 
-  menClothingTitles.forEach(title => {
+  menClothingTitles.forEach(product => {
     const aTag = document.createElement("a");
-    const limitedTitle = title.length > 20 ? title.substring(0, 20) + '...' : title;
+    const limitedTitle = product.title.length > 20 ? product.title.substring(0, 20) + '...' : product.title;
     aTag.className = "men-category-title";
     aTag.href = "#";
     aTag.textContent = limitedTitle;
-    menDropdown.appendChild(aTag);
+
+    const menimgTag = document.createElement("img");
+    menimgTag.src = product.image;
+    menimgTag.className = "men-category-img";
+
+    const menContainerDiv = document.createElement("div");
+    menContainerDiv.className = "men-category-row";
+
+    menContainerDiv.appendChild(menimgTag);
+    menContainerDiv.appendChild(aTag);
+    menDropdown.appendChild(menContainerDiv);
   });
 }
 
