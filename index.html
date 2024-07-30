@@ -42,7 +42,8 @@
     />
   </head>
   <body>
-    <section class="todays-conteiner">
+    <!-- Today's Products Section Start -->
+    <section class="todays-container">
       <div class="todays-box">
         <div class="todays-left">
           <div class="todays-title-div">
@@ -50,38 +51,43 @@
             <h5 class="todays-tit">Today`s</h5>
           </div>
           <div class="todays-flash-sales">
-            <h4 class="todays-flash-sales-title">Flash Sales</h4>
-            <div class="todays-flash-sales-countdown">
-              <div class="todays-day">
-                <p class="todays-time">Days</p>
-                <p id="todays-countdown-days" class="todays-countdown"></p>
+            <div class="todays-flash-sales-left">
+              <h4 class="todays-flash-sales-title">Flash Sales</h4>
+              <div class="todays-flash-sales-countdown">
+                <div class="todays-day">
+                  <p class="todays-time">Days</p>
+                  <p id="todays-countdown-days" class="todays-countdown"></p>
+                </div>
+                <div class="todays-hours">
+                  <p class="todays-time">Hours</p>
+                  <p id="todays-countdown-hours" class="todays-countdown"></p>
+                </div>
+                <div class="todays-minute">
+                  <p class="todays-time">Minutes</p>
+                  <p id="todays-countdown-minutes" class="todays-countdown"></p>
+                </div>
+                <div class="todays-second">
+                  <p class="todays-time">Seconds</p>
+                  <p id="todays-countdown-seconds" class="todays-countdown"></p>
+                </div>
               </div>
-              <div class="todays-hours">
-                <p class="todays-time">Hours</p>
-                <p id="todays-countdown-hours" class="todays-countdown"></p>
-              </div>
-              <div class="todays-minute">
-                <p class="todays-time">Minutes</p>
-                <p id="todays-countdown-minutes" class="todays-countdown"></p>
-              </div>
-              <div class="todays-second">
-                <p class="todays-time">Seconds</p>
-                <p id="todays-countdown-seconds" class="todays-countdown"></p>
+            </div>
+            <div class="todays-btn">
+              <div class="button-div">
+                <button onclick="nextProductsBtn()" id="prev-products">
+                  <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button onclick="prevProductsBtn()" id="next-products">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="button-div">
-        <button onclick="nextProductsBtn()" id="prev-products">
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
-        <button onclick="prevProductsBtn()" id="next-products">
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
-      </div>
       <div class="products-list" id="products-list"></div>
     </section>
+    <!-- Today's Products Section End -->
     <!-- Browse By Category Section Start -->
     <div class="browse-by-cat">
       <div class="browse-by-cat-titles">

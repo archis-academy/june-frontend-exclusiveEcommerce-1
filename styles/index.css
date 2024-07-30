@@ -1,81 +1,79 @@
-.todays-conteiner {
+/* Today's Products Section Start */
+.todays-container {
   max-width: 1230px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  padding: 80px 20px;
 }
-
 .todays-left {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
-  gap: 24px;
 }
-
-@media (max-width: 1270px) {
-  .todays-left {
-    margin-left: 150px;
-  }
-}
-
 .todays-title-div {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 .todays-title-icon {
-  display: flex;
   width: 20px;
   height: 40px;
   background-color: #db4444;
   border-radius: 4px;
 }
-.todays-tit {
-  font-size: 16px;
-  line-height: 20px;
-  color: #db4444;
-}
 .todays-flash-sales {
   display: flex;
   flex-wrap: wrap;
-  gap: 87px;
+  padding: 30px 0;
 }
-
+.todays-flash-sales-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+}
+.todays-tit {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(12px, 4vw, 16px);
+  line-height: clamp(16px, 6vw, 20px);
+  color: #db4444;
+}
 .todays-flash-sales-title {
-  font-size: 36px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: clamp(28px, 8vw, 36px);
+  line-height: clamp(32px, 8vw, 48px);
+  color: #000000;
   letter-spacing: 4%;
-  line-height: 48px;
 }
-.todays-flash-sales p {
-  font-size: 36px;
+.todays-time {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: clamp(8px, 2vw, 12px);
+  line-height: clamp(12px, 4vw, 18px);
+  color: #000;
+}
+.todays-countdown {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 6vw, 32px);
+  line-height: clamp(22px, 6vw, 30px);
   letter-spacing: 4%;
-  line-height: 48px;
+  color: #000;
 }
-
 .todays-flash-sales-countdown {
   display: flex;
   gap: 8px;
 }
-.todays-flash-sales-countdown .todays-time {
-  font-size: 12px;
-  line-height: 18px;
-  font-weight: 700;
-}
-.todays-flash-sales-countdown .todays-countdown {
-  font-size: 32px;
-  line-height: 30px;
-  letter-spacing: 4%;
-  font-weight: 700;
-}
-
 .products-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 280px));
+  display: flex;
   justify-content: center;
+  align-items: center;
   gap: 30px;
+  padding: 10px 0;
+  flex-wrap: wrap;
 }
-
 .img-box {
   height: 260px;
   padding: 5px;
@@ -85,37 +83,31 @@
   align-items: center;
   justify-content: center;
 }
-
 .products-images {
   max-width: 270px;
   max-height: 250px;
   object-fit: contain;
 }
-
 .ürün-bilgi {
   font-family: "Poppins", sans-serif;
   font-size: 19px;
   font-weight: 500;
   line-height: 24px;
 }
-
 .prices {
   display: flex;
   gap: 10px;
   align-items: center;
 }
-
 .price {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
-
   color: #000;
   opacity: 0.5;
 }
-
 .discounted-price {
   font-size: 16px;
   font-family: "Poppins", sans-serif;
@@ -124,14 +116,14 @@
   font-style: normal;
   line-height: 24px;
 }
-
-.button-div {
+.todays-btn {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
-  padding-right: 15px;
 }
-
+.button-div {
+  display: flex;
+  gap: 10px;
+}
 #prev-products,
 #next-products {
   width: 46px;
@@ -144,11 +136,9 @@
   border-radius: 50%;
   border: none;
 }
-
 .fa-star-half-alt, .full-star, .star-empty {
   color: #ffad33;
 }
-
 .add-to-cart {
   position: absolute;
   bottom: 0;
@@ -159,7 +149,6 @@
   display: none;
   cursor: pointer;
 }
-
 .heart-icon {
   width: 34px;
   border-radius: 50%;
@@ -174,7 +163,7 @@
   right: 5px;
   text-align: center;
 }
-
+/* Today's Products Section End */
 /* Browse By Category Section Start */
 .browse-by-cat {
   margin: 0 auto;
@@ -586,7 +575,7 @@
   }
 }
 /* Featured Product Section End */
-/* tahir homepage explore products start */
+/* Explore Products Section Start */
 .exp-pro-container {
   padding: 10px;
   display: flex;
@@ -773,6 +762,7 @@
   border: none;
   margin-top: 20px;
   cursor: pointer;
+  color: #fff;
 }
 .exp-btn-view-prd:hover {
   background-color: #ee3939;
@@ -870,7 +860,7 @@
     border: none;
   }
 }
-/* tahir homepage explore products end *\
+/* Explore Products Section End */
 /* New Arrivals Section Start */
 .na-container {
   max-width: 1254px;
