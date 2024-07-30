@@ -10,22 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="styles/shared.css" />
     <link rel="stylesheet" href="styles/index.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css"
-    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -34,14 +20,169 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/shared.css" />
-    <link rel="stylesheet" href="styles/index.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css"
     />
   </head>
-  <body>
+  <body id="body">
+    <!-- Homepage Header Section Start -->
+    <section class="homepage-header-container">
+      <div class="homepage-header-black">
+        <div class="header-black-part">
+          <h5 class="black-discount" id="black-discount">
+            Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+          </h5>
+          <h5 class="black-shop-now">ShopNow</h5>
+          <button id="dropdownButton" class="black-language-dropdown-button">
+            <h5>English</h5>
+            <span class="dropdown-arrow">&#9662;</span>
+            <div id="dropdownContent" class="black-dropdown-content">
+              <a href="#" class="dropdown-content" onclick="changeLang(this)"
+                >English</a
+              >
+              <a href="#" class="dropdown-content" onclick="changeLang(this)"
+                >Turkish</a
+              >
+              <a href="#" class="dropdown-content" onclick="changeLang(this)"
+                >Arabic</a
+              >
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+    <div class="homepage-header-nav">
+      <div class="header-nav-items">
+        <div class="header-Exclusive-container">
+          <h4 class="nav-exc">Exclusive</h4>
+        </div>
+        <div class="items-middle">
+          <h4 class="home-item-home">Home</h4>
+          <h4 class="home-item-contact">Contact</h4>
+          <h4 class="home-item-about">About</h4>
+        </div>
+        <div class="search-container" id="search-container">
+          <input
+            class="nav-input"
+            id="search-input"
+            type="text"
+            placeholder="What are you looking for?"
+          />
+          <div class="search-results" id="search-results"></div>
+        </div>
+        <div
+          class="fa fa-bars"
+          id="home-bars-menu-icon"
+          onclick="navigationBar()"
+        ></div>
+        <div class="nav-wishlist-container">
+          <a href="wishlist.html" class="nav-wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </a>
+          <span class="whistlist-quantity"></span>
+        </div>
+        <div class="nav-cart-container">
+          <a href="cart.html" class="nav-cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+          <span class="quantity"></span>
+        </div>
+        <div class="drop-menu-container">
+          <div class="kullanıcı-prof">
+            <img
+              src="images/user.png"
+              onclick="toggleMenu()"
+              class="profil-fotoğrafı"
+            />
+          </div>
+          <div class="sub-menu-warp" id="subMenu">
+            <div class="sub-menu">
+              <a href="" class="sub-menu-link">
+                <img src="images/user-mini.png" alt="" srcset="" />
+                <p>Manage My Account</p>
+              </a>
+              <a href="" class="sub-menu-link">
+                <img src="images/Group.png" alt="" />
+                <p>My Order</p>
+              </a>
+              <a href="" class="sub-menu-link">
+                <img src="images/icon-cancel.png" alt="" />
+                <p>My Cancellations</p>
+              </a>
+              <a href="" class="sub-menu-link">
+                <img src="images/Icon-Reviews.png" alt="" />
+                <p>My Reviews</p>
+              </a>
+              <a href="" class="sub-menu-link" id="logout-button">
+                <img src="images/Icon-logout.png" alt="" />
+                <p>Logout</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-nav-container">
+        <div class="bottom-nav-box">
+          <div class="bottom-nav-item">
+            <a href="#" class="nav-item">
+              <i class="fa-solid fa-house"></i>
+              <span>home</span>
+            </a>
+            <a href="wishlist.html" class="nav-item">
+              <i class="fa-solid fa-heart"></i>
+              <span id="whistlist-quantity">wishlist</span>
+              <span class="whistlist-quantity bottom"></span>
+            </a>
+            <a href="cart.html" class="nav-item bottom-cart-item">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="">Shoping</span>
+              <span class="quantity bottom-quantity"></span>
+            </a>
+            <a
+              href="#"
+              onclick="toggleMenuBottom()"
+              class="nav-item"
+              id="user-pic"
+            >
+              <i class="fa-solid fa-user" id=""></i>
+              <span>user</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-slot-menu">
+      <div class="bottom-drop-menu-container">
+        <div class="bottom-sub-menu-warp" id="bottom-subMenu">
+          <div class="bottom-sub-menu">
+            <a href="" class="bottom-sub-menu-link">
+              <i class="fa-regular fa-user"></i>
+              <p>Manage My Account</p>
+            </a>
+            <a href="" class="bottom-sub-menu-link">
+              <i class="fa-solid fa-list"></i>
+              <p>My Order</p>
+            </a>
+            <a href="" class="bottom-sub-menu-link">
+              <i class="fa-solid fa-xmark"></i>
+              <p>My Cancellations</p>
+            </a>
+            <a href="" class="bottom-sub-menu-link">
+              <i class="fa-regular fa-clock"></i>
+              <p>My Reviews</p>
+            </a>
+            <a href="" class="bottom-sub-menu-link" id="logout-button">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <p>Logout</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Homepage Header Section End -->
+
+    <!-- Homepage Browse By Category Section Start -->
     <section class="todays-conteiner">
       <div class="todays-box">
         <div class="todays-left">
@@ -427,5 +568,6 @@
     </div>
     <!-- Footer End -->
     <script src="app.js"></script>
+    <script src="shared.js"></script>
   </body>
 </html>

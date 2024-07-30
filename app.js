@@ -15,7 +15,93 @@ async function getProducts() {
 async function productsRender() {
   // gelen datayı burda düzenlenmesi bekleyerek products içine atıyoruz ve bu fonksiyonun içinde kullanmaya devam ediyoruz
   const products = await getProducts();
+  return products
 }
+
+const whislistNotice = () => {
+  const wishlistProducts = JSON.parse(localStorage.getItem("wishlistProducts"));
+  if(wishlistProducts.length > 0) {
+    document.querySelector(".bottom").style.backgroundColor = "red";
+    document.querySelector(".bottom").innerHTML = wishlistProducts.length
+    document.querySelector(".whistlist-quantity").style.backgroundColor = "red";
+    document.querySelector(".whistlist-quantity").innerHTML = 
+    wishlistProducts.length;
+  }else{
+    document.querySelector(".whistlist-quantity").style.backgroundColor = "transparent";
+    document.querySelector(".bottom").style.backgroundColor = "transparent";
+  }
+};
+const cartNotice = () => {
+  const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+  if(cartProducts.length > 0) {
+    document.querySelector(".quantity").style.backgroundColor = "red";
+    document.querySelector(".quantity").innerHTML = cartProducts.length;
+    document.querySelector(".bottom-quantity").style.backgroundColor = "red"
+    document.querySelector(".bottom-quantity").innerHTML = 
+    cartProducts.length;
+  }else{
+    document.querySelector(".quantity").style.backgroundColor = "transparent";
+    document.querySelector(".bottom-quantity").style.backgroundColor = "transparent"
+  }
+};
+
+
+
+
+/* Homepage Header Section Start */
+document.getElementById("dropdownButton").addEventListener("click", function() {
+  const content = document.getElementById("dropdownContent");
+  const arrow = document.querySelector(".dropdown-arrow");
+  content.classList.toggle("show");
+  arrow.classList.toggle("rotate");
+});
+
+function changeLang (content) {
+  const button = document.getElementById("dropdownButton");
+  const newButtonText = content.textContent
+  button.innerHTML = `${newButtonText} <span class="dropdown-arrow">&#9662;</span>
+          <div id="dropdownContent" class="black-dropdown-content">
+            <a href="#" class="dropdown-content" onclick="changeLang(this)">English</a>
+            <a href="#" class="dropdown-content" onclick="changeLang(this)">Turkish</a>
+            <a href="#" class="dropdown-content" onclick="changeLang(this)">Arabic</a>
+          </div>`;
+  button.click();
+
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  const searchContainer = document.getElementById('search-results');
+  let products = [];
+
+  productsRender().then(products2 => {
+    products = products2
+    console.log(products)
+  });
+  
+  searchInput.addEventListener('input', function() {
+    const query = searchInput.value.toLowerCase();
+
+    if (query.length > 0) {
+      searchContainer.style.display = "block";
+      const filteredProducts = products.filter(product => product.title.toLowerCase().includes(query) || 
+      product.description.toLowerCase().includes(query)).slice(0, 3);
+
+      displayResults(filteredProducts);
+    } else {
+      searchContainer.style.display = "none";
+      searchResults.innerHTML = '';
+      searchContainer.classList.tog
+    }
+  });
+
+  function displayResults(products) {
+    searchResults.innerHTML = products.map(product => `<div>${product.title.substring(0, 20)}</div>`).join('');
+  }
+});
+/* Homepage Header Section End */
 
 const productsList = document.getElementById("products-list");
 
@@ -156,6 +242,7 @@ async function toggleWishlist(productId) {
         "wishlistProducts",
         JSON.stringify(wishlistProducts)
       );
+      whislistNotice();
       document
         .querySelectorAll(`#product-${productId}`)
         .forEach((e) => (e.style.fill = "red"));
@@ -168,6 +255,7 @@ async function toggleWishlist(productId) {
       "wishlistProducts",
       JSON.stringify(newWishlistProducts)
     );
+    whislistNotice();
     document
       .querySelectorAll(`#product-${productId}`)
       .forEach((x) => (x.style.fill = "none"));
@@ -186,6 +274,7 @@ async function addCartProduct(productId) {
       "cartProducts",
       JSON.stringify([...cartProducts, product])
     );
+    cartNotice();
     document.getElementById(`cart-${productId}`).innerHTML = "Go To Cart";
   }
 }
@@ -221,6 +310,7 @@ function expupdateWishlistStorage(product, add) {
     wishlist = wishlist.filter((item) => item.id !== product.id);
   }
   localStorage.setItem("wishlistProducts", JSON.stringify(wishlist));
+  whislistNotice();
   console.log("Updated Wishlist:", wishlist); // Konsola yazdırma
 }
 
@@ -232,6 +322,7 @@ function expupdateCartStorage(product, add) {
     expcart = expcart.filter((item) => item.id !== product.id);
   }
   localStorage.setItem("cartProducts", JSON.stringify(expcart));
+  cartNotice();
   console.log("Updated Cart:", expcart); // Konsola yazdırma
 }
 
@@ -291,6 +382,41 @@ categories.forEach((cat) => {
     cat.classList.add("active-category");
   });
 });
+
+/* Homepage Browse By Category Section End */
+/* hompage profile menu start */
+function toggleMenu(){
+  const subMenu = document.getElementById("subMenu");
+  const userIcon = document.getElementById("profil-fotoğrafı");
+  subMenu.classList.toggle("open-menu");
+};
+function navigationBar(){
+  const menu = document.querySelector('#home-bars-menu-icon');
+  const itemsMiddle = document.querySelector('.items-middle');
+  menu.classList.toggle('fa-x');
+  itemsMiddle.classList.toggle('open');
+  
+};
+function toggleMenuBottom(){
+  const BottomSubMenu = document.getElementById('bottom-subMenu');
+  BottomSubMenu.classList.toggle("active")
+}
+document.addEventListener("DOMContentLoaded", function() {
+  const originalTextElement = document.getElementById('black-discount');
+  const shortenedTextElement = document.getElementById('short-black-discount');
+  const originalText = originalTextElement.textContent;
+
+  const words = originalText.split(' ');
+  const wordLimit = 8; // Kısaltılmış metin için kelime sınırı
+
+  if (words.length > wordLimit) {
+      const shortenedText = words.slice(0, wordLimit).join(' ') + '...';
+      shortenedTextElement.textContent = shortenedText;
+  } else {
+      shortenedTextElement.textContent = originalText;
+  }
+});
+
 
 if (categories.length > 0) {
   categories[0].classList.add("active-category");
@@ -388,7 +514,8 @@ function toggleItem(productId, listType, products) {
     allItems.push(addedProduct);
   }
   localStorage.setItem(storageKey, JSON.stringify(allItems));
-
+cartNotice();
+whislistNotice();
   toggleIconState(icon, listType, !inList);
 }
 
@@ -616,5 +743,6 @@ window.onload = function () {
   startCountdown(60 * 60 * 24);
 };
 // Featured Product Section End
-
+whislistNotice();
+cartNotice();
 productsRender();
