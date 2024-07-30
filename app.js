@@ -59,8 +59,8 @@ async function renderProducts(start, end) {
   function starsRating(rating) {
     const maxStar = Math.floor(rating);
     const emptyStar = 5 - maxStar;
-    const maxStarimg = '<i class="fas fa-star"></i>';
-    const emptyStarimg = '<i class="far fa-star"></i>';
+    const maxStarimg = '<i class="fas fa-star full-star"></i>';
+    const emptyStarimg = '<i class="far fa-star star-filled"></i>';
     return maxStarimg.repeat(maxStar) + emptyStarimg.repeat(emptyStar);
   }
 
@@ -495,7 +495,7 @@ async function expproductsRender() {
   }
 
   function ExpgetStarRating(rating) {
-    const fullStar = '<i class="fas fa-star"></i>';
+    const fullStar = '<i class="fas fa-star full-star"></i>';
     const emptyStar = '<i class="far fa-star"></i>';
     const maxStars = 5;
     const fullStarsCount = Math.round(rating);

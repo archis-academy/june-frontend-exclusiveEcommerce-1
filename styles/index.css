@@ -145,8 +145,7 @@
   border: none;
 }
 
-.fa-star-half-alt,
-.fa-star {
+.fa-star-half-alt, .full-star {
   color: #ffad33;
 }
 
@@ -587,8 +586,7 @@
   }
 }
 /* Featured Product Section End */
-/* tahir homepage explore products start *\
-/* html ana container */
+/* tahir homepage explore products start */
 .exp-pro-container {
   padding: 10px;
   display: flex;
@@ -636,12 +634,6 @@
   gap: 5px;
 }
 
-.fa-regular,
-.fa-solid {
-  font-size: 20px;
-  color: #333;
-}
-
 .expdattotaly
 
 /* ürünlerin fiyat yorum ve değerlendirmenin container */ {
@@ -660,12 +652,6 @@
   font-family: "Poppins";
   margin-bottom: 5px;
   text-align: left;
-}
-
-.fa-star
-
-/* ürünün yıldız*/ {
-  color: #ffad33;
 }
 
 .exprocount
@@ -799,8 +785,6 @@
 }
 .exproshopingi i:hover {
   color: rgb(27, 27, 29);
-}
-.exproshoping i {
 }
 .exp-pro-icons i {
   width: 30px;
