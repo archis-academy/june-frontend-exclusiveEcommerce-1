@@ -21,7 +21,10 @@
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
+    overflow: hidden;
     font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .black-shop-now {
     font-family: "Poppins", sans-serif;
@@ -225,21 +228,6 @@
 .search-results div:last-child {
   border-bottom: none;
 }
-.short-black-discount{
-  font-family:"Poppins", sans-serif ;
-  font-weight: 400;
-  font-style: normal;
-  display: none;
-}
-@media (max-width: 768px) {
-  .black-discount {
-      display: none;
-  }
-
-  .short-black-discount {
-      display: block;
-  }
-}
 /* Homepage Header Section End */
 /* homepage Profile Drop-down Menu */
 .drop-menu-container{
@@ -332,7 +320,8 @@
   position: fixed;
   width: 100%;
   bottom: 0;
-  height: 55px;
+  left: 0%;
+  padding: 10px 0;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
   overflow-x: auto;
