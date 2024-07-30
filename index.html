@@ -24,7 +24,7 @@
     <link href="/your-path-to-uicons/css/uicons-rounded-solid.css" rel="stylesheet">
 
   </head>
-  <body>
+  <body class="body">
     <!-- Homepage Header Section Start -->
     <section class="homepage-header-container">
       <div class="homepage-header-black">
@@ -55,10 +55,16 @@
             <input class="nav-input" id="search-input" type="text" placeholder="What are you looking for?">
             <div class="search-results" id="search-results"></div>
           </div>
+          
+          <div class="nav-wishlist-container">
           <button class="nav-wishlist"><i class="fa-regular fa-heart"></i></button>
+          <span class="whistlist-quantity">0</span>
+          </div>
           <div class="nav-cart-container">
           <button class="nav-cart"><i class="fa-solid fa-cart-shopping"></i></button>
           <span class="quantity">0</span>
+          <div class="fa fa-bars" id="home-bars-menu-icon" onclick="navigationBar()"></div>
+
           </div>
         <div class="drop-menu-container">
             <div class="kullanıcı-prof"><img src="images/user.png" onclick="toggleMenu()" class="profil-fotoğrafı"></div>
@@ -87,7 +93,6 @@
                 </a>
               </div>
             </div>
-            <div class="fa fa-bars" id="home-bars-menu-icon" onclick="navigationBar()"></div>
         </div>
         </div>
       </div>       
