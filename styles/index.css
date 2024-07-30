@@ -145,7 +145,7 @@
   border: none;
 }
 
-.fa-star-half-alt, .full-star {
+.fa-star-half-alt, .full-star, .star-empty {
   color: #ffad33;
 }
 
