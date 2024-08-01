@@ -113,23 +113,22 @@
           />
           <div class="search-results" id="search-results"></div>
         </div>
-
+        <div
+          class="fa fa-bars"
+          id="home-bars-menu-icon"
+          onclick="navigationBar()"
+        ></div>
         <div class="nav-wishlist-container">
-          <button class="nav-wishlist">
+          <a href="wishlist.html" class="nav-wishlist">
             <i class="fa-regular fa-heart"></i>
-          </button>
-          <span class="whistlist-quantity">0</span>
+          </a>
+          <span class="whistlist-quantity"></span>
         </div>
         <div class="nav-cart-container">
-          <button class="nav-cart">
+          <a href="cart.html" class="nav-cart">
             <i class="fa-solid fa-cart-shopping"></i>
-          </button>
-          <span class="quantity">0</span>
-          <div
-            class="fa fa-bars"
-            id="home-bars-menu-icon"
-            onclick="navigationBar()"
-          ></div>
+          </a>
+          <span class="quantity"></span>
         </div>
         <div class="drop-menu-container">
           <div class="kullanıcı-prof">
@@ -157,7 +156,7 @@
                 <img src="images/Icon-Reviews.png" alt="" />
                 <p>My Reviews</p>
               </a>
-              <a href="" class="sub-menu-link">
+              <a href="" class="sub-menu-link" id="logout-button">
                 <img src="images/Icon-logout.png" alt="" />
                 <p>Logout</p>
               </a>
@@ -172,13 +171,15 @@
               <i class="fa-solid fa-house"></i>
               <span>home</span>
             </a>
-            <a href="#" class="nav-item">
+            <a href="wishlist.html" class="nav-item">
               <i class="fa-solid fa-heart"></i>
-              <span>wishlist</span>
+              <span id="whistlist-quantity">wishlist</span>
+              <span class="whistlist-quantity bottom"></span>
             </a>
-            <a href="#" class="nav-item">
+            <a href="cart.html" class="nav-item bottom-cart-item">
               <i class="fa-solid fa-cart-shopping"></i>
-              <span>Shoping</span>
+              <span id="">Shoping</span>
+              <span class="quantity bottom-quantity"></span>
             </a>
             <a
               href="#"
@@ -213,7 +214,7 @@
               <i class="fa-regular fa-clock"></i>
               <p>My Reviews</p>
             </a>
-            <a href="" class="bottom-sub-menu-link">
+            <a href="" class="bottom-sub-menu-link" id="logout-button">
               <i class="fa-solid fa-right-from-bracket"></i>
               <p>Logout</p>
             </a>
@@ -679,5 +680,6 @@
     </div>
     <!-- Footer End -->
     <script src="app.js"></script>
+    <script src="shared.js"></script>
   </body>
 </html>
