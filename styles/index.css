@@ -90,6 +90,7 @@
 .homepage-header-nav {
   display: flex;
   margin: auto;
+  position: relative;
   justify-content: center;
   align-items: center;
   background-color: white;
@@ -333,57 +334,56 @@
 .bottom-drop-menu-container{
   display: none;
 }
- @media (max-width: 790px) {
-  .bottom-nav-item{
-    display: flex;
-    z-index: 1;
-  }
-  .bottom-drop-menu-container{
-    display: block;
-  }
- }
- .bottom-nav-item-width{
-  max-width: 780px;
- }
- .nav-item {
+@media (max-width: 790px) {
+.bottom-nav-item{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow:1 ;
-  min-width: 50px;
-  overflow: hidden;
-  white-space: nowrap;
-  font-family: sans-serif;
-  font-size: 13px;
-  color: #444444;
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: background-color 0.1s ease-in-out;
-  margin: auto;
- }
- .nav-item:hover{
-  background-color: #eeeeee;
- }
- .nav-item i{
-  font-size: 20px;
- }
- .bottom-user-menu{
-  position:relative ;
- }
- .bottom-sub-menu {
-  display: inline-block;
-  list-style: none;
- }
+  z-index: 1;
+}
+.bottom-drop-menu-container{
+  display: block;
+}
+}
+.bottom-nav-item-width{
+max-width: 780px;
+}
+.nav-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+flex-grow:1 ;
+min-width: 50px;
+overflow: hidden;
+white-space: nowrap;
+font-family: sans-serif;
+font-size: 13px;
+color: #444444;
+text-decoration: none;
+-webkit-tap-highlight-color: transparent;
+transition: background-color 0.1s ease-in-out;
+margin: auto;
+}
+.nav-item:hover{
+background-color: #eeeeee;
+}
+.nav-item i{
+font-size: 20px;
+}
+.bottom-user-menu{
+position:relative ;
+}
+.bottom-sub-menu {
+display: inline-block;
+list-style: none;
+}
 
 
 
- /* Homepage Resume Category Section Start */
- .resume-section{
-  font-family: "Poppins", sans-serif;
-  gap: 10px;
-  height: 375px;
- 
-  display: flex;
+/* Homepage Resume Category Section Start */
+.resume-section{
+font-family: "Poppins", sans-serif;
+gap: 10px;
+height: 375px;
+display: flex;
 }
 
 .homepage-categories{
@@ -404,21 +404,40 @@
   
 }
 
+.items-middle > .category-list {
+  display: none;
+}
+
 .category-element{
   display: flex;
   justify-content: space-between;
   padding: 5px;
 }
 
+.category-element-small{
+
+  justify-content: space-between;
+  padding: 5px 0px;
+}
+
 #womenCategory{
   position: relative;
 }
+
+
 
 #menCategory{
   position: relative;
 }
 
+
+
 .category-element:hover{
+  cursor: pointer;
+  background-color: #F4F4F4;
+}
+
+.category-element-small:hover{
   cursor: pointer;
   background-color: #F4F4F4;
 }
@@ -452,6 +471,14 @@
   background-color: #F4F4F4;
   z-index: 1;
 }
+
+.women-categories-small,
+.men-categories-small{
+  min-width: 270px;
+  display: none;
+  padding: 13px;
+  background-color: #F4F4F4;
+}
  
 .women-category-title,
 .men-category-title{
@@ -478,6 +505,11 @@
 
 #womenCategory:hover .women-categories,
 #menCategory:hover .men-categories{
+  display: flex;
+  flex-direction: column;
+}
+#womenCategory:hover .women-categories-small,
+#menCategory:hover .men-categories-small{
   display: flex;
   flex-direction: column;
 }
@@ -514,7 +546,10 @@
     display: none;
   }
   
+  
 }
+
+
 
 .product-container-imgs {
   display: flex;
@@ -1111,10 +1146,10 @@
 }
 .items-middle{
   position: absolute;
-  top: 10%;
+  top: 100%;
   right: -100%;
   width: 270px;
-  height: 24vh;
+  z-index: 9;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1129,16 +1164,19 @@
 .items-middle h4{
   display: block;
   margin: 12px 0;
-  padding: 0px 25px;
+
 }
 .items-middle h4:hover{
   color:black;
   transform: translateY(5px);
 }
 .items-middle.open{
-    right: 2%;
+    right: 0%;
     width: 100%;
 }
+.items-middle > .category-list {
+    display: block;
+  }
 }
 /*Buse/JU-5 Homepage Featured Product START*/
 @media screen and (max-width: 450px) {
