@@ -1,0 +1,853 @@
+/* Homepage Header Section Start */
+.homepage-header-container {
+    background-color: #000;
+}
+.body{
+  overflow-x: hidden;
+}
+.header-black-part {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FAFAFA;
+    gap: 10px;
+}
+.homepage-header-black{
+  padding: 5px 25px;
+}
+.black-discount {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+}
+.black-shop-now {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+    
+}
+
+.black-language-dropdown-button {
+    background-color: #000;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-weight: 400;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    margin-left: auto;
+    position: relative;    
+}
+.black-language-dropdown-button h5{
+  font-size: 14px;
+}
+.dropdown-arrow {
+    display: inline-block;
+    margin-left: 10px;
+
+}
+.black-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 0;
+    top: 100%;
+    width: 100%;
+}
+
+.black-dropdown-content a {
+    color: #FAFAFA;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.black-dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #000;
+}
+
+.show {
+  display: block;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.homepage-header-nav {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 0px 25px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.header-nav-items {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1250px;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.nav-exc {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 700;
+  
+
+}
+
+.items-middle {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  margin: auto;
+}
+
+.items-middle h4 {
+  padding: 0px 10px;
+  cursor: pointer;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.items-middle h4:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+.nav-cart-container{
+  position: relative;
+  display: inline-block;
+}
+.nav-cart{
+  font-size: 24px;
+  position: relative;
+}
+.quantity {
+  position: absolute;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-size: 12px;
+  right: 9px;
+  top: -6px;
+}
+.nav-wishlist-container{
+  position: relative;
+  display: inline-block;
+}
+.whistlist-quantity{
+  position: absolute;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-size: 12px;
+  right: 9px;
+  top: -9px;
+}
+.nav-input {
+  margin: 0px 20px 0px 20px;
+  padding: 7px 12px 7px 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.nav-wishlist, .nav-cart {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0px 10px;
+}
+
+.nav-wishlist i, .nav-cart i {
+  font-size: 20px;
+  color: black;
+  padding: 0px 10px;
+}
+
+.nav-cart i {
+  background-color: white;
+  border-radius: 50%;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ddd;
+  background-color: white;
+  z-index: 1000;
+  max-width: 300px;
+  margin-top: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-results div {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-results div:last-child {
+  border-bottom: none;
+}
+.short-black-discount{
+  font-family:"Poppins", sans-serif ;
+  font-weight: 400;
+  font-style: normal;
+  display: none;
+}
+@media (max-width: 768px) {
+  .black-discount {
+      display: none;
+  }
+
+  .short-black-discount {
+      display: block;
+  }
+}
+/* Homepage Header Section End */
+
+/* homepage Profile Drop-down Menu */
+.drop-menu-container{
+  position: relative;
+}
+.kullanıcı-prof  {
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  padding: 0px 15.3px;
+}
+.kullanıcı-prof img{
+  width: 32px;
+  color: #f9f9f9;
+  border-radius: 42px;
+}
+.convert-img {
+  filter: invert(100%);
+  background-color:rgba(36, 187, 187, 1);
+}
+.sub-menu-warp {
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  width: 225px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  backdrop-filter: blur(10px);
+  border-radius: 5%;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+  z-index: 1;
+}
+.sub-menu-warp.open-menu{
+  max-height: 228px;
+}
+.user-info{
+  display: flex;
+  align-items: center;
+}
+.user-info img{
+  width: 60px;
+  margin-right:15px ; 
+}
+.sub-menu-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  margin: 2px 0;
+}
+.sub-menu-link p{
+  width: 100%;
+  font: 1em sans-serif;
+}
+.sub-menu-link img{
+  width: 40px;
+  padding: 8px;
+  margin: 0 auto;
+}
+ .sub-menu-link:hover{
+  transform: translateX(5px);
+ }
+ .sub-menu-link:hover p{
+  font-weight: 600;
+ }
+
+
+ /* Homepage Resume Category Section Start */
+.resume-section{
+  font-family: "Poppins", sans-serif;
+  gap: 10px;
+  height: 375px;
+ 
+  display: flex;
+}
+
+.homepage-categories{
+  max-width: 260px;
+  padding: 0px 0px 10px 10px;
+  
+  
+}
+
+
+
+.category-list{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  
+}
+
+.category-element{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+#womenCategory{
+  position: relative;
+}
+
+#menCategory{
+  position: relative;
+}
+
+.category-element:hover{
+  cursor: pointer;
+  background-color: #F4F4F4;
+}
+
+.category-title{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.category-button{
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.category-arrow{
+  transform: rotate(90deg);
+}
+
+.women-categories,
+.men-categories{
+  min-width: 270px;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  padding: 13px;
+  background-color: #F4F4F4;
+  z-index: 1;
+}
+ 
+.women-category-title,
+.men-category-title{
+  text-decoration: none;
+  color: black;
+}
+
+.women-category-title:hover,
+.men-category-title:hover{
+  color: #db4444;
+}
+
+.women-category-row,
+.men-category-row{
+  display: flex;
+}
+
+.women-category-img,
+.men-category-img{
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+#womenCategory:hover .women-categories,
+#menCategory:hover .men-categories{
+  display: flex;
+  flex-direction: column;
+}
+.homepage-product-adcat {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;  
+}
+.resume-section,
+.product-container {
+  margin-top: 40px;
+}
+
+
+.product-adcat-line {
+  min-width: 1px;
+  background-color: #B2B2B2 ;
+  height: auto;
+  align-self: stretch;
+}
+
+.product-container {
+  position: relative;
+  width: 892px;
+  height: 344px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-container-imgs {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.product-img {
+  display: flex;
+  align-items: center;
+  min-width: 100%;
+  height: 100%;
+  
+}
+
+.active-img {
+  display: block;
+  opacity: 1;
+}
+
+
+.product-img-navigation {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  
+}
+
+.img-nav-button {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.img-nav-button.active {
+  background-color: #ff0000;
+
+}
+
+
+/* Homepage Resume Category Section End */
+/* Homepage Browse By Category Section Start */
+.browse-by-cat {
+  margin: 0 auto;
+  padding: 75px 25px;
+  max-width: 1300px;
+  border-bottom: #0000004d 0.5px solid;
+  border-top: #0000004d 0.5px solid;
+}
+.browse-by-cat-titles {
+}
+.bbc-titles-h6 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.bbc-titles-h6 div {
+  background-color: #db4444;
+  width: 20px;
+  height: 40px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+.bbc-titles-h6 h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #db4444;
+  font-size: 16px;
+}
+.bbc-titles-h1 {
+  display: flex;
+}
+.bbc-titles-h1 h1 {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 600;
+}
+.bbc-left-arrow {
+  margin-left: auto;
+  max-width: 46px;
+  max-height: 46px;
+}
+.bbc-right-arrow {
+  max-width: 46px;
+  max-height: 46px;
+}
+.browse-by-cat-categories {
+  display: flex;
+  justify-content: center;
+  margin:60px auto;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.bbc-category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: #0000004d 1px solid;
+  border-radius: 4px;
+  width: 170px;
+  height: 145px;
+}
+
+.bbc-cat-img {
+  max-width: 56px;
+}
+
+.bbc-cat-text {
+  max-height: 24px;
+  font-family: "Popins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  margin-top: 16px;
+}
+
+.active-category {
+  background-color: #db4444;
+}
+.active-category p {
+  color: #fafafa;
+}
+.active-category img {
+  filter: invert(100%);
+}
+
+/* Homepage Browse By Category Section End */
+#home-bars-menu-icon{
+  cursor: pointer;
+  font-size: 25px;
+  z-index: 10001;
+  display: none;
+  color: #000;
+  padding: 0px 15px;
+} 
+@media (max-width: 790px) {
+  .header-Exclusive-container{
+    justify-content: center;
+  }
+  .nav-exc{
+    font-size: 15px;
+  }
+  .homepage-header-nav{
+    justify-content: space-between;
+  }
+  .nav-input{
+    margin: 0px 3px 0px 3px;
+  }
+  #home-bars-menu-icon{
+    display: block;
+  }
+.home-item-home, 
+.nav-wishlist,
+.nav-cart,
+.quantity,
+.whistlist-quantity{
+  display: none;
+}
+.drop-menu-container{
+  display: none;
+}
+.items-middle{
+  position: absolute;
+  top: 10%;
+  right: -100%;
+  width: 270px;
+  height: 24vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 10px;
+  padding: 20px;
+  background:  #ffffff;
+  transition: all .50s ease;
+}
+.items-middle h4.home-item-home{
+  display: none;
+}
+.items-middle h4{
+  display: block;
+  margin: 12px 0;
+  padding: 0px 25px;
+}
+.items-middle h4:hover{
+  color:black;
+  transform: translateY(5px);
+}
+.items-middle.open{
+    right: 2%;
+}
+}
+/*Buse/JU-5 Homepage Featured Product START*/
+.featured-products-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1350px;
+  min-height: 500px;
+  margin: auto;
+  padding: 70px 50px;
+  background-color: black;
+}
+
+.featured-products {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 400px;
+  min-height: 400px;
+}
+
+.categories-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #00ff66;
+}
+
+.featured-slogan {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 60px;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+.timer-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 62px;
+  height: 62px;
+  border: none;
+  border-radius: 50%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 18px;
+  background-color: white;
+}
+
+.timer-value {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.buy-button {
+  width: 200px;
+  padding: 16px 48px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  background-color: #00ff66;
+  color: white;
+  cursor: pointer;
+}
+
+.buy-button:hover {
+  background: rgb(0, 255, 102);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 102, 1) 0%,
+    rgba(2, 133, 55, 1) 100%
+  );
+}
+
+.speaker-photo {
+  z-index: 2;
+  filter: drop-shadow(5px 5px 100px #717171);
+}
+
+@media (max-width: 880px) {
+  .featured-products-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 50px 20px;
+  }
+  .speaker-photo {
+    width: 100%;
+  }
+}
+/*Buse/JU-5 Homepage Featured Product*/
+/* Berhan Footer Start*/
+.footer-container {
+  background-color: black;
+  flex-wrap: wrap;
+  display: flex;
+  padding: 15px;
+  margin-top: 120px;
+}
+.information-areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-left: 15px;
+  margin: auto;
+}
+.ft-raid-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  color: #fafafa;
+}
+.ft-lower-title {
+  font-family: "poppins", sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fafafa;
+}
+.ft-second-title {
+  font-family: "poppins", sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fafafa;
+  margin-top: 20px;
+}
+.ft-information-text {
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #fafafa;
+  margin-top: 15px;
+}
+.ft-adress {
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #fafafa;
+  margin-top: 15px;
+  width: 190px;
+}
+.ft-money-information {
+  font-family: "poppins", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #fafafa;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  opacity: 70%;
+}
+.ft-input {
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 15px 15px;
+  font-family: "poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  background-color: black;
+  color: #fafafa;
+  margin-top: 20px;
+}
+.Download-app-area {
+  position: relative;
+}
+.store-img1 {
+  position: absolute;
+}
+.ft-image-box2 {
+  margin-top: 20px;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 20px;
+}
+.ft-input-section {
+  position: relative;
+}
+.ft-send-icon {
+  position: absolute;
+  left: 195px;
+  top: 35px;
+}
+.ft-second-title:hover {
+  cursor: pointer;
+  color: #db4444;
+}
+.ft-information-text:hover {
+  cursor: pointer;
+  color: #db4444;
+}
+.ft-send-icon:hover {
+  cursor: pointer;
+}
+/* Berhan Footer End*/
