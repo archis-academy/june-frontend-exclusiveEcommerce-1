@@ -24,12 +24,12 @@
 .todays-flash-sales {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   padding: 30px 0;
 }
 .todays-flash-sales-left {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 80px;
 }
 .todays-tit {
@@ -88,11 +88,12 @@
   max-height: 250px;
   object-fit: contain;
 }
-.ürün-bilgi {
+.products-info {
   font-family: "Poppins", sans-serif;
-  font-size: 19px;
-  font-weight: 500;
-  line-height: 24px;
+  font-weight: 550;
+  font-size: clamp(12px, 4vw, 16px);
+  line-height: clamp(16px, 6vw, 24px);
+  color: #000000;
 }
 .prices {
   display: flex;
@@ -115,10 +116,6 @@
   font-weight: 500;
   font-style: normal;
   line-height: 24px;
-}
-.todays-btn {
-  display: flex;
-  justify-content: flex-end;
 }
 .button-div {
   display: flex;
@@ -582,9 +579,7 @@
   flex-direction: column;
 }
 
-.exploreproducts
-
-/* ürünler */ {
+.exploreproducts {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
@@ -594,9 +589,7 @@
   margin-top: 20px;
 }
 
-.exproducts
-
-/* resimlerin container */ {
+.exproducts {
   position: relative;
   width: 100%;
   padding: 20px;
@@ -606,15 +599,13 @@
   text-align: center;
 }
 
-.exproimg
-
-/* resimler */ {
+.exproimg {
   width: 200px;
   height: 200px;
   object-fit: contain;
 }
 
-.exp-pro-icons /* ürünlerin içinde ki iconlar */ {
+.exp-pro-icons {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -623,9 +614,7 @@
   gap: 5px;
 }
 
-.expdattotaly
-
-/* ürünlerin fiyat yorum ve değerlendirmenin container */ {
+.expdattotaly {
   display: flex;
   gap: 5px;
   margin-bottom: 10px;
@@ -633,9 +622,7 @@
   justify-content: left;
 }
 
-.exprotitle
-
-/* ürünün yazısı*/ {
+.exprotitle {
   max-width: 1350px;
   font-size: 16px;
   font-family: "Poppins";

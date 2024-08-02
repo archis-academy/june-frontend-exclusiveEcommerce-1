@@ -83,7 +83,7 @@ async function renderProducts(start, end) {
       product.id
     }" class="add-to-cart">Add To Cart</button>
       </div>
-        <div><p class="products-information">${product.title
+        <div><p class="products-info">${product.title
           .substring(0, 20)
           .concat(" ...")} </p>
     </div>
