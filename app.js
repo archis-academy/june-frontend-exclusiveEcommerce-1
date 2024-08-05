@@ -73,32 +73,39 @@ function changeLang (content) {
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
-  const searchContainer = document.getElementById('search-results');
+  const searchContainer = document.getElementById('search-container');
   let products = [];
 
-  productsRender().then(products2 => {
-    products = products2
-    console.log(products)
-  });
-  
-  searchInput.addEventListener('input', function() {
-    const query = searchInput.value.toLowerCase();
-
-    if (query.length > 0) {
-      searchContainer.style.display = "block";
-      const filteredProducts = products.filter(product => product.title.toLowerCase().includes(query) || 
-      product.description.toLowerCase().includes(query)).slice(0, 3);
-
-      displayResults(filteredProducts);
+  productsRender().then(response => {
+    if (response && Array.isArray(response)) {
+      products = response;
     } else {
-      searchContainer.style.display = "none";
-      searchResults.innerHTML = '';
-      searchContainer.classList.tog
+      console.error('Failed to load products or products are not in array format');
     }
-  });
+  
+    searchInput.addEventListener('input', function() {
+      const query = searchInput.value.toLowerCase();
 
+      if (query.length > 0) {
+        searchContainer.style.display = "block";
+        const filteredProducts = products.filter(product => product.title.toLowerCase().includes(query) || 
+        product.description.toLowerCase().includes(query)).slice(0, 3);
+
+        displayResults(filteredProducts);
+      } else {
+        searchContainer.style.display = "none";
+        searchResults.innerHTML = '';
+      }
+    });
+  }).catch(error => {
+    console.error("Error fetching products:", error);
+  });
   function displayResults(products) {
-    searchResults.innerHTML = products.map(product => `<div>${product.title.substring(0, 20)}</div>`).join('');
+    if (products.length > 0) {
+      searchResults.innerHTML = products.map(product => `<div>${product.title.substring(0, 20)}</div>`).join('');
+    } else {
+      searchResults.innerHTML = '<div>No results found</div>';
+    }
   }
 });
 /* Homepage Header Section End */
