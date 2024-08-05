@@ -61,7 +61,7 @@
     background-color: #000;
     min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 101;
     left: 0;
     top: 100%;
     width: 100%;
@@ -356,7 +356,6 @@ flex-direction: column;
 align-items: center;
 flex-grow:1 ;
 min-width: 50px;
-overflow: hidden;
 white-space: nowrap;
 font-family: sans-serif;
 font-size: 13px;
@@ -523,7 +522,7 @@ display: flex;
 }
 .resume-section,
 .product-container {
-  margin-top: 40px;
+  margin: 40px 25px 0px 0px;
 }
 
 
@@ -551,7 +550,17 @@ display: flex;
   
 }
 
-
+@media (max-width: 980px) {
+  .homepage-product-adcat{
+    gap: 10px;
+  }
+  .resume-section, .product-container{
+    margin: 40px 0px 0px 0px ;
+  }
+  .product-container{
+    margin-right: 25px;
+  }
+}
 
 .product-container-imgs {
   display: flex;
@@ -658,6 +667,8 @@ display: flex;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  padding-top: 50px;
+  padding-bottom: 35px;
 }
 
 .todays-left {
@@ -1118,7 +1129,7 @@ display: flex;
 #home-bars-menu-icon{
   cursor: pointer;
   font-size: 25px;
-  z-index: 10001;
+  z-index: 100;
   display: none;
   color: #000;
   padding: 0px 15px;
@@ -1138,6 +1149,9 @@ display: flex;
   }
   #home-bars-menu-icon{
     display: block;
+  }
+  .product-container{
+    margin: 40px 0px 0px 0px;
   }
 .home-item-home, 
 .nav-wishlist,
@@ -1178,8 +1192,12 @@ display: flex;
     right: 0%;
     width: 100%;
 }
+
 .items-middle > .category-list {
     display: block;
+  }
+  .footer-container{
+    margin: 120px 0px 56px 0px;
   }
 }
 /*Buse/JU-5 Homepage Featured Product START*/
@@ -1361,9 +1379,7 @@ display: flex;
 
 .fa-regular,
 .fa-solid {
-  font-size: 20px;
-  color: #333;
-}
+  font-size: 20px;}
 
 .expdattotaly
 
@@ -1384,13 +1400,6 @@ display: flex;
   margin-bottom: 5px;
   text-align: left;
 }
-
-.fa-star
-
-/* ürünün yıldız*/ {
-  color: #ffad33;
-}
-
 .exprocount
 
 /* ürünün yorum sayısı*/ {
@@ -1399,7 +1408,9 @@ display: flex;
   font-weight: bold;
   color: gray;
 }
-
+.star{
+  font-size: 18px;
+}
 .exproprice
 
 /* ürünün fiyatı */ {
@@ -1612,7 +1623,7 @@ display: flex;
 .na-container {
   max-width: 1254px;
   margin: 0 auto;
-  padding: 80px 20px;
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
 }
